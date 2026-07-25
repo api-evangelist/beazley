@@ -1,0 +1,121 @@
+openapi: 3.0.1
+info:
+  title: Currency Exchange (Sandbox)
+  description: "A sandbox version of the <b>Currency Exchange Rate</b> API. This API provides a standard set of exchange rates for Beazley systems.<br><br>\n\nPlease contact <a href=\"mailto:ITArchitecture@Beazley.com?Subject=FXAPI\">\nITArchitecture@Beazley.com</a> if you have any questions about this API."
+  version: '1.0'
+servers:
+  - url: https://api.beazley.com/sandbox/fx/v1
+paths:
+  /rates:
+    get:
+      summary: Rates
+      operationId: 56d088f797fe1e081ca252ea
+      parameters:
+        - name: scurr
+          in: query
+          description: Source Currency
+          required: true
+          schema:
+            type: string
+        - name: dcurr
+          in: query
+          description: Destination Currency
+          required: true
+          schema:
+            type: string
+        - name: bcurr
+          in: query
+          description: Bridge Currency
+          schema:
+            type: string
+        - name: startdate
+          in: query
+          description: Rates from this date
+          schema:
+            type: string
+        - name: enddate
+          in: query
+          description: Rates to this date
+          schema:
+            type: string
+        - name: provider
+          in: query
+          description: Rate Provider
+          schema:
+            type: string
+        - name: amount
+          in: query
+          description: Amount
+          schema:
+            type: string
+        - name: divby
+          in: query
+          description: Multiply or divide by rate
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                StartDate: '2016-02-08T00:00:00.0000000+00:00'
+                SourceCurrency: GBP
+                DestinationCurrency: USD
+                BridgeCurrency: USD
+                ProviderCode: boe
+                Rate: 1.43678161
+                CalculatedAmount: 143.678161
+                DivBy: false
+                DataFound: true
+  /providers:
+    get:
+      summary: Providers
+      operationId: 56d088f797fe1e081ca252eb
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                - Id: 1
+                  Code: boe
+                  Name: Bank of England
+                - Id: 2
+                  Code: oan
+                  Name: Oanda
+            text/xml:
+              example: <ArrayOfProvider xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Beazley.FX.WebService.Models.FX"> <Provider> <Code>boe</Code> <Id>1</Id> <Name>Bank of England</Name> </Provider> <Provider> <Code>oan</Code> <Id>2</Id> <Name>Oanda</Name> </Provider> </ArrayOfProvider>
+  /currencies:
+    get:
+      summary: Currencies
+      operationId: 56d088f797fe1e081ca252ec
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                - ISOCode: GBP
+                  StartDate: '2015-12-02T00:00:00.0000000+00:00'
+                - ISOCode: USD
+                  StartDate: '2015-12-02T00:00:00.0000000+00:00'
+                - ISOCode: EUR
+                  StartDate: '2015-12-02T00:00:00.0000000+00:00'
+                - ISOCode: RON
+                  StartDate: '2015-12-02T00:00:00.0000000+00:00'
+            text/xml:
+              example: <ArrayOfCurrency xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Beazley.FX.WebService.Models.FX"> <Currency> <ISOCode>GBP</ISOCode> <StartDate>02-Dec-2015</StartDate> </Currency> <Currency> <ISOCode>USD</ISOCode> <StartDate>02-Dec-2015</StartDate> </Currency> <Currency> <ISOCode>EUR</ISOCode> <StartDate>02-Dec-2015</StartDate> </Currency> <Currency> <ISOCode>RON</ISOCode> <StartDate>02-Dec-2015</StartDate> </Currency> </ArrayOfCurrency>
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

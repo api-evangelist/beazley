@@ -1,0 +1,227 @@
+openapi: 3.0.1
+info:
+  title: 'Data Capture: Quote and Risk Data v3 (pre-release)'
+  description: A pre-release version of the <b>Data Capture</b> API. This API provides a channel for partner systems to feed quote and risk data directly into Beazley's core Record of Risk systems. The current published version of this API is V2.
+  version: '1.0'
+servers:
+  - url: https://api.beazley.com/prerelease/riskcapture/v3
+paths:
+  /risks/:
+    post:
+      summary: create risk
+      operationId: 5964d73a97fe1e0f143730f5
+      parameters:
+        - name: Event-Type
+          in: header
+          description: Categorisation of the event type - for example ms.mybeazley.risksubmission
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The request body.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/'
+            example:
+              CallbackURI: https://callme.api/abhe/
+              RiskId: 
+              TransactionDateTimeUTC: '2015-06-09T12:00:00.0000000+00:00'
+              TransactionSequenceId: 1
+              TransactionType: Create
+              SourceSystem: myBeazley
+              RiskUniqueId: 606ab36d-292a-4ebd-9357-f6ec598c240c
+              RiskReference: ABC124
+              OriginalId: 
+              RiskStatus: Quoted
+              CancellationReasonId: 
+              PolicyHolderIndividual: 
+              Turnover: 
+              Employees: 
+              CancellationDate: 
+              ProductId: PI UK
+              BzyRiskReference: BZY65479321
+              Underwriter: Tom Jones
+              AnnualisedGrossPremium: 31750
+              PrimaryCurrency: USD
+              BenchmarkPricingIndicator: 0.8
+              Parties:
+                - Type: PrimaryInsured
+                  CustomerId: 
+                  Name: Rook Industries
+                  Parent: 
+                  PrimarySector: Industrial Technology & Research
+                  TechSector: true
+                  PrimaryContact: Sebastian Rooks
+                  PrimaryContactEmail: sebastian@rook.com
+                  PrimaryContactPhone: (140)-640-8191
+                  PrimaryAddress:
+                    CityTown: Cambridge
+                    Country: USA
+                    FloorOrSuite: '2'
+                    Line1: 77 Massachusetts Avenue
+                    Line2: Building A
+                    Line3: 
+                    StateCountyProvince: MA
+                    PostZipCode: '02139'
+                - Type: PlacingBroker
+                  CustomerId: 
+                  Name: 'Joseph & Joseph, London UK'
+                  Parent: Joseph & Joseph
+                  PrimarySector: 
+                  TechSector: false
+                  PrimaryContact: Sam Spade
+                  PrimaryContactEmail: sam.spade@jj.com
+                  PrimaryContactPhone: (140)-555-5555
+                  PrimaryAddress:
+                    CityTown: London
+                    Country: GBR
+                    FloorOrSuite: ''
+                    Line1: 
+                    Line2: 
+                    Line3: 
+                    StateCountyProvince: 
+                    PostZipCode: 
+                - Type: ProducingBroker
+                  CustomerId: 
+                  Name: 'Nimlane, Boston MA'
+                  Parent: Nimlane USA
+                  PrimarySector: 
+                  TechSector: false
+                  PrimaryContact: Tiffany Harrison
+                  PrimaryContactEmail: tharrison@nimlane.com
+                  PrimaryContactPhone: (916)-975-8644
+                  PrimaryAddress:
+                    CityTown: Boston
+                    Country: USA
+                    FloorOrSuite: 
+                    Line1: 
+                    Line2: 
+                    Line3: 
+                    StateCountyProvince: MA
+                    PostZipCode: 
+              Sections:
+                - SectionUniqueId: 
+                  SectionReference: '001'
+                  SectionSequenceID: 1
+                  CoverageName: Buildings
+                  CreationDate: '2014-10-20T00:00:00.0000000+00:00'
+                  BindDate: '2014-10-20T00:00:00.0000000+00:00'
+                  InceptionDate: '2014-11-20T00:00:00.0000000+00:00'
+                  ExpiryDate: '2015-11-20T00:00:00.0000000+00:00'
+                  RetroactiveDate: '2010-10-20T00:00:00.0000000+00:00'
+                  EndorsementEffectiveDateFrom: 
+                  EndorsementEffectiveDateTo: 
+                  SectionStatus: Quoted
+                  Currency: USD
+                  GrossPremium: 1111111.99
+                  NetPremium: 
+                  Commissions:
+                    - Type: PlacingBroker
+                      Rate: 0.03
+                      TaxableAmount: 25000
+                      Amount: 750
+                    - Type: ProducingBroker
+                      Rate: 0.03
+                      TaxableAmount: 25000
+                      Amount: 750
+                  Taxes:
+                    - Type: State fire tax
+                      Rate: 0.07
+                      TaxableAmount: 25000
+                      Amount: 1750
+                    - Type: GST
+                      Rate: 0.2
+                      TaxableAmount: 25000
+                      Amount: 5000
+                  Limits:
+                    - Type: 'Limit per Claim, expenses in addition'
+                      Amount: 100000
+                    - Type: 'Limit per Claim, expenses in addition'
+                      Amount: 25000
+                  Links:
+                    - Rel: inbody_asset
+                      Link_id: '100001'
+                      href: /riskcapture/v3/risks/606ab36d-292a-4ebd-9357-f6ec598c240c/assets/100001
+                  Questions:
+                    - Question_id: bzy_10012
+                      Question: Wine Expiring Sum Insured
+                      Response: 1500000
+              Assets:
+                - Type: FixedLocation
+                  AssetId: '100001'
+                  Name: Rook Tower
+                  Description: 250 story tower block in central New York
+                  Parent: 
+                  Value: 900500000
+                  ValueCurrency: USD
+                  PrimaryLocation:
+                    CityTown: New York
+                    Country: USA
+                    FloorOrSuite: 
+                    Line1: 1 Main Avenue
+                    Line2: Rook Tower
+                    Line3: 
+                    StateCountyProvince: NY
+                    PostZipCode: '10001'
+                    Latitude: 
+                    Longitude: 
+                  Links:
+                    - Rel: inbody_section
+                      Link_id: '001'
+                      href: /riskcapture/v3/risks/606ab36d-292a-4ebd-9357-f6ec598c240c/sections/001
+                  PrimaryContact: Sebastian Rooks
+                  PrimaryContactEmail: sebastian@rook.com
+                  PrimaryContactPhone: (140)-640-8191
+                  Questions:
+                    - Question_id: bzy_10001
+                      Question: Wall Construction Type
+                      Response: diamond reinforced carbon-fibre
+                    - Question_id: bzy_10002
+                      Question: Construction Start Date
+                      Response: '2011-01-11T00:00:00.0000000+00:00'
+                    - Question_id: bzy_10003
+                      Question: Construction End Date
+                      Response: '2012-12-18T00:00:00.0000000+00:00'
+                    - Question_id: bzy_10004
+                      Question: Property or Grounds open to public
+                      Response: true
+              Installments:
+                - PaymentType: Unknown
+                  PaymentCurrency: USD
+                  PaymentDueDate: '2014-10-25T00:00:00.0000000+00:00'
+                  GrossPremiumAmount: 2645.99
+                  CommissionPercentage: 0.03
+                  CommissionAmount: 100.99
+                  NetPremium: 100000.99
+                  TaxandFeesPremium: 1000.99
+                  FinalTotal: 1000000.99
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/'
+              example:
+                callback: https://callme.api/abhe/
+                response: item stored to queue
+                source: myBeazley
+                uniqueId: 606ab36d-292a-4ebd-9357-f6ec598c240c
+components:
+  schemas:
+    request-manual: { }
+    ManualPathsInvokeRisksPost200ApplicationJsonResponse:
+      type: object
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

@@ -1,0 +1,345 @@
+aid: beazley
+name: Beazley
+review:
+  question: Does Beazley expose a real, self-serve public developer portal and
+    downloadable API specifications, and what is its ACORD posture?
+  answer: true
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: United Kingdom
+  tier: carrier-pc
+findings:
+  summary: |
+    Beazley is an outlier for a specialty property and casualty carrier: it runs a
+    genuine first-party developer portal at https://developer.beazley.com (HTTP 200),
+    built on Microsoft Azure API Management. It is NOT a login wall and NOT a
+    marketing "innovation" page. The portal has open navigation to /apis and
+    /products, a self-serve /signup form (email and password with proof-of-work
+    captcha, no partner SSO required to create an account), and its full catalog is
+    anonymously enumerable through the APIM developer-portal management endpoint
+    declared in the portal's own /config.json. Fourteen published APIs across nine
+    families were enumerated and all fourteen exported as valid OpenAPI 3.0.1.
+
+    The important nuance is that browsing is open but calling is not. Every one of
+    the nine published APIM products carries subscriptionRequired=true AND
+    approvalRequired=true, and the live gateway at https://api.beazley.com confirms
+    it: an unauthenticated GET to /about/v1/people returns HTTP 401 with
+    WWW-Authenticate: AzureApiManagementKey realm="https://api.beazley.com/about/v1",
+    name="Ocp-Apim-Subscription-Key", type="header". So a developer can sign up and
+    read every specification without asking anyone, but cannot obtain a working key
+    without Beazley approving the subscription. Portal is real and open; runtime
+    access is partner-gated.
+
+    The API family is partner-and-broker oriented, not consumer facing. The center of
+    gravity is "Data Capture: Quote and Risk Data" (v1, v2, and a v3 pre-release),
+    described in Beazley's own words as "a channel for partner systems to feed quote
+    and risk data directly into Beazley's core Record of Risk systems." Around it sit
+    Compliance (rule-driven compliance checks, broker agency and contact search,
+    audit reporting), Broker and Insured Marketing Data v2 (organisations, contacts,
+    microsites), Currency Exchange (rates, providers, currencies), About Beazley
+    (people and divisions reference data), Fast Reader (insurance-terms glossary and
+    FAQs), and Simple Raters (a single POST /Cyber rating operation, explicitly
+    labelled "super-simple raters for testing"). Six of the fourteen published APIs
+    are sandbox twins on https://api.beazley.com/sandbox/*, which is real sandbox
+    provisioning most carriers do not offer.
+
+    On the four insurance verbs, the honest reading is: QUOTE is partially exposed —
+    quote and risk data can be pushed into Beazley's systems via risk capture, and a
+    cyber rating endpoint exists but is self-described as a test rater. BIND, ISSUE
+    and FNOL are NOT exposed on the public API surface at all. Beazley's own product
+    pages list "APIs - direct system integration" as one of several placement
+    channels alongside myBeazley, which they describe as their broker "quote and bind
+    platform." myBeazley.com redirects (HTTP 200) to https://www.beazley.com/en-gb/log/,
+    a broker login wall. So bind actually happens in a gated broker portal, not
+    through a documented API. Claims notification is a "Notify a Claim" web form and
+    an email address, not an API.
+
+    ACORD posture: no ACORD reference found in the developer portal or specs. A
+    case-insensitive grep for acord, AL3, ACORD XML, NGDS, IVANS, Vertafore and
+    Applied Epic across all fourteen harvested OpenAPI documents and across the full
+    APIM api and product metadata (including the portal terms of use) returned zero
+    hits. The only ACORD linkage is market-level and indirect: Beazley is named in
+    Lloyd's press material as one of seventeen firms in the closed beta group that
+    tested the Blueprint Two Core Data Record, which Lloyd's states is based on ACORD
+    Standards. That is Lloyd's programme participation, not a Beazley-published
+    ACORD interface. This is exactly the UK market seam — the London Market's real
+    data-standards work (Blueprint Two, PPL, Whitespace, Ki) is aimed at brokers and
+    syndicates and is invisible from a developer's vantage point.
+
+    No webhooks, no event catalog, no AsyncAPI, no GraphQL, no gRPC or .proto, and no
+    public Postman collection or workspace were found. No OpenID Connect or OAuth
+    authorization-server metadata is served: https://www.beazley.com/.well-known/openid-configuration
+    and /.well-known/oauth-authorization-server both fall through to the site's 404
+    page. Auth is API key only.
+  developerPortal:
+    url: https://developer.beazley.com/
+    httpStatus: 200
+    platform: Microsoft Azure API Management developer portal
+    classification: real self-serve developer portal
+    loginWall: false
+    selfServeSignup: true
+    signupUrl: https://developer.beazley.com/signup
+    catalogPubliclyBrowsable: true
+    note: Portal is genuinely open to browse and to download specs. Every APIM
+      product is approvalRequired=true, so a usable subscription key still requires
+      Beazley approval.
+  otherProbes:
+    - url: https://developers.beazley.com/
+      httpStatus: 000
+      note: DNS does not resolve.
+    - url: https://docs.beazley.com/
+      httpStatus: 000
+      note: DNS does not resolve.
+    - url: https://api.beazley.com/
+      httpStatus: 404
+      note: Live APIM gateway custom domain; root path is unrouted but API paths respond.
+    - url: https://api.beazley.com/about/v1/people
+      httpStatus: 401
+      note: 'WWW-Authenticate: AzureApiManagementKey realm="https://api.beazley.com/about/v1",
+        name="Ocp-Apim-Subscription-Key", type="header"'
+    - url: https://beazley.azure-api.net/
+      httpStatus: 404
+      note: Default APIM gateway hostname resolves; root unrouted.
+    - url: https://www.beazley.com/developers
+      httpStatus: 200
+      note: Redirects to https://www.beazley.com/en-us/404-error-page/ — not a real page.
+    - url: https://www.beazley.com/api
+      httpStatus: 200
+      note: Redirects to https://www.beazley.com/en-us/404-error-page/ — not a real page.
+    - url: https://www.beazley.com/partners
+      httpStatus: 200
+      note: Redirects to https://www.beazley.com/en-us/404-error-page/ — not a real page.
+    - url: https://www.beazley.com/integrations
+      httpStatus: 200
+      note: Redirects to https://www.beazley.com/en-us/404-error-page/ — not a real page.
+    - url: https://www.beazley.com/en-us/broker-centre
+      httpStatus: 200
+      note: Real page. Broker-facing, not developer-facing.
+    - url: https://mybeazley.com/
+      httpStatus: 200
+      note: Redirects to https://www.beazley.com/en-gb/log/ — broker login wall for the
+        myBeazley quote-and-bind platform. Gated.
+    - url: https://www.beazley.com/.well-known/openid-configuration
+      httpStatus: 200
+      note: Falls through to the site 404 page. No OIDC metadata served.
+    - url: https://www.beazley.com/.well-known/oauth-authorization-server
+      httpStatus: 200
+      note: Falls through to the site 404 page. No OAuth metadata served.
+  acordPosture:
+    phrase: no ACORD reference found in developer portal or specs; ACORD only reaches
+      Beazley indirectly via Lloyd's Blueprint Two Core Data Record beta
+    acordInSpecs: false
+    acordInPortalMetadata: false
+    al3: false
+    ivans: false
+    ngds: false
+    marketLevelLinkage: Beazley is named by Lloyd's as one of seventeen firms in the
+      closed beta group for the Blueprint Two Core Data Record, which Lloyd's states
+      is based on ACORD Standards.
+    marketLevelSource: https://www.lloyds.com/insights/media-centre/press-releases/lloyds-publishes-first-iteration-of-its-core-data-record-under-blueprint-two
+  insuranceVerbs:
+    quote:
+      exposed: partial
+      audience: partner
+      note: 'Data Capture: Quote and Risk Data v1/v2/v3 pushes quote and risk data
+        into Beazley''s core Record of Risk systems (POST/PUT /risks/). Simple Raters
+        exposes POST /Cyber but is self-described as "super-simple raters for testing".'
+    bind:
+      exposed: false
+      note: Bind happens in the gated myBeazley broker portal, described by Beazley as
+        their "quote and bind platform". No bind endpoint is documented.
+    issue:
+      exposed: false
+      note: No policy issuance or policy administration endpoint in the public catalog.
+    fnol:
+      exposed: false
+      note: Claims are notified via a "Notify a Claim" web form and email. No FNOL API.
+  authModel:
+    scheme: API key
+    schemeDetail: Azure API Management subscription key, sent as the
+      Ocp-Apim-Subscription-Key header or the subscription-key query parameter.
+    oauth2: false
+    oidc: false
+    mtls: not documented
+    approvalRequired: true
+    note: All nine APIM products are subscriptionRequired=true and
+      approvalRequired=true; subscriptionsLimit is 1 on eight of nine.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.beazley.com
+      documented: true
+      note: All fourteen published APIs are HTTPS REST. Every OpenAPI declares
+        protocols ["https"] only.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket API is published in the APIM catalog.
+    - protocol: GraphQL
+      documented: false
+      note: No GraphQL API is published in the APIM catalog; no /graphql surface found.
+    - protocol: gRPC
+      documented: false
+      note: No .proto or gRPC surface published.
+    - protocol: Webhooks
+      documented: false
+      note: No webhook or event catalog, and no AsyncAPI, was found. Absence is the finding.
+  postman:
+    publicCollection: false
+    publicWorkspace: false
+    note: No public Beazley Postman collection or workspace found.
+  products:
+    count: 9
+    note: All published, all subscriptionRequired, all approvalRequired.
+    list:
+      - Beazley Public Data
+      - Compliance
+      - Marketing Data - Development
+      - Marketing Data - Production
+      - Policy Data Submission - Development
+      - Policy Data Submission - Production
+      - Prerelease
+      - Reference Services - Development
+      - Reference Services - Production
+  specsHarvested:
+    count: 14
+    format: OpenAPI 3.0.1 (YAML)
+    allParse: true
+    provenance:
+      method: Anonymous export from the Azure API Management developer-portal
+        management endpoint declared in https://developer.beazley.com/config.json
+      managementApiUrl: https://beazley.management.azure-api.net/subscriptions/000/resourceGroups/000/providers/Microsoft.ApiManagement/service/beazley
+      exportPattern: '{managementApiUrl}/apis/{apiId}?format=openapi&export=true&api-version=2022-04-01-preview'
+      fetchDate: '2026-07-25'
+      httpStatus: 200
+    files:
+      - path: openapi/beazley-data-capture-quote-and-risk-data.yml
+        apiId: 54af9d8897fe1e0c48fd377f
+        title: 'Data Capture: Quote and Risk Data'
+        server: https://api.beazley.com/riskcapture/v1
+        httpStatus: 200
+      - path: openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml
+        apiId: 54c8996797fe1e0db81ee740
+        title: 'Data Capture: Quote and Risk Data (Sandbox)'
+        server: https://api.beazley.com/sandbox/riskcapture/v1
+        httpStatus: 200
+      - path: openapi/beazley-data-capture-quote-and-risk-data-v2.yml
+        apiId: 55f2b5dc97fe1e150ca5aedb
+        title: 'Data Capture: Quote and Risk Data v2'
+        server: https://api.beazley.com/riskcapture/v2
+        httpStatus: 200
+      - path: openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
+        apiId: 5538d88d97fe1e0db80089f7
+        title: 'Data Capture: Quote and Risk Data v2 (Sandbox)'
+        server: https://api.beazley.com/sandbox/riskcapture/v2
+        httpStatus: 200
+      - path: openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml
+        apiId: 5964d64cf815b002d0231152
+        title: 'Data Capture: Quote and Risk Data v3 (pre-release)'
+        server: https://api.beazley.com/prerelease/riskcapture/v3
+        httpStatus: 200
+      - path: openapi/beazley-compliance-web-api.yml
+        apiId: 58931347398455121c4a697f
+        title: Compliance Web API
+        server: https://api.beazley.com/compliance/v1
+        httpStatus: 200
+      - path: openapi/beazley-broker-and-insured-marketing-data-v2.yml
+        apiId: 562e100f8097920dd41ffaa0
+        title: Broker and Insured Marketing Data v2
+        server: https://api.beazley.com/marketing/v2
+        httpStatus: 200
+      - path: openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml
+        apiId: 561e208f8097921da8a6fbf8
+        title: Broker and Insured Marketing Data v2 (Sandbox)
+        server: https://api.beazley.com/sandbox/marketing/v2
+        httpStatus: 200
+      - path: openapi/beazley-currency-exchange.yml
+        apiId: 56d08a2b97fe1e18e889da30
+        title: Currency Exchange
+        server: https://api.beazley.com/fx/v1
+        httpStatus: 200
+      - path: openapi/beazley-currency-exchange-sandbox.yml
+        apiId: 56d088f697fe1e18e889da2e
+        title: Currency Exchange (Sandbox)
+        server: https://api.beazley.com/sandbox/fx/v1
+        httpStatus: 200
+      - path: openapi/beazley-about-beazley.yml
+        apiId: 55392e7f97fe1e0510faf7bf
+        title: About Beazley
+        server: https://api.beazley.com/about/v1
+        httpStatus: 200
+      - path: openapi/beazley-about-beazley-sandbox.yml
+        apiId: 54e21d5297fe1e0f2475cf33
+        title: About Beazley (Sandbox)
+        server: https://api.beazley.com/sandbox/about/v1
+        httpStatus: 200
+      - path: openapi/beazley-fast-reader.yml
+        apiId: 5967575d6e0029dd58e53203
+        title: Fast Reader
+        server: https://api.beazley.com/sandbox/fastreader/v1
+        httpStatus: 200
+      - path: openapi/beazley-simple-raters.yml
+        apiId: 5804a8868097920fbc0ae7e9
+        title: Simple Raters
+        server: https://api.beazley.com/hack/raters/v1
+        httpStatus: 200
+  corporateStatus:
+    note: Beazley plc is subject to a recommended all-cash offer from Zurich Insurance
+      Group, announced under Rule 2.7 of the UK Takeover Code on 2 March 2026.
+    source: https://www.zurich.com/media/news-releases/2026/2026-0302-01
+sources:
+  - url: https://developer.beazley.com/
+    type: DeveloperPortal
+    httpStatus: 200
+    note: 'Azure APIM developer portal. Landing copy: "Welcome to Beazley! Discover and
+      learn about Beazley''s APIs. Just sign up for an API key and start consuming our
+      APIs right away."'
+  - url: https://developer.beazley.com/config.json
+    type: Configuration
+    httpStatus: 200
+    note: Declares the anonymous managementApiUrl used to enumerate and export the catalog.
+  - url: https://developer.beazley.com/apis
+    type: Documentation
+    httpStatus: 200
+    note: Public API catalog page.
+  - url: https://developer.beazley.com/products
+    type: Plans
+    httpStatus: 200
+    note: Nine published products, all approval-required; carries the Development Portal
+      terms and conditions of use from Beazley Solutions Ltd.
+  - url: https://api.beazley.com/about/v1/people
+    type: APIEndpoint
+    httpStatus: 401
+    note: Confirms live gateway and API-key auth scheme.
+  - url: https://www.beazley.com/en-150/products-and-solutions/small-business-solutions/digital/
+    type: Documentation
+    httpStatus: 200
+    note: 'Lists "APIs – direct system integration" as a placement channel; describes
+      myBeazley as the broker "quote and bind platform". No ACORD or EDI mention.'
+  - url: https://www.beazley.com/en-us/broker-centre
+    type: BrokerPortal
+    httpStatus: 200
+    note: Broker-facing centre. Not a developer surface.
+  - url: https://www.lloyds.com/insights/media-centre/press-releases/lloyds-publishes-first-iteration-of-its-core-data-record-under-blueprint-two
+    type: MarketBody
+    note: Names Beazley in the seventeen-firm Core Data Record beta group; states the
+      Core Data Record is based on ACORD Standards.
+  - url: https://www.zurich.com/media/news-releases/2026/2026-0302-01
+    type: PressRelease
+    note: Zurich recommended cash offer for Beazley plc, 2 March 2026.
+actions:
+  apisYmlUpdated: true
+  openapiHarvested: true
+  openapiCount: 14
+  asyncapiCreated: false
+  graphqlCreated: false
+  reason: |
+    Beazley publishes a real, self-serve, publicly browsable developer portal with
+    machine-readable OpenAPI for all fourteen published APIs, so all fourteen were
+    saved verbatim and nine apis[] entries were created (versions kept separate,
+    sandbox twins attached to their production sibling). No AsyncAPI was authored
+    because no event, webhook or streaming surface is documented anywhere. No GraphQL
+    document was authored because no GraphQL API exists in the catalog. ACORD posture
+    is recorded as absent from the first-party surface, with the Lloyd's Blueprint Two
+    linkage noted as market-level only and explicitly not attributed to Beazley as a
+    published interface.

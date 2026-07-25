@@ -1,0 +1,131 @@
+openapi: 3.0.1
+info:
+  title: About Beazley (Sandbox)
+  description: "A sandbox version of the <b>About Beazley</b> API. This API provides information on Beazley's people.<br><br>\r\n\r\nPlease contact <a href=\"mailto:ITArchitecture@Beazley.com?Subject=AboutAPI\">\r\nITArchitecture@Beazley.com</a> if you have any questions about this API."
+  version: '1.0'
+servers:
+  - url: https://api.beazley.com/sandbox/about/v1
+paths:
+  /people:
+    get:
+      summary: people
+      description: "<p>The base URL returns the collection of all Beazley people profiles. Individual people profiles can be returned by including the resource ID in the URL.\n</p>\nFor example:<br>\n<b>/people</b> returns the full collection set.<br>\n<b>/people/1</b> returns the individual person record.<br>"
+      operationId: 54e21d5297fe1e08786b4f2d
+      parameters:
+        - name: division
+          in: query
+          description: Gets an array of people filtered by the specified division ID
+          schema:
+            type: string
+        - name: firstNameFragment
+          in: query
+          description: Gets an array of people whose first name contains the specified fragment
+          schema:
+            type: string
+        - name: lastNameFragment
+          in: query
+          description: Gets an array of people whose last name contains the specified fragment
+          schema:
+            type: string
+        - name: since
+          in: query
+          description: Gets an array of people updated since a date/time (format ISO 8601)
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json: { }
+  '/people/{rid}':
+    get:
+      summary: person by ID
+      description: Individual people profiles can be returned by including the resource ID in the URL.
+      operationId: 54e21d5297fe1e08786b4f2e
+      parameters:
+        - name: rid
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /people/profileimage:
+    get:
+      summary: profileimage by ID
+      description: "Individual people profiles pictures can be returned by including the resource ID in the URL. Note that there is no collection response for this operation.<br>\n<br>\n<b>Tip:</b> The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes."
+      operationId: 54e21d5297fe1e08786b4f2f
+      parameters:
+        - name: id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /People/deleted/:
+    get:
+      summary: deleted people
+      operationId: 5502bd2980979213687779a2
+      parameters:
+        - name: since
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: dateTime
+      responses:
+        '200':
+          description: ''
+  /people/profileimagebyemail/:
+    get:
+      summary: profileimage by email
+      description: "Individual people profiles pictures can be returned by including the resource email in the URL. Note that there is no collection response for this operation.<br>\n<br>\n<b>Tip:</b> The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes."
+      operationId: 5720682580979201c899e68d
+      parameters:
+        - name: email
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

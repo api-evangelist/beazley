@@ -1,0 +1,109 @@
+openapi: 3.0.1
+info:
+  title: About Beazley
+  description: "This API provides information on Beazley's people and divisions. Please use the <a href=\"/docs/services/54e21d5297fe1e0f2475cf33/operations/54e21d5297fe1e08786b4f2d\">sandbox version</a> of this API  for initial development and testing. The current version of this is V1.<br><br>\r\n\r\nPlease contact <a href=\"mailto:ITArchitecture@Beazley.com?Subject=AboutBeazleyAPI\">\r\nITArchitecture@Beazley.com</a> if you have any questions about this API."
+  version: '1.0'
+servers:
+  - url: https://api.beazley.com/about/v1
+paths:
+  /People/deleted/:
+    get:
+      summary: deleted people
+      operationId: 55392e7f97fe1e0ff06f4255
+      parameters:
+        - name: since
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /people:
+    get:
+      summary: people
+      description: "<p>The base URL returns the collection of all Beazley people profiles. Individual people profiles can be returned by including the resource ID in the URL.\n</p>\nFor example:<br>\n<b>/people</b> returns the full collection set.<br>\n<b>/people/1</b> returns the individual person record.<br>"
+      operationId: 55392e7f97fe1e0ff06f4256
+      parameters:
+        - name: division
+          in: query
+          description: Gets an array of people filtered by the specified division ID
+          schema:
+            type: string
+        - name: firstNameFragment
+          in: query
+          description: Gets an array of people whose first name contains the specified fragment
+          schema:
+            type: string
+        - name: lastNameFragment
+          in: query
+          description: Gets an array of people whose last name contains the specified fragment
+          schema:
+            type: string
+        - name: since
+          in: query
+          description: Gets an array of people updated since a date/time (format ISO 8601)
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  '/people/{rid}':
+    get:
+      summary: person by ID
+      description: Individual people profiles can be returned by including the resource ID in the URL.
+      operationId: 55392e7f97fe1e0ff06f4257
+      parameters:
+        - name: rid
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /people/profileimage:
+    get:
+      summary: profileimage by ID
+      description: "Individual people profiles pictures can be returned by including the resource ID in the URL. Note that there is no collection response for this operation.<br>\n<br>\n<b>Tip:</b> The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes."
+      operationId: 55392e7f97fe1e0ff06f4258
+      parameters:
+        - name: id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

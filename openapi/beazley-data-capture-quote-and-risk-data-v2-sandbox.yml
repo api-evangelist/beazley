@@ -1,0 +1,500 @@
+openapi: 3.0.1
+info:
+  title: 'Data Capture: Quote and Risk Data v2 (Sandbox)'
+  description: "A sandbox version of version 2 of the <b>Data Capture</b> API. This API provides a channel for partner systems to feed quote and risk data directly into Beazley's core Record of Risk systems. The current published version of this API is V1.<br><br>\r\n\r\nPlease contact <a href=\"mailto:ITArchitecture@Beazley.com?Subject=DataCaptureAPI\">\r\nITArchitecture@Beazley.com</a> if you have any questions about this API."
+  version: '1.0'
+servers:
+  - url: https://api.beazley.com/sandbox/riskcapture/v2
+paths:
+  /ping/:
+    get:
+      summary: ping
+      description: Validation call to confirm that you can connect to the API.
+      operationId: 5538d88d97fe1e0ff06f4247
+      responses:
+        '200':
+          description: ''
+  '/risks/{id}':
+    get:
+      summary: risk
+      operationId: 5538d88d97fe1e0ff06f4248
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+    put:
+      summary: update risk
+      description: Use the PUT method to update existing records. Note that the full risk object is required and any fields that are passed must have a value - blanks values will replace existing data with a empty string.
+      operationId: 5538d88d97fe1e0ff06f424a
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            example:
+              RiskId: 6a491ef4-36b8-4157-842c-ecac4cb936fa
+              TransactionDateTimeUTC: '2015-06-09T12:00:00.0000000+00:00'
+              TransactionSequenceId: 1
+              TransactionType: Create
+              SourceSystem: myBeazley
+              RiskUniqueId: 606ab36d-292a-4ebd-9357-f6ec598c240c
+              RiskReference: ABC1234
+              OriginalId: 
+              RiskStatus: Quoted
+              CancellationReasonId: 
+              PolicyHolderIndividual: 
+              Turnover: 
+              Employees: 
+              CancellationDate: 
+              ProductId: PI UK
+              BzyRiskReference: BZY65479321
+              Underwriter: Tom Jones
+              AnnualisedGrossPremium: 31750
+              PrimaryCurrency: USD
+              BenchmarkPricingIndicator: 0.8
+              Parties:
+                - Type: PrimaryInsured
+                  CustomerId: 
+                  Name: Rook Industries
+                  Parent: 
+                  PrimarySector: Industrial Technology & Research
+                  TechSector: true
+                  PrimaryContact: Sebastian Rooks
+                  PrimaryContactEmail: sebastian@rook.com
+                  PrimaryContactPhone: (140)-640-8191
+                  PrimaryAddress:
+                    CityTown: Cambridge
+                    Country: USA
+                    FloorOrSuite: '2'
+                    Line1: 77 Massachusetts Avenue
+                    Line2: Building A
+                    Line3: 
+                    StateCountyProvince: MA
+                    PostZipCode: '02139'
+                - Type: PlacingBroker
+                  CustomerId: 
+                  Name: 'Joseph & Joseph, London UK'
+                  Parent: Joseph & Joseph
+                  PrimarySector: 
+                  TechSector: false
+                  PrimaryContact: Sam Spade
+                  PrimaryContactEmail: sam.spade@jj.com
+                  PrimaryContactPhone: (140)-555-5555
+                  PrimaryAddress:
+                    CityTown: London
+                    Country: GBR
+                    FloorOrSuite: ''
+                    Line1: 
+                    Line2: 
+                    Line3: 
+                    StateCountyProvince: 
+                    PostZipCode: 
+                - Type: ProducingBroker
+                  CustomerId: 
+                  Name: 'Nimlane, Boston MA'
+                  Parent: Nimlane USA
+                  PrimarySector: 
+                  TechSector: false
+                  PrimaryContact: Tiffany Harrison
+                  PrimaryContactEmail: tharrison@nimlane.com
+                  PrimaryContactPhone: (916)-975-8644
+                  PrimaryAddress:
+                    CityTown: Boston
+                    Country: USA
+                    FloorOrSuite: 
+                    Line1: 
+                    Line2: 
+                    Line3: 
+                    StateCountyProvince: MA
+                    PostZipCode: 
+              Sections:
+                - SectionUniqueId: 
+                  SectionReference: '001'
+                  SectionSequenceID: 1
+                  CoverageName: Buildings
+                  CreationDate: '2014-10-20T00:00:00.0000000+00:00'
+                  BindDate: '2014-10-20T00:00:00.0000000+00:00'
+                  InceptionDate: '2014-11-20T00:00:00.0000000+00:00'
+                  ExpiryDate: '2015-11-20T00:00:00.0000000+00:00'
+                  RetroactiveDate: '2010-10-20T00:00:00.0000000+00:00'
+                  EndorsementEffectiveDateFrom: 
+                  EndorsementEffectiveDateTo: 
+                  SectionStatus: Quoted
+                  Currency: USD
+                  GrossPremium: 1111111.99
+                  NetPremium: 
+                  Commissions:
+                    - Type: PlacingBroker
+                      Rate: 0.03
+                      TaxableAmount: 25000
+                      Amount: 750
+                    - Type: ProducingBroker
+                      Rate: 0.03
+                      TaxableAmount: 25000
+                      Amount: 750
+                  Taxes:
+                    - Type: State fire tax
+                      Rate: 0.07
+                      TaxableAmount: 25000
+                      Amount: 1750
+                    - Type: GST
+                      Rate: 0.2
+                      TaxableAmount: 25000
+                      Amount: 5000
+                  Limits:
+                    - Type: 'Limit per Claim, expenses in addition'
+                      Amount: 100000
+                    - Type: 'Limit per Claim, expenses in addition'
+                      Amount: 25000
+                  Assets:
+                    - Locations:
+                        - AssetId: 
+                          AssetName: Example location
+                          CityTown: Cambridge
+                          Country: USA
+                          FloorOrSuite: '2'
+                          Line1: 77 Massachusetts Avenue
+                          Line2: Building A
+                          Line3: 
+                          StateCountyProvince: MA
+                          PostZipCode: '02139'
+                        - AssetId: 
+                          AssetName: Another example location
+                          CityTown: Exeter
+                          Country: UK
+                          FloorOrSuite: ''
+                          Line1: 1 Street
+                          Line2: 
+                          Line3: 
+                          StateCountyProvince: Devon
+                          PostZipCode: EX1 1DB
+                      Insureds:
+                        - AssetId: 
+                          AssetName: Example insured
+                          Parent: 
+                          PrimarySector: Industrial Technology & Research
+                          TechSector: true
+                          Revenue: 20000000
+                          RevenueCurrency: USD
+                          PrimaryContact: Sebastian Rooks
+                          PrimaryContactEmail: sebastian@rook.com
+                          PrimaryContactPhone: (140)-640-8191
+                          PrimaryAddress:
+                            CityTown: Cambridge
+                            Country: USA
+                            FloorOrSuite: '2'
+                            Line1: 77 Massachusetts Avenue
+                            Line2: Building A
+                            Line3: 
+                            StateCountyProvince: MA
+                            PostZipCode: '02139'
+              Installments:
+                - PaymentType: Unknown
+                  PaymentCurrency: USD
+                  PaymentDueDate: '2014-10-25T00:00:00.0000000+00:00'
+                  GrossPremiumAmount: 2645.99
+                  CommissionPercentage: 0.03
+                  CommissionAmount: 100.99
+                  NetPremium: 100000.99
+                  TaxandFeesPremium: 1000.99
+                  FinalTotal: 1000000.99
+      responses:
+        '400':
+          description: ''
+        '201':
+          description: ''
+          content:
+            application/json:
+              example:
+                Id: b767637a-9af9-446b-9622-55679fbaf543
+                Parties:
+                  - Id: 1f4bf203-3eb2-4e0e-848e-f732f9d8d504
+                    Type: PrimaryInsured
+                  - Id: bc6a918a-f664-4caf-ba62-a8c1e7e6817f
+                    Type: PlacingBroker
+                  - Id: 3ecdf700-619b-4e01-8dbf-925119772b8b
+                    Type: ProducingBroker
+                Sections:
+                  - Id: 5db926b6-f1d5-4240-90a4-dd300946ac59
+                    SectionReference: '001'
+                    Assets:
+                      - Insureds:
+                          - Id: 4ba44ae1-a6fe-411b-aec8-2fd0dcbd6eb5
+                            AssetName: Example insured
+                        Locations:
+                          - Id: bcbaf1b4-132c-4bee-96ad-11cbc944f45d
+                            AssetName: Example location
+                          - Id: 9d4901b6-265d-4fed-bc55-20cc6499fe7f
+                            AssetName: Another example location
+        '422':
+          description: ''
+  /risks/:
+    post:
+      summary: create risk
+      description: Use the POST method to create a new record.
+      operationId: 5538d88d97fe1e0ff06f4249
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            example:
+              RiskId: 
+              TransactionDateTimeUTC: '2015-06-09T12:00:00.0000000+00:00'
+              TransactionSequenceId: 1
+              TransactionType: Create
+              SourceSystem: myBeazley
+              RiskUniqueId: 606ab36d-292a-4ebd-9357-f6ec598c240c
+              RiskReference: ABC1234
+              OriginalId: 
+              RiskStatus: Quoted
+              CancellationReasonId: 
+              PolicyHolderIndividual: 
+              Turnover: 
+              Employees: 
+              CancellationDate: 
+              ProductId: PI UK
+              BzyRiskReference: BZY65479321
+              Underwriter: Tom Jones
+              AnnualisedGrossPremium: 31750
+              PrimaryCurrency: USD
+              BenchmarkPricingIndicator: 0.8
+              Parties:
+                - Type: PrimaryInsured
+                  CustomerId: 
+                  Name: Rook Industries
+                  Parent: 
+                  PrimarySector: Industrial Technology & Research
+                  TechSector: true
+                  PrimaryContact: Sebastian Rooks
+                  PrimaryContactEmail: sebastian@rook.com
+                  PrimaryContactPhone: (140)-640-8191
+                  PrimaryAddress:
+                    CityTown: Cambridge
+                    Country: USA
+                    FloorOrSuite: '2'
+                    Line1: 77 Massachusetts Avenue
+                    Line2: Building A
+                    Line3: 
+                    StateCountyProvince: MA
+                    PostZipCode: '02139'
+                - Type: PlacingBroker
+                  CustomerId: 
+                  Name: 'Joseph & Joseph, London UK'
+                  Parent: Joseph & Joseph
+                  PrimarySector: 
+                  TechSector: false
+                  PrimaryContact: Sam Spade
+                  PrimaryContactEmail: sam.spade@jj.com
+                  PrimaryContactPhone: (140)-555-5555
+                  PrimaryAddress:
+                    CityTown: London
+                    Country: GBR
+                    FloorOrSuite: ''
+                    Line1: 
+                    Line2: 
+                    Line3: 
+                    StateCountyProvince: 
+                    PostZipCode: 
+                - Type: ProducingBroker
+                  CustomerId: 
+                  Name: 'Nimlane, Boston MA'
+                  Parent: Nimlane USA
+                  PrimarySector: 
+                  TechSector: false
+                  PrimaryContact: Tiffany Harrison
+                  PrimaryContactEmail: tharrison@nimlane.com
+                  PrimaryContactPhone: (916)-975-8644
+                  PrimaryAddress:
+                    CityTown: Boston
+                    Country: USA
+                    FloorOrSuite: 
+                    Line1: 
+                    Line2: 
+                    Line3: 
+                    StateCountyProvince: MA
+                    PostZipCode: 
+              Sections:
+                - SectionUniqueId: 
+                  SectionReference: '001'
+                  SectionSequenceID: 1
+                  CoverageName: Buildings
+                  CreationDate: '2014-10-20T00:00:00.0000000+00:00'
+                  BindDate: '2014-10-20T00:00:00.0000000+00:00'
+                  InceptionDate: '2014-11-20T00:00:00.0000000+00:00'
+                  ExpiryDate: '2015-11-20T00:00:00.0000000+00:00'
+                  RetroactiveDate: '2010-10-20T00:00:00.0000000+00:00'
+                  EndorsementEffectiveDateFrom: 
+                  EndorsementEffectiveDateTo: 
+                  SectionStatus: Quoted
+                  Currency: USD
+                  GrossPremium: 1111111.99
+                  NetPremium: 
+                  Commissions:
+                    - Type: PlacingBroker
+                      Rate: 0.03
+                      TaxableAmount: 25000
+                      Amount: 750
+                    - Type: ProducingBroker
+                      Rate: 0.03
+                      TaxableAmount: 25000
+                      Amount: 750
+                  Taxes:
+                    - Type: State fire tax
+                      Rate: 0.07
+                      TaxableAmount: 25000
+                      Amount: 1750
+                    - Type: GST
+                      Rate: 0.2
+                      TaxableAmount: 25000
+                      Amount: 5000
+                  Limits:
+                    - Type: 'Limit per Claim, expenses in addition'
+                      Amount: 100000
+                    - Type: 'Limit per Claim, expenses in addition'
+                      Amount: 25000
+                  Assets:
+                    - Locations:
+                        - AssetId: 
+                          AssetName: Example location
+                          CityTown: Cambridge
+                          Country: USA
+                          FloorOrSuite: '2'
+                          Line1: 77 Massachusetts Avenue
+                          Line2: Building A
+                          Line3: 
+                          StateCountyProvince: MA
+                          PostZipCode: '02139'
+                        - AssetId: 
+                          AssetName: Another example location
+                          CityTown: Exeter
+                          Country: UK
+                          FloorOrSuite: ''
+                          Line1: 1 Street
+                          Line2: 
+                          Line3: 
+                          StateCountyProvince: Devon
+                          PostZipCode: EX1 1DB
+                      Insureds:
+                        - AssetId: 
+                          AssetName: Example insured
+                          Parent: 
+                          PrimarySector: Industrial Technology & Research
+                          TechSector: true
+                          Revenue: 20000000
+                          RevenueCurrency: USD
+                          PrimaryContact: Sebastian Rooks
+                          PrimaryContactEmail: sebastian@rook.com
+                          PrimaryContactPhone: (140)-640-8191
+                          PrimaryAddress:
+                            CityTown: Cambridge
+                            Country: USA
+                            FloorOrSuite: '2'
+                            Line1: 77 Massachusetts Avenue
+                            Line2: Building A
+                            Line3: 
+                            StateCountyProvince: MA
+                            PostZipCode: '02139'
+              Installments:
+                - PaymentType: Unknown
+                  PaymentCurrency: USD
+                  PaymentDueDate: '2014-10-25T00:00:00.0000000+00:00'
+                  GrossPremiumAmount: 2645.99
+                  CommissionPercentage: 0.03
+                  CommissionAmount: 100.99
+                  NetPremium: 100000.99
+                  TaxandFeesPremium: 1000.99
+                  FinalTotal: 1000000.99
+      responses:
+        '400':
+          description: ''
+        '201':
+          description: New risk entry created successfully. Responds with the resource IDs which must be recorded for all future PUTs.
+          content:
+            application/json:
+              example:
+                Id: b767637a-9af9-446b-9622-55679fbaf543
+                Parties:
+                  - Id: 4f9b856b-72c8-4972-9ccc-6a0bb70d7221
+                    Type: PrimaryInsured
+                  - Id: d4ca7a16-3100-4481-a43c-bae04b0cb425
+                    Type: PlacingBroker
+                  - Id: d277441e-1d51-4de9-ba82-8bc8d2474cd3
+                    Type: ProducingBroker
+                Sections:
+                  - Id: 41f8ddb5-9fee-4fc3-99a1-7d96b0e3cfeb
+                    SectionReference: '001'
+                    Assets:
+                      - Insureds:
+                          - Id: 342e3662-7545-4a47-9be4-0c2882b58f68
+                            AssetName: Example insured
+                        Locations:
+                          - Id: 0894f765-e57f-4d49-9d08-c6a1ee86932a
+                            AssetName: Example location
+                          - Id: f7ecef59-b6d2-4d3c-af0b-5fe60af47431
+                            AssetName: Another example location
+  '/lockstate/{id}':
+    get:
+      summary: lockstate
+      operationId: 554a0e3f8097920d90ff4e34
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                Id: b767637a-9af9-446b-9622-55679fbaf543
+                LockedState: true
+                LastUpdated: '2015-08-05T12:33:07.5272587+00:00'
+                LastUpdatedVersionNumber: 1
+    put:
+      summary: update lockstate
+      operationId: 554a108d8097920d90ff4e36
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            example:
+              Id: b767637a-9af9-446b-9622-55679fbaf543
+              LockedState: 'true'
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

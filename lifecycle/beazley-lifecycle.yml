@@ -1,0 +1,98 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  https://developer.beazley.com/apis, https://developer.beazley.com/products, the OpenAPI info
+  descriptions of the fourteen published specs, and live probes for a status page
+description: >-
+  Beazley versions in the URI path and publishes each version as a separate Azure API Management API
+  with its own OpenAPI, so v1 and v2 of a family sit side by side in the catalog. What Beazley does
+  not publish is any lifecycle policy: no deprecation policy, no sunset dates, no Deprecation or
+  Sunset headers, no changelog, no roadmap, no SLA and no status page. Supersession is communicated
+  only as prose inside the spec descriptions ("The current published version of this API is V2"), and
+  even that is inconsistent — the v2 sandbox spec still says the current published version is V1.
+versioning:
+  scheme: uri-path
+  pattern: https://api.beazley.com/<family>/<version>
+  families:
+    - family: riskcapture
+      versions: [v1, v2, v3]
+      current: v2
+      note: v3 is published under the Prerelease product and described as a pre-release.
+    - family: marketing
+      versions: [v2]
+      current: v2
+      note: v1 is not published in the portal.
+    - family: compliance
+      versions: [v1]
+      current: v1
+    - family: fx
+      versions: [v1]
+      current: v1
+    - family: about
+      versions: [v1]
+      current: v1
+    - family: fastreader
+      versions: [v1]
+      current: v1
+      note: sandbox path only
+    - family: raters
+      versions: [v1]
+      current: v1
+      note: on the /hack/ path, described as raters for testing
+  docs: https://developer.beazley.com/apis
+deprecation:
+  policy_published: false
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No deprecation or sunset policy is published anywhere in the developer portal or the product
+    terms, and no operation in any of the fourteen specs carries deprecated: true. Data Capture v1
+    remains fully published alongside v2 with no end-of-life signal attached.
+  superseded:
+    - api: 'Data Capture: Quote and Risk Data'
+      openapi: openapi/beazley-data-capture-quote-and-risk-data.yml
+      superseded_by: 'Data Capture: Quote and Risk Data v2'
+      evidence: >-
+        The v2 spec description states "This API provides a channel for partner systems to feed quote
+        and risk data ... The current published version of this API is V2"; v1 remains published.
+      formally_deprecated: false
+deprecated_operations: []
+change_log:
+  published: false
+  url: null
+  note: >-
+    Azure API Management's developer portal has no changelog surface and Beazley publishes none.
+    Version changes are visible only as new APIs appearing in the catalog.
+roadmap:
+  published: false
+  url: null
+  note: >-
+    The Prerelease product ("A collection of concepts, ideas, and prototypes for evaluation and
+    testing") is the closest thing to a public roadmap signal — Data Capture v3, Fast Reader and
+    Simple Raters all sit inside it — but no dated roadmap is published.
+status_page:
+  published: false
+  url: null
+  probes:
+    - {url: 'https://status.beazley.com', result: DNS does not resolve}
+    - {url: 'https://beazley.statuspage.io', result: 'HTTP 200 but serves the generic Atlassian Statuspage marketing page, not a Beazley status page'}
+    - {url: 'https://developer.beazley.com/status', result: 404}
+sla:
+  published: false
+  url: null
+  note: >-
+    The Development Portal terms and conditions of use explicitly disclaim availability: "We will use
+    reasonable efforts to maintain the availability and speed of the Services, but will not be liable
+    if for any reason the Services are unavailable in whole, or in part, at any time, or for any
+    period." That is an anti-SLA, not an SLA.
+  terms: https://developer.beazley.com/products
+support:
+  contact: ITArchitecture@Beazley.com
+  note: The address named in every published OpenAPI description for questions about the APIs.
+corporate:
+  note: >-
+    Beazley plc is subject to a recommended all-cash offer from Zurich Insurance Group announced
+    under Rule 2.7 of the UK Takeover Code on 2 March 2026, which is a material lifecycle risk for
+    anyone integrating against this surface.
+  source: https://www.zurich.com/media/news-releases/2026/2026-0302-01

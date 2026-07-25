@@ -59,6 +59,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-data-capture-quote-and-risk-data-v2.yml
+  - type: Overlay
+    url: overlays/beazley-data-capture-v2-overlay.yaml
   - type: OpenAPI
     url: openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
   - type: Documentation
@@ -83,6 +85,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-data-capture-quote-and-risk-data.yml
+  - type: Overlay
+    url: overlays/beazley-data-capture-v1-overlay.yaml
   - type: OpenAPI
     url: openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml
   - type: Documentation
@@ -106,6 +110,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml
+  - type: Overlay
+    url: overlays/beazley-data-capture-v3-overlay.yaml
   - type: Documentation
     url: https://developer.beazley.com/apis
   - type: APIReference
@@ -127,6 +133,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-compliance-web-api.yml
+  - type: Overlay
+    url: overlays/beazley-compliance-overlay.yaml
   - type: Documentation
     url: https://developer.beazley.com/apis
   - type: APIReference
@@ -147,6 +155,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-broker-and-insured-marketing-data-v2.yml
+  - type: Overlay
+    url: overlays/beazley-marketing-v2-overlay.yaml
   - type: OpenAPI
     url: openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml
   - type: Documentation
@@ -170,6 +180,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-currency-exchange.yml
+  - type: Overlay
+    url: overlays/beazley-currency-exchange-overlay.yaml
   - type: OpenAPI
     url: openapi/beazley-currency-exchange-sandbox.yml
   - type: Documentation
@@ -193,6 +205,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-about-beazley.yml
+  - type: Overlay
+    url: overlays/beazley-about-beazley-overlay.yaml
   - type: OpenAPI
     url: openapi/beazley-about-beazley-sandbox.yml
   - type: Documentation
@@ -215,6 +229,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-fast-reader.yml
+  - type: Overlay
+    url: overlays/beazley-fast-reader-overlay.yaml
   - type: Documentation
     url: https://developer.beazley.com/apis
   - type: APIReference
@@ -234,17 +250,30 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-simple-raters.yml
+  - type: Overlay
+    url: overlays/beazley-simple-raters-overlay.yaml
   - type: Documentation
     url: https://developer.beazley.com/apis
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
 common:
+- type: AgenticAccess
+  url: agentic-access/beazley-agentic-access.yml
+- type: DomainSecurity
+  url: security/beazley-domain-security.yml
+- type: Authentication
+  url: authentication/beazley-authentication.yml
 - type: Website
   url: https://www.beazley.com/
 - type: DeveloperPortal
   url: https://developer.beazley.com/
 - type: Documentation
   url: https://developer.beazley.com/apis
+- type: APIReference
+  url: https://developer.beazley.com/apis
+  name: API catalog
+  description: The browsable catalog page listing all fourteen published APIs, each with
+    generated reference documentation, an interactive console and a downloadable OpenAPI.
 - type: SignUp
   url: https://developer.beazley.com/signup
 - type: SignIn
@@ -265,6 +294,60 @@ common:
   name: API Contact
   description: The contact address named in every Beazley OpenAPI description for
     questions about the APIs.
+- type: MCPServer
+  url: mcp/beazley-mcp.yml
+  name: Beazley candidate MCP tool manifest
+  description: Derived candidate tool set — Beazley publishes no MCP server.
+- type: ToolCrosswalk
+  url: mcp/beazley-tool-crosswalk.yml
+- type: LLMsTxt
+  url: llms/beazley-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+  name: Beazley Agent Skills
+- type: Conventions
+  url: conventions/beazley-conventions.yml
+- type: ErrorCatalog
+  url: errors/beazley-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/beazley-lifecycle.yml
+- type: Conformance
+  url: conformance/beazley-conformance.yml
+- type: DataModel
+  url: data-model/beazley-data-model.yml
+- type: Sandbox
+  url: sandbox/beazley-sandbox.yml
+  name: Beazley sandbox environments
+- type: RateLimits
+  url: rate-limits/beazley-rate-limits.yml
+- type: Plans
+  url: plans/beazley-plans.yml
+  name: Beazley APIM products
+- type: TrustCenter
+  url: security/beazley-trust-center.yml
+- type: Compliance
+  url: https://trust.beazley.security/
+  name: Beazley Security trust centre
+  description: ISO/IEC 27001, ISO/IEC 27701 and SOC 2 Type 2, certifying the Beazley
+    Security subsidiary and its services — not the developer.beazley.com API platform,
+    for which Beazley publishes no certification.
+- type: GitHubOrganization
+  url: https://github.com/beazley
+  name: Beazley Group on GitHub
+  description: Verified organisation, contact platformengineering@beazley.com. One
+    public repository (beazley.github.io); no SDKs or specs published here.
+- type: PrivacyPolicy
+  url: https://www.beazley.com/en-us/privacy-and-cookies-statements/
+- type: LegalInformation
+  url: https://www.beazley.com/en-us/legal-information-en/
+- type: Support
+  url: mailto:ITArchitecture@Beazley.com
+  name: API support
+  description: The address named in every published Beazley OpenAPI for API questions.
+- type: Contact
+  url: https://www.beazley.com/en-us/contact-us/
+- type: News
+  url: https://www.beazley.com/en-us/news-and-events/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

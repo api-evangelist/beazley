@@ -1,0 +1,73 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Broker and Insured Marketing Data v2
+  version: 1.0.0
+extends: openapi/beazley-broker-and-insured-marketing-data-v2.yml
+x-generated: '2026-07-25'
+x-method: generated
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: beazley
+    x-apievangelist-artifacts:
+      authentication: authentication/beazley-authentication.yml
+      conventions: conventions/beazley-conventions.yml
+      errors: errors/beazley-problem-types.yml
+      lifecycle: lifecycle/beazley-lifecycle.yml
+      rate-limits: rate-limits/beazley-rate-limits.yml
+      sandbox: sandbox/beazley-sandbox.yml
+    x-apievangelist-access:
+      browse: anonymous
+      call: Azure APIM subscription key, approval required
+- target: $.paths['/contacts/'].post
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/Contacts/{id}'].put
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/contacts/{id}'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/contacts'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/microsites/{id}/contacts'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/organisations/{id}/contacts'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/microsites/'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/organisations/{id}'].put
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/organisations/{id}'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/organisations'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/microsites/{id}/organisations'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/ping/'].get
+  update:
+    tags:
+    - marketing-v2
+- target: $.paths['/organisations/{id}/organisations'].post
+  update:
+    tags:
+    - marketing-v2

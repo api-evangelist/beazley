@@ -1,0 +1,101 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  https://developer.beazley.com/products and the anonymous Azure API Management product metadata at
+  https://beazley.management.azure-api.net/.../products?api-version=2022-04-01-preview
+description: >-
+  Beazley publishes a per-product call allowance in the description of every Azure API Management
+  product on its developer portal. The limits are stated in prose rather than served as a policy
+  document or advertised in response headers, but they are explicit, per-product and quotable. Rate
+  limiting is enforced at the APIM gateway against the subscription key; no RateLimit-* or
+  X-RateLimit-* response headers are documented, and none could be observed anonymously because every
+  product is approval-gated.
+enforcement:
+  layer: Azure API Management gateway
+  keyed_on: subscription key (Ocp-Apim-Subscription-Key)
+  headers_documented: false
+  retry_after_documented: false
+rate_limits:
+  - product: Beazley Public Data
+    product_id: 5453a98397fe1e056095cf8c
+    apis:
+      - About Beazley
+      - About Beazley (Sandbox)
+    limit_count: 1000
+    limit_interval: hour
+    quoted: Subscribers are able to make up to 1,000 calls/hour.
+  - product: Compliance
+    product_id: 58909f9d39845514244544be
+    apis:
+      - Compliance Web API
+    limit_count: 10
+    limit_interval: minute
+    quota_count: 10000
+    quota_interval: week
+    quoted: Subscribers are able to make 10 calls/minute up to a maximum of 10,000 calls/week.
+  - product: Marketing Data - Development
+    product_id: 54ffeb9097fe1e13345aff0f
+    apis:
+      - Broker and Insured Marketing Data v2 (Sandbox)
+    limit_count: 10
+    limit_interval: minute
+    quota_count: 10000
+    quota_interval: week
+    quoted: Subscribers are able to make 10 calls/minute up to a maximum of 10,000 calls/week.
+  - product: Marketing Data - Production
+    product_id: 554c796d8097920ed0552ac9
+    apis:
+      - Broker and Insured Marketing Data v2
+    limit_count: 10
+    limit_interval: minute
+    quota_count: 10000
+    quota_interval: week
+    quoted: Subscribers are able to make 10 calls/minute up to a maximum of 10,000 calls/week.
+  - product: Policy Data Submission - Development
+    product_id: 5450a2fc47e3fa09d0271b08
+    apis:
+      - 'Data Capture: Quote and Risk Data (Sandbox)'
+      - 'Data Capture: Quote and Risk Data v2 (Sandbox)'
+    limit_count: 100
+    limit_interval: minute
+    quota_count: 10000
+    quota_interval: week
+    quoted: Subscribers are able to make 100 calls/minute up to a maximum of 10,000 calls/week.
+  - product: Policy Data Submission - Production
+    product_id: 54afa27d80979207c0fcdb61
+    apis:
+      - 'Data Capture: Quote and Risk Data'
+      - 'Data Capture: Quote and Risk Data v2'
+    limit_count: 100
+    limit_interval: minute
+    quota_count: 10000
+    quota_interval: week
+    quoted: Subscribers are able to make 100 calls/minute up to a maximum of 10,000 calls/week.
+  - product: Reference Services - Development
+    product_id: 56bb55e497fe1e18eca89928
+    apis:
+      - Currency Exchange (Sandbox)
+    limit_count: 100
+    limit_interval: minute
+    quota_count: 10000
+    quota_interval: week
+    quoted: Subscribers are able to make 100 calls/minute up to a maximum of 10,000 calls/week.
+  - product: Reference Services - Production
+    product_id: 56cc319980979215203a429a
+    apis:
+      - Currency Exchange
+    limit_count: 100
+    limit_interval: minute
+    quota_count: 10000
+    quota_interval: week
+    quoted: Subscribers are able to make 100 calls/minute up to a maximum of 10,000 calls/week.
+  - product: Prerelease
+    product_id: 553a217397fe1e0510faf7c4
+    apis:
+      - 'Data Capture: Quote and Risk Data v3 (pre-release)'
+      - Fast Reader
+      - Simple Raters
+    limit_count: null
+    limit_interval: null
+    quoted: A collection of concepts, ideas, and prototypes for evaluation and testing
+    note: No call allowance is published for the Prerelease product.

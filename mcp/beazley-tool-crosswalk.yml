@@ -1,0 +1,385 @@
+generated: '2026-07-25'
+method: derived
+source: mcp/beazley-mcp.yml + openapi/
+description: Crosswalk between the candidate MCP tool set and the Beazley OpenAPI operations that back
+  it. Beazley operates no MCP server and no GraphQL surface, so every row is REST-bound and there are
+  no MCP-only or GraphQL-only capabilities. Beazley operationIds are Azure API Management GUIDs rather
+  than human-readable names, so each row also records the method+path that identifies the operation.
+surfaces:
+  openapi:
+    files: 14
+    operations: 75
+    gated: browsing and spec download are anonymous; calling the gateway requires an approved APIM subscription
+      key
+  graphql:
+    endpoint: null
+    note: no GraphQL surface published
+  mcp:
+    url: null
+    note: no MCP server published; tools are a derived candidate
+crosswalk:
+- tool: risk_capture_v2_create_risks
+  category: risk-capture
+  rest:
+  - 55f2b5dc97fe1e075c26d7c2
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /risks/ in openapi/beazley-data-capture-quote-and-risk-data-v2.yml; inherits that
+    operation's parameters and request body as its input schema.
+- tool: risk_capture_v2_get_lockstate
+  category: risk-capture
+  rest:
+  - 55f2b5dc97fe1e075c26d7c3
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /lockstate/{id} in openapi/beazley-data-capture-quote-and-risk-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: risk_capture_v2_update_lockstate
+  category: risk-capture
+  rest:
+  - 55f2b5dc97fe1e075c26d7c6
+  binding: rest
+  confidence: high
+  note: 1:1 with PUT /lockstate/{id} in openapi/beazley-data-capture-quote-and-risk-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: risk_capture_v2_check_ping
+  category: risk-capture
+  rest:
+  - 55f2b5dc97fe1e075c26d7c4
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /ping/ in openapi/beazley-data-capture-quote-and-risk-data-v2.yml; inherits that
+    operation's parameters and request body as its input schema.
+- tool: risk_capture_v2_get_risks
+  category: risk-capture
+  rest:
+  - 55f2b5dc97fe1e075c26d7c5
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /risks/{id} in openapi/beazley-data-capture-quote-and-risk-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: risk_capture_v2_update_risks
+  category: risk-capture
+  rest:
+  - 55f2b5dc97fe1e075c26d7c7
+  binding: rest
+  confidence: high
+  note: 1:1 with PUT /risks/{id} in openapi/beazley-data-capture-quote-and-risk-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: risk_capture_v1_check_ping
+  category: risk-capture
+  rest:
+  - 54af9d8897fe1e04242839e9
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /ping/ in openapi/beazley-data-capture-quote-and-risk-data.yml; inherits that operation's
+    parameters and request body as its input schema.
+- tool: risk_capture_v1_get_risks
+  category: risk-capture
+  rest:
+  - 54af9d8897fe1e04242839ea
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /risks/{id} in openapi/beazley-data-capture-quote-and-risk-data.yml; inherits that
+    operation's parameters and request body as its input schema.
+- tool: risk_capture_v1_update_risks
+  category: risk-capture
+  rest:
+  - 54af9d8897fe1e04242839ec
+  binding: rest
+  confidence: high
+  note: 1:1 with PUT /risks/{id} in openapi/beazley-data-capture-quote-and-risk-data.yml; inherits that
+    operation's parameters and request body as its input schema.
+- tool: risk_capture_v1_create_risks
+  category: risk-capture
+  rest:
+  - 54af9d8897fe1e04242839eb
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /risks/ in openapi/beazley-data-capture-quote-and-risk-data.yml; inherits that operation's
+    parameters and request body as its input schema.
+- tool: risk_capture_v3_create_risks
+  category: risk-capture
+  rest:
+  - 5964d73a97fe1e0f143730f5
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /risks/ in openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml;
+    inherits that operation's parameters and request body as its input schema.
+- tool: compliance_create_check
+  category: compliance
+  rest:
+  - 5893134739845516588448c8
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /check in openapi/beazley-compliance-web-api.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: compliance_create_search
+  category: compliance
+  rest:
+  - 5893134739845516588448c9
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /search in openapi/beazley-compliance-web-api.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: compliance_create_report
+  category: compliance
+  rest:
+  - 5893134739845516588448ca
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /report in openapi/beazley-compliance-web-api.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: compliance_create_audit_lookups
+  category: compliance
+  rest:
+  - 5893134739845516588448cb
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /audit/lookups in openapi/beazley-compliance-web-api.yml; inherits that operation's
+    parameters and request body as its input schema.
+- tool: compliance_check_health
+  category: compliance
+  rest:
+  - 5893134739845516588448cc
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /health in openapi/beazley-compliance-web-api.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: compliance_list_audit
+  category: compliance
+  rest:
+  - 5893134739845516588448cd
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /audit in openapi/beazley-compliance-web-api.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: marketing_create_contacts
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef921
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /contacts/ in openapi/beazley-broker-and-insured-marketing-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: marketing_update_contacts
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef922
+  binding: rest
+  confidence: high
+  note: 1:1 with PUT /Contacts/{id} in openapi/beazley-broker-and-insured-marketing-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: marketing_get_contacts
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef923
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /contacts/{id} in openapi/beazley-broker-and-insured-marketing-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: marketing_list_contacts
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef924
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /contacts in openapi/beazley-broker-and-insured-marketing-data-v2.yml; inherits that
+    operation's parameters and request body as its input schema.
+- tool: marketing_get_microsites_contacts
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef925
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /microsites/{id}/contacts in openapi/beazley-broker-and-insured-marketing-data-v2.yml;
+    inherits that operation's parameters and request body as its input schema.
+- tool: marketing_get_organisations_contacts
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef926
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /organisations/{id}/contacts in openapi/beazley-broker-and-insured-marketing-data-v2.yml;
+    inherits that operation's parameters and request body as its input schema.
+- tool: marketing_list_microsites
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef927
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /microsites/ in openapi/beazley-broker-and-insured-marketing-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: marketing_update_organisations
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef928
+  binding: rest
+  confidence: high
+  note: 1:1 with PUT /organisations/{id} in openapi/beazley-broker-and-insured-marketing-data-v2.yml;
+    inherits that operation's parameters and request body as its input schema.
+- tool: marketing_get_organisations
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef929
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /organisations/{id} in openapi/beazley-broker-and-insured-marketing-data-v2.yml;
+    inherits that operation's parameters and request body as its input schema.
+- tool: marketing_list_organisations
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef92a
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /organisations in openapi/beazley-broker-and-insured-marketing-data-v2.yml; inherits
+    that operation's parameters and request body as its input schema.
+- tool: marketing_get_microsites_organisations
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef92b
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /microsites/{id}/organisations in openapi/beazley-broker-and-insured-marketing-data-v2.yml;
+    inherits that operation's parameters and request body as its input schema.
+- tool: marketing_check_ping
+  category: marketing-data
+  rest:
+  - 562e100f809792165c5ef92c
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /ping/ in openapi/beazley-broker-and-insured-marketing-data-v2.yml; inherits that
+    operation's parameters and request body as its input schema.
+- tool: marketing_create_organisations_organisations
+  category: marketing-data
+  rest:
+  - 57457b318097920fc0486734
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /organisations/{id}/organisations in openapi/beazley-broker-and-insured-marketing-data-v2.yml;
+    inherits that operation's parameters and request body as its input schema.
+- tool: fx_list_rates
+  category: reference-data
+  rest:
+  - 56d08a2b97fe1e081ca252f5
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /rates in openapi/beazley-currency-exchange.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: fx_list_providers
+  category: reference-data
+  rest:
+  - 56d08a2b97fe1e081ca252f6
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /providers in openapi/beazley-currency-exchange.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: fx_list_currencies
+  category: reference-data
+  rest:
+  - 56d08a2b97fe1e081ca252f7
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /currencies in openapi/beazley-currency-exchange.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: about_list_people_deleted
+  category: reference-data
+  rest:
+  - 55392e7f97fe1e0ff06f4255
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /People/deleted/ in openapi/beazley-about-beazley.yml; inherits that operation's
+    parameters and request body as its input schema.
+- tool: about_list_people
+  category: reference-data
+  rest:
+  - 55392e7f97fe1e0ff06f4256
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /people in openapi/beazley-about-beazley.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: about_get_people
+  category: reference-data
+  rest:
+  - 55392e7f97fe1e0ff06f4257
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /people/{rid} in openapi/beazley-about-beazley.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: about_list_people_profileimage
+  category: reference-data
+  rest:
+  - 55392e7f97fe1e0ff06f4258
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /people/profileimage in openapi/beazley-about-beazley.yml; inherits that operation's
+    parameters and request body as its input schema.
+- tool: fast_reader_list_definitions
+  category: reference-data
+  rest:
+  - 596757de398455123cd32ae7
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /definitions in openapi/beazley-fast-reader.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: fast_reader_create_definitions
+  category: reference-data
+  rest:
+  - 596872adc8b9bbc2a3352428
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /definitions in openapi/beazley-fast-reader.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: fast_reader_list_faqs
+  category: reference-data
+  rest:
+  - 59675bb966f3f16555c931b0
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /faqs/ in openapi/beazley-fast-reader.yml; inherits that operation's parameters and
+    request body as its input schema.
+- tool: fast_reader_get_products
+  category: reference-data
+  rest:
+  - 59675c4259efa7b3b8c0fa3b
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /products/{term} in openapi/beazley-fast-reader.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: fast_reader_list_definitions
+  category: reference-data
+  rest:
+  - 5971dd5476b7b3f0e01a426f
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /definitions/ in openapi/beazley-fast-reader.yml; inherits that operation's parameters
+    and request body as its input schema.
+- tool: fast_reader_list_faqs
+  category: reference-data
+  rest:
+  - 5972212f109c6c8fce68fc40
+  binding: rest
+  confidence: high
+  note: 1:1 with GET /faqs in openapi/beazley-fast-reader.yml; inherits that operation's parameters and
+    request body as its input schema.
+- tool: raters_create_cyber
+  category: rating
+  rest:
+  - 5804a8ff8097920fbc0ae7ea
+  binding: rest
+  confidence: high
+  note: 1:1 with POST /Cyber in openapi/beazley-simple-raters.yml; inherits that operation's parameters
+    and request body as its input schema.
+mcp_only: []
+rest_only:
+- capability: sandbox twins
+  note: the six sandbox APIs (sandbox/about/v1, sandbox/marketing/v2, sandbox/riskcapture/v1, sandbox/riskcapture/v2,
+    sandbox/fx/v1) mirror production operations and were left out of the candidate tool list to avoid
+    duplicate tools.
+  operations: 31
+coverage:
+  tools_named: 44
+  tools_bound: 44
+  mcp_only: 0
+  rest_operations_total: 75
+  rest_operations_with_tool: 44

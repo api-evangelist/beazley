@@ -1,0 +1,73 @@
+generated: '2026-07-25'
+method: generated
+source: openapi/ (operationIds verified verbatim against the published specs)
+description: >-
+  Packaged Agent Skills for the Beazley API surface. Beazley publishes no AGENTS.md, no skill files
+  and no agent guidance, so these are generated from the fourteen published OpenAPI documents plus
+  the conventions, errors, rate-limits and sandbox artifacts in this repo. Every operationId
+  referenced is a real Azure API Management operation id present verbatim in the named spec.
+skills:
+  - file: beazley-submit-risk-capture.md
+    name: Submit quote and risk data to Beazley
+    api: openapi/beazley-data-capture-quote-and-risk-data-v2.yml
+    operations:
+      - 55f2b5dc97fe1e075c26d7c4
+      - 55f2b5dc97fe1e075c26d7c2
+      - 55f2b5dc97fe1e075c26d7c5
+      - 55f2b5dc97fe1e075c26d7c7
+      - 55f2b5dc97fe1e075c26d7c3
+      - 55f2b5dc97fe1e075c26d7c6
+  - file: beazley-sync-broker-marketing-data.md
+    name: Sync broker and insured marketing data
+    api: openapi/beazley-broker-and-insured-marketing-data-v2.yml
+    operations:
+      - 562e100f809792165c5ef92c
+      - 562e100f809792165c5ef92a
+      - 562e100f809792165c5ef929
+      - 562e100f809792165c5ef928
+      - 562e100f809792165c5ef924
+      - 562e100f809792165c5ef923
+      - 562e100f809792165c5ef921
+      - 562e100f809792165c5ef922
+      - 562e100f809792165c5ef926
+      - 562e100f809792165c5ef927
+      - 562e100f809792165c5ef925
+      - 562e100f809792165c5ef92b
+  - file: beazley-run-compliance-check.md
+    name: Run a Beazley compliance check and pull its audit trail
+    api: openapi/beazley-compliance-web-api.yml
+    operations:
+      - 5893134739845516588448cc
+      - 5893134739845516588448c8
+      - 5893134739845516588448c9
+      - 5893134739845516588448ca
+      - 5893134739845516588448cb
+      - 5893134739845516588448cd
+  - file: beazley-lookup-reference-data.md
+    name: Look up Beazley reference data (FX, people, insurance terms)
+    api: openapi/beazley-currency-exchange.yml
+    also_uses:
+      - openapi/beazley-about-beazley.yml
+      - openapi/beazley-fast-reader.yml
+    operations:
+      - 56d08a2b97fe1e081ca252f5
+      - 56d08a2b97fe1e081ca252f6
+      - 56d08a2b97fe1e081ca252f7
+      - 55392e7f97fe1e0ff06f4256
+      - 55392e7f97fe1e0ff06f4257
+      - 55392e7f97fe1e0ff06f4258
+      - 55392e7f97fe1e0ff06f4255
+      - 596757de398455123cd32ae7
+      - 5971dd5476b7b3f0e01a426f
+      - 5972212f109c6c8fce68fc40
+      - 59675bb966f3f16555c931b0
+      - 59675c4259efa7b3b8c0fa3b
+not_covered:
+  - reason: >-
+      No skill was authored for bind, policy issuance or FNOL because Beazley publishes no such
+      operation. Binding happens in the gated myBeazley broker portal; claims are notified by web
+      form and email.
+  - reason: >-
+      No skill was authored for Simple Raters (POST /Cyber) beyond noting it exists — Beazley
+      describes it as a "set of super-simple raters for testing" under the Prerelease product, and it
+      would be misleading to package a rating skill on it.

@@ -1,0 +1,37 @@
+overlay: 1.0.0
+info:
+  title: 'API Evangelist enhancements for Data Capture: Quote and Risk Data'
+  version: 1.0.0
+extends: openapi/beazley-data-capture-quote-and-risk-data.yml
+x-generated: '2026-07-25'
+x-method: generated
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: beazley
+    x-apievangelist-artifacts:
+      authentication: authentication/beazley-authentication.yml
+      conventions: conventions/beazley-conventions.yml
+      errors: errors/beazley-problem-types.yml
+      lifecycle: lifecycle/beazley-lifecycle.yml
+      rate-limits: rate-limits/beazley-rate-limits.yml
+      sandbox: sandbox/beazley-sandbox.yml
+    x-apievangelist-access:
+      browse: anonymous
+      call: Azure APIM subscription key, approval required
+- target: $.paths['/ping/'].get
+  update:
+    tags:
+    - data-capture-v1
+- target: $.paths['/risks/{id}'].get
+  update:
+    tags:
+    - data-capture-v1
+- target: $.paths['/risks/{id}'].put
+  update:
+    tags:
+    - data-capture-v1
+- target: $.paths['/risks/'].post
+  update:
+    tags:
+    - data-capture-v1

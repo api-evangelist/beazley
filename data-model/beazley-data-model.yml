@@ -1,0 +1,200 @@
+generated: '2026-07-25'
+method: derived
+source: openapi/ (14 specs) — paths, path parameters and components.schemas
+description: >-
+  The entity graph behind the Beazley API surface, derived from the published contracts. Only one of
+  the fourteen specs (Compliance Web API) declares components.schemas at all — the other thirteen are
+  Azure API Management exports with untyped request and response bodies — so the graph is built
+  mainly from path structure and path/query parameters, and the schema-level detail below is
+  Compliance-only. There is no id-prefix convention, no shared identifier scheme across families, and
+  no cross-family reference: risk, organisation, contact and person ids live in different systems and
+  never appear in each other's payloads.
+caveats:
+  typed_schemas: 1 of 14 specs
+  cross_family_references: none declared
+  id_prefixes: none published
+domains:
+  - name: risk-capture
+    base: https://api.beazley.com/riskcapture/{v1,v2}
+    description: The channel partner systems use to feed quote and risk data into Beazley's core Record of Risk systems.
+    entities: [Risk, LockState, Ping]
+  - name: marketing-data
+    base: https://api.beazley.com/marketing/v2
+    description: Marketing detail for Beazley's partner organisations — brokers, insureds, their contacts and microsites.
+    entities: [Organisation, Contact, Microsite, Ping]
+  - name: compliance
+    base: https://api.beazley.com/compliance/v1
+    description: Rule-driven compliance validation, search over brokers/agencies/product lines, and an audit trail of checks performed.
+    entities: [ComplianceCheckQuery, ComplianceCheckResult, ComplianceResultDetail, ComplianceMessage, ComplianceSearchQuery, ComplianceSearchResult, AuditQuery, AuditResult, AuditEntry, AuditLookup, HealthCheck]
+  - name: reference-data
+    base: https://api.beazley.com/{fx/v1,about/v1,sandbox/fastreader/v1}
+    description: Foreign-exchange rates, Beazley people and divisions, and an insurance glossary.
+    entities: [Rate, RateProvider, Currency, Person, ProfileImage, Definition, FAQ, Product]
+  - name: rating
+    base: https://api.beazley.com/hack/raters/v1
+    description: A single cyber rating operation, self-described as a rater for testing.
+    entities: [CyberRating]
+entities:
+  - name: Risk
+    domain: risk-capture
+    identifier: {field: id, in: path, type: string, format: undeclared}
+    operations:
+      create: [openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c2]
+      read: [openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c5]
+      update: [openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c7]
+    schema_declared: false
+    note: >-
+      The risk payload itself is undeclared in every version of the spec — the operation accepts a
+      body with no schema. This is the single biggest contract gap on the Beazley surface: the most
+      important entity in the catalog has no machine-readable shape.
+  - name: LockState
+    domain: risk-capture
+    identifier: {field: id, in: path, note: the id of the Risk it locks}
+    operations:
+      read: [openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c3]
+      update: [openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c6]
+    since: v2
+  - name: Organisation
+    domain: marketing-data
+    identifier: {field: id, in: path, type: string}
+    operations:
+      list: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef92a]
+      read: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef929]
+      update: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef928]
+      create_child: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#57457b318097920fc0486734]
+    alternate_keys: [AccessCode, Domain, ThirdPartyOrgRef]
+  - name: Contact
+    domain: marketing-data
+    identifier: {field: id, in: path, type: string}
+    operations:
+      list: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef924]
+      read: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef923]
+      create: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef921]
+      update: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef922]
+  - name: Microsite
+    domain: marketing-data
+    identifier: {field: id, in: path, type: string}
+    operations:
+      list: [openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef927]
+  - name: Person
+    domain: reference-data
+    identifier: {field: rid, in: path, type: string}
+    operations:
+      list: [openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4256]
+      read: [openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4257]
+      deleted_feed: [openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4255]
+    attributes_exposed: [division, firstName, lastName, profileImage, email]
+  - name: Rate
+    domain: reference-data
+    identifier: {composite: [scurr, dcurr, bcurr, date, provider]}
+    operations:
+      list: [openapi/beazley-currency-exchange.yml#56d08a2b97fe1e081ca252f5]
+  - name: RateProvider
+    domain: reference-data
+    operations:
+      list: [openapi/beazley-currency-exchange.yml#56d08a2b97fe1e081ca252f6]
+  - name: Currency
+    domain: reference-data
+    operations:
+      list: [openapi/beazley-currency-exchange.yml#56d08a2b97fe1e081ca252f7]
+  - name: Definition
+    domain: reference-data
+    identifier: {field: term, in: query}
+    operations:
+      read: [openapi/beazley-fast-reader.yml#596757de398455123cd32ae7]
+      list: [openapi/beazley-fast-reader.yml#5971dd5476b7b3f0e01a426f]
+  - name: FAQ
+    domain: reference-data
+    identifier: {field: intentName, in: query}
+    operations:
+      read: [openapi/beazley-fast-reader.yml#5972212f109c6c8fce68fc40]
+      list: [openapi/beazley-fast-reader.yml#59675bb966f3f16555c931b0]
+  - name: AuditEntry
+    domain: compliance
+    identifier: {field: Id, type: string}
+    schema_declared: true
+    attributes: [Id, Timestamp, System, Action, User, Data, MetaData]
+    operations:
+      read: [openapi/beazley-compliance-web-api.yml#5893134739845516588448cd]
+      search: [openapi/beazley-compliance-web-api.yml#5893134739845516588448ca]
+  - name: ComplianceCheckResult
+    domain: compliance
+    identifier: {field: Identifier, type: string}
+    schema_declared: true
+    attributes: [Identifier, Valid, IsAsync, Details, Deferred, Errors, Warnings]
+    operations:
+      create: [openapi/beazley-compliance-web-api.yml#5893134739845516588448c8]
+relationships:
+  - from: LockState
+    to: Risk
+    kind: belongs_to
+    via: id (the lockstate path id is the risk id)
+    confidence: high
+    evidence: GET/PUT /lockstate/{id} sits in the same API as GET/PUT /risks/{id} and shares the identifier position.
+  - from: Contact
+    to: Organisation
+    kind: belongs_to
+    via: organisation id (path)
+    confidence: high
+    evidence: GET /organisations/{id}/contacts
+  - from: Organisation
+    to: Contact
+    kind: has_many
+    via: organisation id (path)
+    confidence: high
+    evidence: GET /organisations/{id}/contacts
+  - from: Microsite
+    to: Contact
+    kind: has_many
+    via: microsite id (path)
+    confidence: high
+    evidence: GET /microsites/{id}/contacts
+  - from: Microsite
+    to: Organisation
+    kind: has_many
+    via: microsite id (path)
+    confidence: high
+    evidence: GET /microsites/{id}/organisations
+  - from: Organisation
+    to: Organisation
+    kind: has_many
+    via: parent organisation id (path)
+    confidence: medium
+    evidence: POST /organisations/{id}/organisations implies a parent/child organisation hierarchy.
+  - from: ComplianceCheckResult
+    to: ComplianceResultDetail
+    kind: has_many
+    via: Details
+    confidence: high
+    evidence: components.schemas.ComplianceCheckResult.Details is an array of ComplianceResultDetail.
+  - from: ComplianceResultDetail
+    to: ComplianceResultDetailItem
+    kind: has_many
+    via: Items
+    confidence: high
+  - from: ComplianceResultDetail
+    to: ComplianceMessage
+    kind: has_many
+    via: Errors, Warnings
+    confidence: high
+  - from: AuditResult
+    to: AuditEntry
+    kind: has_many
+    via: Entries
+    confidence: high
+  - from: AuditQuery
+    to: AuditQueryFilter
+    kind: has_one
+    via: Filter
+    confidence: high
+  - from: ComplianceSearchResult
+    to: Object
+    kind: has_many
+    via: Results
+    confidence: low
+    note: The search result element is an untyped Object schema.
+missing_from_the_model:
+  - Policy — no policy entity, no issuance and no policy administration operation exists in the public catalog.
+  - Bind — binding happens in the gated myBeazley broker portal, not through a documented API.
+  - Claim / FNOL — claims are notified by web form and email; no claim entity exists.
+  - Premium / Quote document — the raters return a rating, but no quote document entity is exposed.

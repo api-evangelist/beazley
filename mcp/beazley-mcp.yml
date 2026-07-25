@@ -1,0 +1,196 @@
+generated: '2026-07-25'
+method: derived
+status: candidate
+source: openapi/ (14 Azure API Management OpenAPI 3.0.1 exports harvested from developer.beazley.com)
+provider_signal: Beazley publishes no Model Context Protocol server. No mcp.beazley.com host resolves,
+  no MCP reference appears anywhere in the developer.beazley.com portal, the APIM product metadata or
+  the fourteen published OpenAPI documents, and there is no Beazley package on npm or PyPI. The tool list
+  below is a CANDIDATE derived one-to-one from the published production operations, not an official Beazley
+  server.
+server:
+  name: beazley
+  transport: http
+  url: null
+auth:
+  model: api-key
+  header: Ocp-Apim-Subscription-Key
+  query: subscription-key
+  note: Any real MCP server over these APIs would carry an Azure APIM subscription key. Every Beazley
+    APIM product is approvalRequired=true, so keys are issued by Beazley, not self-served.
+tools:
+- name: risk_capture_v2_create_risks
+  description: create risk
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c2
+  http: POST https://api.beazley.com/riskcapture/v2/risks/
+- name: risk_capture_v2_get_lockstate
+  description: lockstate
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c3
+  http: GET https://api.beazley.com/riskcapture/v2/lockstate/{id}
+- name: risk_capture_v2_update_lockstate
+  description: update lockstate
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c6
+  http: PUT https://api.beazley.com/riskcapture/v2/lockstate/{id}
+- name: risk_capture_v2_check_ping
+  description: ping
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c4
+  http: GET https://api.beazley.com/riskcapture/v2/ping/
+- name: risk_capture_v2_get_risks
+  description: risk
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c5
+  http: GET https://api.beazley.com/riskcapture/v2/risks/{id}
+- name: risk_capture_v2_update_risks
+  description: update risk
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c7
+  http: PUT https://api.beazley.com/riskcapture/v2/risks/{id}
+- name: risk_capture_v1_check_ping
+  description: ping
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data.yml#54af9d8897fe1e04242839e9
+  http: GET https://api.beazley.com/riskcapture/v1/ping/
+- name: risk_capture_v1_get_risks
+  description: risk
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data.yml#54af9d8897fe1e04242839ea
+  http: GET https://api.beazley.com/riskcapture/v1/risks/{id}
+- name: risk_capture_v1_update_risks
+  description: update risk
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data.yml#54af9d8897fe1e04242839ec
+  http: PUT https://api.beazley.com/riskcapture/v1/risks/{id}
+- name: risk_capture_v1_create_risks
+  description: create risk
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data.yml#54af9d8897fe1e04242839eb
+  http: POST https://api.beazley.com/riskcapture/v1/risks/
+- name: risk_capture_v3_create_risks
+  description: create risk
+  source_operation: openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml#5964d73a97fe1e0f143730f5
+  http: POST https://api.beazley.com/prerelease/riskcapture/v3/risks/
+- name: compliance_create_check
+  description: check
+  source_operation: openapi/beazley-compliance-web-api.yml#5893134739845516588448c8
+  http: POST https://api.beazley.com/compliance/v1/check
+- name: compliance_create_search
+  description: search
+  source_operation: openapi/beazley-compliance-web-api.yml#5893134739845516588448c9
+  http: POST https://api.beazley.com/compliance/v1/search
+- name: compliance_create_report
+  description: report
+  source_operation: openapi/beazley-compliance-web-api.yml#5893134739845516588448ca
+  http: POST https://api.beazley.com/compliance/v1/report
+- name: compliance_create_audit_lookups
+  description: getauditlookups
+  source_operation: openapi/beazley-compliance-web-api.yml#5893134739845516588448cb
+  http: POST https://api.beazley.com/compliance/v1/audit/lookups
+- name: compliance_check_health
+  description: healthcheck
+  source_operation: openapi/beazley-compliance-web-api.yml#5893134739845516588448cc
+  http: POST https://api.beazley.com/compliance/v1/health
+- name: compliance_list_audit
+  description: getauditentry
+  source_operation: openapi/beazley-compliance-web-api.yml#5893134739845516588448cd
+  http: GET https://api.beazley.com/compliance/v1/audit
+- name: marketing_create_contacts
+  description: contact (POST)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef921
+  http: POST https://api.beazley.com/marketing/v2/contacts/
+- name: marketing_update_contacts
+  description: contact (PUT)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef922
+  http: PUT https://api.beazley.com/marketing/v2/Contacts/{id}
+- name: marketing_get_contacts
+  description: contact by id (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef923
+  http: GET https://api.beazley.com/marketing/v2/contacts/{id}
+- name: marketing_list_contacts
+  description: contacts (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef924
+  http: GET https://api.beazley.com/marketing/v2/contacts
+- name: marketing_get_microsites_contacts
+  description: contacts by microsite (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef925
+  http: GET https://api.beazley.com/marketing/v2/microsites/{id}/contacts
+- name: marketing_get_organisations_contacts
+  description: contacts by organisation (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef926
+  http: GET https://api.beazley.com/marketing/v2/organisations/{id}/contacts
+- name: marketing_list_microsites
+  description: microsites (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef927
+  http: GET https://api.beazley.com/marketing/v2/microsites/
+- name: marketing_update_organisations
+  description: organisation (PUT)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef928
+  http: PUT https://api.beazley.com/marketing/v2/organisations/{id}
+- name: marketing_get_organisations
+  description: organisation by id (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef929
+  http: GET https://api.beazley.com/marketing/v2/organisations/{id}
+- name: marketing_list_organisations
+  description: organisations (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef92a
+  http: GET https://api.beazley.com/marketing/v2/organisations
+- name: marketing_get_microsites_organisations
+  description: organisations by microsite (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef92b
+  http: GET https://api.beazley.com/marketing/v2/microsites/{id}/organisations
+- name: marketing_check_ping
+  description: ping (GET)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef92c
+  http: GET https://api.beazley.com/marketing/v2/ping/
+- name: marketing_create_organisations_organisations
+  description: organisations (POST)
+  source_operation: openapi/beazley-broker-and-insured-marketing-data-v2.yml#57457b318097920fc0486734
+  http: POST https://api.beazley.com/marketing/v2/organisations/{id}/organisations
+- name: fx_list_rates
+  description: Rates
+  source_operation: openapi/beazley-currency-exchange.yml#56d08a2b97fe1e081ca252f5
+  http: GET https://api.beazley.com/fx/v1/rates
+- name: fx_list_providers
+  description: Providers
+  source_operation: openapi/beazley-currency-exchange.yml#56d08a2b97fe1e081ca252f6
+  http: GET https://api.beazley.com/fx/v1/providers
+- name: fx_list_currencies
+  description: Currencies
+  source_operation: openapi/beazley-currency-exchange.yml#56d08a2b97fe1e081ca252f7
+  http: GET https://api.beazley.com/fx/v1/currencies
+- name: about_list_people_deleted
+  description: deleted people
+  source_operation: openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4255
+  http: GET https://api.beazley.com/about/v1/People/deleted/
+- name: about_list_people
+  description: people
+  source_operation: openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4256
+  http: GET https://api.beazley.com/about/v1/people
+- name: about_get_people
+  description: person by ID
+  source_operation: openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4257
+  http: GET https://api.beazley.com/about/v1/people/{rid}
+- name: about_list_people_profileimage
+  description: profileimage by ID
+  source_operation: openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4258
+  http: GET https://api.beazley.com/about/v1/people/profileimage
+- name: fast_reader_list_definitions
+  description: definition by term
+  source_operation: openapi/beazley-fast-reader.yml#596757de398455123cd32ae7
+  http: GET https://api.beazley.com/sandbox/fastreader/v1/definitions
+- name: fast_reader_create_definitions
+  description: definitions (POST)
+  source_operation: openapi/beazley-fast-reader.yml#596872adc8b9bbc2a3352428
+  http: POST https://api.beazley.com/sandbox/fastreader/v1/definitions
+- name: fast_reader_list_faqs
+  description: FAQs
+  source_operation: openapi/beazley-fast-reader.yml#59675bb966f3f16555c931b0
+  http: GET https://api.beazley.com/sandbox/fastreader/v1/faqs/
+- name: fast_reader_get_products
+  description: products
+  source_operation: openapi/beazley-fast-reader.yml#59675c4259efa7b3b8c0fa3b
+  http: GET https://api.beazley.com/sandbox/fastreader/v1/products/{term}
+- name: fast_reader_list_definitions
+  description: definitions
+  source_operation: openapi/beazley-fast-reader.yml#5971dd5476b7b3f0e01a426f
+  http: GET https://api.beazley.com/sandbox/fastreader/v1/definitions/
+- name: fast_reader_list_faqs
+  description: FAQ by intent
+  source_operation: openapi/beazley-fast-reader.yml#5972212f109c6c8fce68fc40
+  http: GET https://api.beazley.com/sandbox/fastreader/v1/faqs
+- name: raters_create_cyber
+  description: Cyber
+  source_operation: openapi/beazley-simple-raters.yml#5804a8ff8097920fbc0ae7ea
+  http: POST https://api.beazley.com/hack/raters/v1/Cyber

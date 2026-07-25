@@ -1,0 +1,44 @@
+generated: '2026-07-25'
+method: searched
+probe: true
+url: https://trust.beazley.security/
+entity: Beazley Security
+scope: subsidiary
+description: >-
+  Beazley plc publishes no trust centre, no security page and no certification list for itself or for
+  the developer.beazley.com API platform — probes of trust.beazley.com, www.beazley.com/security and
+  www.beazley.com/en-gb/security all miss (the corporate site soft-404s every unknown path with an
+  HTTP 200). The group does operate one real trust centre, at trust.beazley.security, belonging to
+  Beazley Security, the wholly-owned cyber-security services arm created out of the Lodestone
+  business. It publishes gated document access for certifications, policies, service descriptions and
+  a subprocessor list.
+certifications:
+  - ISO/IEC 27001
+  - ISO/IEC 27701
+  - SOC 2 Type 2
+certification_note: >-
+  Achieved in 2025 and announced as covering the entire Beazley Security organisation and its
+  globally delivered services. They do not certify the Beazley plc API platform.
+documents_listed:
+  - Compliance certifications (ISO/IEC 27001, ISO/IEC 27701, SOC 2 Type 2)
+  - Internal Security Controls Policy
+  - Data Processing Agreement
+  - Terms of Service
+  - Service descriptions (Advisory Services, Exposure Management, Incident Response, Third-Party Risk Monitoring)
+  - Subprocessor list
+access: >-
+  Document downloads are request-gated through the trust centre; the certification and framework list
+  itself is publicly visible.
+evidence:
+  - source: https://trust.beazley.security/
+    status: 200
+    keywords: [SOC 2 Type 2, ISO/IEC 27001, ISO/IEC 27701, penetration test, subprocessors]
+  - source: https://beazley.security/news/beazley-security-simultaneously-achieves-three-cybersecurity-industry-certifications
+    status: 200
+    keywords: [ISO 27001, ISO 27701, SOC 2 Type 2]
+misses:
+  - {url: 'https://trust.beazley.com', result: DNS does not resolve}
+  - {url: 'https://www.beazley.com/security', result: 'HTTP 200 but serves the site 404 page'}
+  - {url: 'https://www.beazley.com/en-gb/security', result: 'HTTP 200 but serves the site 404 page'}
+  - {url: 'https://beazley.security/trust', result: 404}
+  - {url: 'https://beazley.security/certifications', result: 404}

@@ -1,0 +1,927 @@
+generated: '2026-07-25'
+method: generated
+source: openapi/beazley-about-beazley-sandbox.yml, openapi/beazley-about-beazley.yml, openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml,
+  openapi/beazley-broker-and-insured-marketing-data-v2.yml, openapi/beazley-compliance-web-api.yml,
+  openapi/beazley-currency-exchange-sandbox.yml, openapi/beazley-currency-exchange.yml, openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml,
+  openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml, openapi/beazley-data-capture-quote-and-risk-data-v2.yml,
+  openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml, openapi/beazley-data-capture-quote-and-risk-data.yml,
+  openapi/beazley-fast-reader.yml, openapi/beazley-simple-raters.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 75
+  by_action_class:
+    connected: 49
+    acting: 26
+  by_consequence:
+    read: 49
+    write: 26
+  human_in_the_loop_required: 0
+operations:
+- path: /people
+  method: get
+  operationId: 54e21d5297fe1e08786b4f2d
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/{rid}
+  method: get
+  operationId: 54e21d5297fe1e08786b4f2e
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/profileimage
+  method: get
+  operationId: 54e21d5297fe1e08786b4f2f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /People/deleted/
+  method: get
+  operationId: 5502bd2980979213687779a2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/profileimagebyemail/
+  method: get
+  operationId: 5720682580979201c899e68d
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /People/deleted/
+  method: get
+  operationId: 55392e7f97fe1e0ff06f4255
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people
+  method: get
+  operationId: 55392e7f97fe1e0ff06f4256
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/{rid}
+  method: get
+  operationId: 55392e7f97fe1e0ff06f4257
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people/profileimage
+  method: get
+  operationId: 55392e7f97fe1e0ff06f4258
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /contacts/
+  method: post
+  operationId: 561e208f8097920ed881e636
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /Contacts/{id}
+  method: put
+  operationId: 561e208f8097920ed881e637
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /contacts/{id}
+  method: get
+  operationId: 561e208f8097920ed881e638
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /contacts
+  method: get
+  operationId: 561e208f8097920ed881e639
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /microsites/{id}/contacts
+  method: get
+  operationId: 561e208f8097920ed881e63a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organisations/{id}/contacts
+  method: get
+  operationId: 561e208f8097920ed881e63b
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /microsites/
+  method: get
+  operationId: 561e208f8097920ed881e63c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organisations/{id}
+  method: put
+  operationId: 561e208f8097920ed881e63d
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /organisations/{id}
+  method: get
+  operationId: 561e208f8097920ed881e63e
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organisations
+  method: get
+  operationId: 561e208f8097920ed881e63f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /microsites/{id}/organisations
+  method: get
+  operationId: 561e208f8097920ed881e640
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ping/
+  method: get
+  operationId: 561e208f8097920ed881e641
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organisations/{id}/organisations
+  method: post
+  operationId: 57236b6697fe1e136834c547
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /contacts/
+  method: post
+  operationId: 562e100f809792165c5ef921
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /Contacts/{id}
+  method: put
+  operationId: 562e100f809792165c5ef922
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /contacts/{id}
+  method: get
+  operationId: 562e100f809792165c5ef923
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /contacts
+  method: get
+  operationId: 562e100f809792165c5ef924
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /microsites/{id}/contacts
+  method: get
+  operationId: 562e100f809792165c5ef925
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organisations/{id}/contacts
+  method: get
+  operationId: 562e100f809792165c5ef926
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /microsites/
+  method: get
+  operationId: 562e100f809792165c5ef927
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organisations/{id}
+  method: put
+  operationId: 562e100f809792165c5ef928
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /organisations/{id}
+  method: get
+  operationId: 562e100f809792165c5ef929
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organisations
+  method: get
+  operationId: 562e100f809792165c5ef92a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /microsites/{id}/organisations
+  method: get
+  operationId: 562e100f809792165c5ef92b
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ping/
+  method: get
+  operationId: 562e100f809792165c5ef92c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /organisations/{id}/organisations
+  method: post
+  operationId: 57457b318097920fc0486734
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /check
+  method: post
+  operationId: 5893134739845516588448c8
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /search
+  method: post
+  operationId: 5893134739845516588448c9
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /report
+  method: post
+  operationId: 5893134739845516588448ca
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /audit/lookups
+  method: post
+  operationId: 5893134739845516588448cb
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /health
+  method: post
+  operationId: 5893134739845516588448cc
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /audit
+  method: get
+  operationId: 5893134739845516588448cd
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rates
+  method: get
+  operationId: 56d088f797fe1e081ca252ea
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /providers
+  method: get
+  operationId: 56d088f797fe1e081ca252eb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /currencies
+  method: get
+  operationId: 56d088f797fe1e081ca252ec
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rates
+  method: get
+  operationId: 56d08a2b97fe1e081ca252f5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /providers
+  method: get
+  operationId: 56d08a2b97fe1e081ca252f6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /currencies
+  method: get
+  operationId: 56d08a2b97fe1e081ca252f7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ping/
+  method: get
+  operationId: 54c8996797fe1e0d805f714b
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /risks/{id}
+  method: get
+  operationId: 54c8996797fe1e0d805f714c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /risks/{id}
+  method: put
+  operationId: 54c8996797fe1e0d805f714e
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /risks/
+  method: post
+  operationId: 54c8996797fe1e0d805f714d
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ping/
+  method: get
+  operationId: 5538d88d97fe1e0ff06f4247
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /risks/{id}
+  method: get
+  operationId: 5538d88d97fe1e0ff06f4248
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /risks/{id}
+  method: put
+  operationId: 5538d88d97fe1e0ff06f424a
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /risks/
+  method: post
+  operationId: 5538d88d97fe1e0ff06f4249
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /lockstate/{id}
+  method: get
+  operationId: 554a0e3f8097920d90ff4e34
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lockstate/{id}
+  method: put
+  operationId: 554a108d8097920d90ff4e36
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /risks/
+  method: post
+  operationId: 55f2b5dc97fe1e075c26d7c2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /lockstate/{id}
+  method: get
+  operationId: 55f2b5dc97fe1e075c26d7c3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lockstate/{id}
+  method: put
+  operationId: 55f2b5dc97fe1e075c26d7c6
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ping/
+  method: get
+  operationId: 55f2b5dc97fe1e075c26d7c4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /risks/{id}
+  method: get
+  operationId: 55f2b5dc97fe1e075c26d7c5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /risks/{id}
+  method: put
+  operationId: 55f2b5dc97fe1e075c26d7c7
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /risks/
+  method: post
+  operationId: 5964d73a97fe1e0f143730f5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ping/
+  method: get
+  operationId: 54af9d8897fe1e04242839e9
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /risks/{id}
+  method: get
+  operationId: 54af9d8897fe1e04242839ea
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /risks/{id}
+  method: put
+  operationId: 54af9d8897fe1e04242839ec
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /risks/
+  method: post
+  operationId: 54af9d8897fe1e04242839eb
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /definitions
+  method: get
+  operationId: 596757de398455123cd32ae7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /definitions
+  method: post
+  operationId: 596872adc8b9bbc2a3352428
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /faqs/
+  method: get
+  operationId: 59675bb966f3f16555c931b0
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/{term}
+  method: get
+  operationId: 59675c4259efa7b3b8c0fa3b
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /definitions/
+  method: get
+  operationId: 5971dd5476b7b3f0e01a426f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /faqs
+  method: get
+  operationId: 5972212f109c6c8fce68fc40
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /Cyber
+  method: post
+  operationId: 5804a8ff8097920fbc0ae7ea
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required

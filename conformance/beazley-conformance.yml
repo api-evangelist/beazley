@@ -1,0 +1,94 @@
+generated: '2026-07-25'
+method: derived
+source: openapi/ (14 specs) + https://developer.beazley.com + https://trust.beazley.security/
+description: >-
+  Which cross-cutting and insurance-industry standards the Beazley API surface actually conforms to.
+  Derived from the fourteen published OpenAPI 3.0.1 documents and the developer portal, with the one
+  searched compliance claim (Beazley Security's certifications) recorded separately and explicitly
+  scoped. The headline finding for a London-market carrier: there is no ACORD anywhere on the
+  first-party surface.
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: All fourteen published documents are OpenAPI 3.0.1 and parse; exported from Azure API Management.
+  - id: openapi-3.1
+    conforms: false
+    evidence: No document declares 3.1.x.
+  - id: rest
+    conforms: true
+    evidence: Resource-oriented HTTPS paths with GET/POST/PUT across all families.
+  - id: api-key-auth
+    conforms: true
+    evidence: apiKey securitySchemes in header (Ocp-Apim-Subscription-Key) and query (subscription-key) on every document.
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 securityScheme in any spec; /.well-known/oauth-authorization-server is not served on any host.
+  - id: oidc
+    conforms: false
+    evidence: No openIdConnect securityScheme; /.well-known/openid-configuration is not served on any host.
+  - id: mutual-tls
+    conforms: false
+    evidence: Not declared and not documented.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No application/problem+json media type in any spec; errors are the Azure APIM {"statusCode","message"} envelope.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404 on developer.beazley.com and api.beazley.com and falls through to the site 404 page on www.beazley.com.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: No Sunset or Deprecation header documented or declared; no deprecation policy published.
+  - id: rfc9727-api-catalog
+    conforms: false
+    evidence: /.well-known/api-catalog not served; the anonymous Azure APIM management endpoint declared in developer.beazley.com/config.json is the de-facto catalog.
+  - id: json-api
+    conforms: false
+    evidence: Plain JSON payloads; no JSON:API media type or document structure.
+  - id: hal
+    conforms: false
+    evidence: No hypermedia links in any response schema.
+  - id: asyncapi
+    conforms: false
+    evidence: No event, webhook or streaming surface exists to describe.
+  - id: graphql
+    conforms: false
+    evidence: No /graphql surface in the APIM catalog.
+  - id: grpc
+    conforms: false
+    evidence: No .proto published; every spec declares https REST only.
+  - id: acord
+    conforms: false
+    evidence: >-
+      Case-insensitive search for ACORD, AL3, ACORD XML, NGDS, IVANS, Vertafore and Applied Epic across
+      all fourteen OpenAPI documents and the full APIM api/product metadata including the portal terms
+      returned zero hits. Beazley is named by Lloyd's as one of seventeen firms in the closed beta group
+      for the Blueprint Two Core Data Record, which Lloyd's states is based on ACORD Standards — that is
+      market-programme participation, not a Beazley-published ACORD interface.
+    market_linkage: https://www.lloyds.com/insights/media-centre/press-releases/lloyds-publishes-first-iteration-of-its-core-data-record-under-blueprint-two
+  - id: open-insurance-mandate
+    conforms: false
+    evidence: >-
+      The United Kingdom has no open-insurance mandate. Nothing on the Beazley surface is regulator-driven;
+      the whole catalog is voluntary partner integration.
+  - id: iso-4217
+    conforms: true
+    evidence: >-
+      Currency Exchange takes and returns currency codes (scurr/dcurr/bcurr) and publishes a
+      GET /currencies list; the codes used are ISO 4217 alphabetic codes.
+    confidence: medium
+compliance_program:
+  published: true
+  scope: subsidiary
+  entity: Beazley Security
+  url: https://trust.beazley.security/
+  certifications:
+    - ISO/IEC 27001
+    - ISO/IEC 27701
+    - SOC 2 Type 2
+  note: >-
+    These certifications belong to Beazley Security, the wholly-owned cyber-security services arm of
+    Beazley, and cover that organisation and its services. They are NOT a statement about the
+    developer.beazley.com API platform or the Azure APIM gateway, for which Beazley publishes no
+    certification, no audit report and no security page. Recorded here because it is the only
+    published, verifiable compliance posture anywhere in the group.
+  source: https://beazley.security/news/beazley-security-simultaneously-achieves-three-cybersecurity-industry-certifications

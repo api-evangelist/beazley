@@ -1,0 +1,67 @@
+generated: '2026-07-25'
+method: derived
+source: openapi/ 4xx and 5xx responses + live gateway probes of https://api.beazley.com
+format: azure-apim
+rfc9457: false
+notes: 'Beazley publishes no error reference in the developer portal, and none of the fourteen OpenAPI
+  documents declares application/problem+json or a named error schema. Declared error responses are sparse:
+  only the Data Capture and Compliance APIs declare any 4xx/5xx at all, and they carry a description string
+  with no schema. Everything below the spec level is the standard Azure API Management envelope {"statusCode":
+  n, "message": "..."} observed live on the gateway.'
+envelope:
+  gateway: '{"statusCode": <int>, "message": "<string>"}'
+  backend: undeclared — no error schema in any published OpenAPI
+problems:
+- status: 400
+  title: Bad request
+  spec_description: null
+  media_type: application/json
+  source_operations:
+  - openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml#54c8996797fe1e0d805f714e
+  - openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml#54c8996797fe1e0d805f714d
+  - openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml#5538d88d97fe1e0ff06f424a
+  - openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml#5538d88d97fe1e0ff06f4249
+  - openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c2
+  - openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c7
+  - openapi/beazley-data-capture-quote-and-risk-data.yml#54af9d8897fe1e04242839ec
+  - openapi/beazley-data-capture-quote-and-risk-data.yml#54af9d8897fe1e04242839eb
+  source_operation_count: 8
+- status: 401
+  title: Access denied due to missing or invalid subscription key
+  spec_description: null
+  media_type: application/json
+  envelope: '{"statusCode": 401, "message": "..."}'
+  evidence: 'GET https://api.beazley.com/about/v1/people returned 401 with WWW-Authenticate: AzureApiManagementKey
+    realm="https://api.beazley.com/about/v1", name="Ocp-Apim-Subscription-Key", type="header"'
+  source_operations:
+  - live gateway probe 2026-07-25
+- status: 404
+  title: Resource not found
+  spec_description: null
+  media_type: application/json
+  envelope: '{"statusCode": 404, "message": "Resource not found"}'
+  evidence: 'GET https://api.beazley.com/.well-known/security.txt returned {"statusCode": 404, "message":
+    "Resource not found"} — the Azure APIM gateway error envelope'
+  source_operations:
+  - live gateway probe 2026-07-25
+- status: 422
+  title: Unprocessable entity
+  spec_description: null
+  media_type: application/json
+  source_operations:
+  - openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml#5538d88d97fe1e0ff06f424a
+  - openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c7
+  - openapi/beazley-data-capture-quote-and-risk-data.yml#54af9d8897fe1e04242839eb
+  source_operation_count: 3
+- status: 500
+  title: Internal server error
+  spec_description: Error occurred in processing of the data!
+  media_type: application/json
+  source_operations:
+  - openapi/beazley-compliance-web-api.yml#5893134739845516588448c8
+  - openapi/beazley-compliance-web-api.yml#5893134739845516588448c9
+  - openapi/beazley-compliance-web-api.yml#5893134739845516588448ca
+  - openapi/beazley-compliance-web-api.yml#5893134739845516588448cb
+  - openapi/beazley-compliance-web-api.yml#5893134739845516588448cc
+  - openapi/beazley-compliance-web-api.yml#5893134739845516588448cd
+  source_operation_count: 6

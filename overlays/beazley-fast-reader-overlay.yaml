@@ -1,0 +1,45 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Fast Reader
+  version: 1.0.0
+extends: openapi/beazley-fast-reader.yml
+x-generated: '2026-07-25'
+x-method: generated
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: beazley
+    x-apievangelist-artifacts:
+      authentication: authentication/beazley-authentication.yml
+      conventions: conventions/beazley-conventions.yml
+      errors: errors/beazley-problem-types.yml
+      lifecycle: lifecycle/beazley-lifecycle.yml
+      rate-limits: rate-limits/beazley-rate-limits.yml
+      sandbox: sandbox/beazley-sandbox.yml
+    x-apievangelist-access:
+      browse: anonymous
+      call: Azure APIM subscription key, approval required
+- target: $.paths['/definitions'].get
+  update:
+    tags:
+    - fast-reader
+- target: $.paths['/definitions'].post
+  update:
+    tags:
+    - fast-reader
+- target: $.paths['/faqs/'].get
+  update:
+    tags:
+    - fast-reader
+- target: $.paths['/products/{term}'].get
+  update:
+    tags:
+    - fast-reader
+- target: $.paths['/definitions/'].get
+  update:
+    tags:
+    - fast-reader
+- target: $.paths['/faqs'].get
+  update:
+    tags:
+    - fast-reader

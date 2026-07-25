@@ -1,0 +1,122 @@
+generated: '2026-07-25'
+method: derived
+source: openapi/ (14 specs) + https://developer.beazley.com/apis + https://developer.beazley.com/products
+description: >-
+  Cross-cutting request and response semantics for the Beazley API surface, derived from the fourteen
+  published OpenAPI documents and the Azure API Management portal metadata. Beazley publishes no
+  written API style guide or conventions page, so everything below is read off the contracts
+  themselves. The surface is an APIM facade over several independently built backends, and it shows:
+  casing, pagination and delta-sync parameters are consistent inside a family but not across
+  families.
+authentication:
+  style: api-key
+  header: Ocp-Apim-Subscription-Key
+  query: subscription-key
+  applied: top-level security on every published document
+  artifact: authentication/beazley-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No Idempotency-Key header or equivalent parameter appears in any of the fourteen specs, and no
+    idempotency semantics are documented. Writes are POST /risks/ (create), PUT /risks/{id} (update),
+    POST/PUT on contacts and organisations — a retried POST /risks/ has no declared dedupe behaviour.
+    Partner systems must carry their own correlation key in the risk payload.
+concurrency:
+  supported: true
+  mechanism: explicit lock-state resource
+  detail: >-
+    Data Capture v2 adds a lockstate sub-resource — GET /lockstate/{id} and PUT /lockstate/{id} — so a
+    partner can take and release a lock on a risk record instead of relying on ETag/If-Match. No
+    ETag, If-Match or If-None-Match header is declared anywhere in the catalog.
+  operations:
+    - openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c3
+    - openapi/beazley-data-capture-quote-and-risk-data-v2.yml#55f2b5dc97fe1e075c26d7c6
+pagination:
+  style: page-number
+  scope: Broker and Insured Marketing Data v2 only
+  params:
+    page: PageNumber
+    size: RecordsPerPage
+  defaults_documented: false
+  response_fields_documented: false
+  note: >-
+    Only the marketing family paginates. The risk-capture, currency, about, fast-reader and rater
+    families return whole collections with no paging parameters at all.
+delta_sync:
+  supported: true
+  params:
+    marketing: UpdatedSince
+    about: since
+  operations:
+    - openapi/beazley-broker-and-insured-marketing-data-v2.yml#562e100f809792165c5ef924
+    - openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4256
+  tombstones:
+    supported: true
+    detail: >-
+      About Beazley publishes a deleted-people feed (GET /People/deleted/?since=) so a downstream
+      system can reconcile deletions rather than infer them.
+    operation: openapi/beazley-about-beazley.yml#55392e7f97fe1e0ff06f4255
+tenancy:
+  param: ProviderID
+  in: query
+  scope: Broker and Insured Marketing Data v2 (every operation)
+  note: >-
+    The marketing family scopes reads and writes by a caller-supplied ProviderID, and additionally by
+    microsite id and organisation id on the nested collections.
+filtering:
+  marketing: [AccessCode, Domain, ThirdPartyOrgRef, UpdatedSince]
+  about: [division, firstNameFragment, lastNameFragment, since]
+  fx: [scurr, dcurr, bcurr, startdate, enddate, provider, amount, divby]
+  fast_reader: [term, intentName]
+field_expansion:
+  supported: false
+sparse_fields:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  header: null
+  note: >-
+    No request-id or correlation-id header is declared or documented. Azure APIM does emit its own
+    trace facilities but they are not exposed in the published contracts.
+versioning:
+  scheme: uri-path
+  pattern: https://api.beazley.com/<family>/<version>
+  current:
+    risk_capture: v2
+    marketing: v2
+    compliance: v1
+    fx: v1
+    about: v1
+  prerelease: https://api.beazley.com/prerelease/riskcapture/v3
+  note: >-
+    Versions are published as separate APIM APIs with separate OpenAPI documents, so v1 and v2 of a
+    family coexist in the catalog. No version header, no date-based version train.
+  artifact: lifecycle/beazley-lifecycle.yml
+content_negotiation:
+  default: application/json
+  also_offered:
+    - text/json
+    - application/xml
+    - text/xml
+  scope: Compliance Web API declares all four representations on every operation; the rest are JSON only.
+  note: >-
+    Fast Reader and the v3 pre-release Data Capture declare an explicit Content-Type header parameter
+    on their operations, an artefact of being fronted by Azure Logic Apps.
+error_envelope:
+  gateway: '{"statusCode": <int>, "message": "<string>"}'
+  backend: undeclared
+  rfc9457: false
+  artifact: errors/beazley-problem-types.yml
+rate_limit_signaling:
+  headers_documented: false
+  published_limits: per-APIM-product prose limits
+  artifact: rate-limits/beazley-rate-limits.yml
+events:
+  webhooks: false
+  streaming: false
+  note: No webhook, event catalog or AsyncAPI exists on the Beazley surface.
+transport:
+  protocols: [https]
+  note: Every published OpenAPI declares https only.

@@ -1,0 +1,93 @@
+generated: '2026-07-25'
+method: searched
+source: openapi/beazley-about-beazley-sandbox.yml, openapi/beazley-about-beazley.yml, openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml,
+  openapi/beazley-broker-and-insured-marketing-data-v2.yml, openapi/beazley-compliance-web-api.yml, openapi/beazley-currency-exchange-sandbox.yml,
+  openapi/beazley-currency-exchange.yml, openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml,
+  openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml, openapi/beazley-data-capture-quote-and-risk-data-v2.yml,
+  openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml, openapi/beazley-data-capture-quote-and-risk-data.yml
+  ...
+docs: https://developer.beazley.com/products
+model: api-key
+description: 'Every Beazley API is fronted by Azure API Management and secured with an APIM subscription
+  key. The key travels either in the Ocp-Apim-Subscription-Key request header or as a subscription-key
+  query parameter; both schemes are declared in all fourteen published OpenAPI documents and both are
+  accepted at the top level of every operation. There is no OAuth 2.0, no OpenID Connect and no mutual
+  TLS anywhere on the public surface: neither /.well-known/openid-configuration nor /.well-known/oauth-authorization-server
+  is served on any Beazley host.'
+obtaining_credentials:
+  self_serve_account: true
+  signup: https://developer.beazley.com/signup
+  signin: https://developer.beazley.com/signin
+  self_serve_key: false
+  approval_required: true
+  note: 'A developer account is self-serve — email and password, no partner SSO — and unlocks the full
+    catalog and every OpenAPI download. A usable key is not self-serve: all nine published APIM products
+    carry subscriptionRequired=true AND approvalRequired=true, and eight of nine cap subscriptionsLimit
+    at 1, so Beazley must approve each subscription before the gateway will answer.'
+  contact: ITArchitecture@Beazley.com
+evidence:
+- source: https://api.beazley.com/about/v1/people
+  status: 401
+  detail: 'WWW-Authenticate: AzureApiManagementKey realm="https://api.beazley.com/about/v1", name="Ocp-Apim-Subscription-Key",
+    type="header"'
+- source: https://beazley.management.azure-api.net/.../products?api-version=2022-04-01-preview
+  status: 200
+  detail: 'All nine published products: subscriptionRequired=true, approvalRequired=true.'
+- source: https://www.beazley.com/.well-known/openid-configuration
+  status: soft-404
+  detail: Falls through to the site 404 page; no OIDC metadata served.
+not_supported:
+- oauth2
+- openIdConnect
+- mutualTLS
+- http basic
+- http bearer
+- jwt
+scopes:
+  supported: false
+  note: API-key auth with no scope surface; authorisation is per-product subscription, not per-scope.
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: apiKeyHeader
+  type: apiKey
+  in: header
+  parameter: Ocp-Apim-Subscription-Key
+  sources:
+  - openapi/beazley-about-beazley-sandbox.yml
+  - openapi/beazley-about-beazley.yml
+  - openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml
+  - openapi/beazley-broker-and-insured-marketing-data-v2.yml
+  - openapi/beazley-compliance-web-api.yml
+  - openapi/beazley-currency-exchange-sandbox.yml
+  - openapi/beazley-currency-exchange.yml
+  - openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml
+  - openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
+  - openapi/beazley-data-capture-quote-and-risk-data-v2.yml
+  - openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml
+  - openapi/beazley-data-capture-quote-and-risk-data.yml
+  - openapi/beazley-fast-reader.yml
+  - openapi/beazley-simple-raters.yml
+- name: apiKeyQuery
+  type: apiKey
+  in: query
+  parameter: subscription-key
+  sources:
+  - openapi/beazley-about-beazley-sandbox.yml
+  - openapi/beazley-about-beazley.yml
+  - openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml
+  - openapi/beazley-broker-and-insured-marketing-data-v2.yml
+  - openapi/beazley-compliance-web-api.yml
+  - openapi/beazley-currency-exchange-sandbox.yml
+  - openapi/beazley-currency-exchange.yml
+  - openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml
+  - openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
+  - openapi/beazley-data-capture-quote-and-risk-data-v2.yml
+  - openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml
+  - openapi/beazley-data-capture-quote-and-risk-data.yml
+  - openapi/beazley-fast-reader.yml
+  - openapi/beazley-simple-raters.yml

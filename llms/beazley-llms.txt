@@ -1,0 +1,70 @@
+# Beazley
+
+> Beazley plc is a London-headquartered specialty insurer and one of the largest managing agents at Lloyd's of London, writing cyber and technology risks, professional indemnity, management liability, marine, political risk, contingency, environmental, healthcare and property. Unusually for a carrier, Beazley runs a real first-party developer portal at developer.beazley.com — an Azure API Management portal with self-serve account signup, a publicly browsable catalog of 14 published APIs across nine families, sandbox twins, and downloadable OpenAPI 3.0.1 for every one of them. The APIs are partner-and-broker oriented: risk and quote data capture into Beazley's core Record of Risk systems, broker and insured marketing data, compliance validation, currency exchange, a cyber test rater, and insurance-terms reference data.
+
+## How access works
+
+- Browsing the catalog and downloading every OpenAPI is anonymous — no account needed.
+- A developer account is self-serve at https://developer.beazley.com/signup (email + password, no partner SSO).
+- Calling the gateway is NOT self-serve. All nine Azure APIM products are subscriptionRequired=true AND approvalRequired=true, so Beazley must approve each subscription before a key works.
+- Auth is API key only: `Ocp-Apim-Subscription-Key` request header, or `subscription-key` query parameter. No OAuth 2.0, no OpenID Connect, no mutual TLS.
+- An unauthenticated call returns HTTP 401 with `WWW-Authenticate: AzureApiManagementKey realm="https://api.beazley.com/<path>", name="Ocp-Apim-Subscription-Key", type="header"`.
+- API questions go to ITArchitecture@Beazley.com — the address named in every published OpenAPI.
+
+## What is NOT on this surface
+
+- No bind, no policy issuance, no FNOL. Brokers bind through the gated myBeazley quote-and-bind portal; claims are notified by web form and email.
+- No webhooks, no events, no AsyncAPI, no GraphQL, no gRPC.
+- No SDKs on npm, PyPI or any other registry; no CLI; no public Postman collection.
+- No ACORD, AL3, IVANS or NGDS reference anywhere in the portal or the specs. Beazley's only ACORD linkage is market-level: it sat in Lloyd's seventeen-firm closed beta for the Blueprint Two Core Data Record.
+- No changelog, no deprecation policy, no roadmap, no SLA, no status page, no /.well-known/ documents.
+
+## APIs
+
+- [Data Capture: Quote and Risk Data v2](https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb): Feed quote and risk data from partner systems into Beazley's core Record of Risk systems. Base https://api.beazley.com/riskcapture/v2. Create/read/update risks plus a lockstate resource for concurrency.
+- [Data Capture: Quote and Risk Data v1](https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f): The original risk capture version, still published. Base https://api.beazley.com/riskcapture/v1.
+- [Data Capture: Quote and Risk Data v3 (pre-release)](https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152): Single create-risk operation under the Prerelease product, backed by an Azure Logic App. Base https://api.beazley.com/prerelease/riskcapture/v3.
+- [Compliance Web API](https://developer.beazley.com/api-details#api=58931347398455121c4a697f): Rule-driven compliance checks, broker agency/contact/product-line search, audit reporting and lookups, health check. Base https://api.beazley.com/compliance/v1.
+- [Broker and Insured Marketing Data v2](https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0): Organisations, contacts and microsites for Beazley's partner organisations, with paging and delta sync. Base https://api.beazley.com/marketing/v2.
+- [Currency Exchange](https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30): Standard FX rates, rate providers and supported currencies. Base https://api.beazley.com/fx/v1.
+- [About Beazley](https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf): People and divisions reference data, profile images, and a deleted-people feed for downstream sync. Base https://api.beazley.com/about/v1.
+- [Fast Reader](https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203): Insurance glossary definitions, FAQs by intent, product lookup by term. Sandbox-only. Base https://api.beazley.com/sandbox/fastreader/v1.
+- [Simple Raters](https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9): A single POST /Cyber rating operation, self-described as a rater for testing. Base https://api.beazley.com/hack/raters/v1.
+
+## Specs
+
+- [Data Capture v2 OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-data-capture-quote-and-risk-data-v2.yml)
+- [Data Capture v1 OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-data-capture-quote-and-risk-data.yml)
+- [Data Capture v3 pre-release OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml)
+- [Compliance Web API OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-compliance-web-api.yml)
+- [Broker and Insured Marketing Data v2 OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-broker-and-insured-marketing-data-v2.yml)
+- [Currency Exchange OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-currency-exchange.yml)
+- [About Beazley OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-about-beazley.yml)
+- [Fast Reader OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-fast-reader.yml)
+- [Simple Raters OpenAPI](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/openapi/beazley-simple-raters.yml)
+- Six sandbox twin specs are also published; see the sandbox artifact below.
+
+## Artifacts
+
+- [APIs.json index](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/apis.yml)
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/authentication/beazley-authentication.yml)
+- [API conventions](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/conventions/beazley-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/errors/beazley-problem-types.yml)
+- [Lifecycle and versioning](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/lifecycle/beazley-lifecycle.yml)
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/rate-limits/beazley-rate-limits.yml)
+- [Plans / APIM products](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/plans/beazley-plans.yml)
+- [Sandbox environments](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/sandbox/beazley-sandbox.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/data-model/beazley-data-model.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/conformance/beazley-conformance.yml)
+- [Candidate MCP tool manifest](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/mcp/beazley-mcp.yml)
+- [Tool crosswalk](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/mcp/beazley-tool-crosswalk.yml)
+- [Agent skills](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/skills/_index.yml)
+
+## Docs
+
+- [Developer portal](https://developer.beazley.com/)
+- [API catalog](https://developer.beazley.com/apis)
+- [Products and terms of use](https://developer.beazley.com/products)
+- [Sign up](https://developer.beazley.com/signup)
+- [Broker Centre](https://www.beazley.com/en-us/broker-centre)
+- [Beazley Security trust centre](https://trust.beazley.security/) — ISO/IEC 27001, ISO/IEC 27701, SOC 2 Type 2 for the Beazley Security subsidiary, NOT for the API platform.

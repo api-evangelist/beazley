@@ -1,0 +1,85 @@
+generated: '2026-07-25'
+method: searched
+source: https://developer.beazley.com/apis
+description: >-
+  Beazley runs genuine sandbox provisioning, which is unusual for a specialty carrier. Six of the
+  fourteen published APIs are sandbox twins served from https://api.beazley.com/sandbox/*, each with
+  its own OpenAPI, its own APIM product and its own approval flow, and every production spec
+  description explicitly tells developers to use the sandbox version "for initial development and
+  testing". Two further APIs (Fast Reader, Simple Raters) are published sandbox-only. There is no
+  test/live key prefix convention, no published test data, and no magic identifiers — sandbox and
+  production are separated by base path and by product, not by a key mode.
+separation:
+  model: separate-host-path-and-product
+  live_base: https://api.beazley.com/<family>/<version>
+  test_base: https://api.beazley.com/sandbox/<family>/<version>
+  key_prefixes: none
+  key_modes: none
+  note: >-
+    An Azure APIM subscription key is scoped to a product, and Development and Production are
+    different products, so a sandbox key simply cannot reach the production path.
+console:
+  available: true
+  url: https://developer.beazley.com/apis
+  note: >-
+    The Azure API Management developer portal ships an interactive API console per operation with
+    generated code samples in multiple languages. The console is browsable anonymously; issuing a
+    request from it requires an approved subscription key.
+environments:
+  - name: 'Data Capture: Quote and Risk Data (Sandbox)'
+    base_url: https://api.beazley.com/sandbox/riskcapture/v1
+    openapi: openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml
+    product: Policy Data Submission - Development
+    mirrors: openapi/beazley-data-capture-quote-and-risk-data.yml
+  - name: 'Data Capture: Quote and Risk Data v2 (Sandbox)'
+    base_url: https://api.beazley.com/sandbox/riskcapture/v2
+    openapi: openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
+    product: Policy Data Submission - Development
+    mirrors: openapi/beazley-data-capture-quote-and-risk-data-v2.yml
+  - name: Broker and Insured Marketing Data v2 (Sandbox)
+    base_url: https://api.beazley.com/sandbox/marketing/v2
+    openapi: openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml
+    product: Marketing Data - Development
+    mirrors: openapi/beazley-broker-and-insured-marketing-data-v2.yml
+  - name: Currency Exchange (Sandbox)
+    base_url: https://api.beazley.com/sandbox/fx/v1
+    openapi: openapi/beazley-currency-exchange-sandbox.yml
+    product: Reference Services - Development
+    mirrors: openapi/beazley-currency-exchange.yml
+  - name: About Beazley (Sandbox)
+    base_url: https://api.beazley.com/sandbox/about/v1
+    openapi: openapi/beazley-about-beazley-sandbox.yml
+    product: Beazley Public Data
+    mirrors: openapi/beazley-about-beazley.yml
+  - name: Fast Reader
+    base_url: https://api.beazley.com/sandbox/fastreader/v1
+    openapi: openapi/beazley-fast-reader.yml
+    product: Prerelease
+    mirrors: null
+    note: Published sandbox-only; there is no production Fast Reader path.
+  - name: Simple Raters
+    base_url: https://api.beazley.com/hack/raters/v1
+    openapi: openapi/beazley-simple-raters.yml
+    product: Prerelease
+    mirrors: null
+    note: >-
+      Not on the /sandbox/ path but explicitly a test surface — Beazley describes it as a "Set of
+      super-simple raters for testing" and it is sold through the Prerelease product.
+health_checks:
+  description: >-
+    Three families expose an unauthenticated-shaped ping/health operation useful for verifying a
+    sandbox subscription end to end before sending real risk data.
+  operations:
+    - openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml#5538d88d97fe1e0ff06f4247
+    - openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml#561e208f8097920ed881e641
+    - openapi/beazley-compliance-web-api.yml#5893134739845516588448cc
+test_data:
+  published: false
+  note: >-
+    No test risk payloads, test broker/organisation ids, test currency dates or magic identifiers are
+    published anywhere in the portal or the specs. Sandbox data is presumably seeded per partner at
+    approval time. Nothing is invented here.
+access:
+  self_serve: false
+  approval_required: true
+  note: The Development products are approval-gated exactly like the Production products.

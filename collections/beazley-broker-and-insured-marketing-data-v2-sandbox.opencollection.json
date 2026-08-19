@@ -1,0 +1,410 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Broker and Insured Marketing Data v2 (Sandbox)",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "contact (POST)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/contacts/",
+        "params": [
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "contact (POST)"
+    },
+    {
+      "info": {
+        "name": "contact (PUT)",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/Contacts/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "contact (PUT)"
+    },
+    {
+      "info": {
+        "name": "contact by id (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/contacts/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "contact by id (GET)"
+    },
+    {
+      "info": {
+        "name": "contacts (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/contacts",
+        "params": [
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query",
+            "description": "Your unique provider ID"
+          },
+          {
+            "name": "UpdatedSince",
+            "value": "",
+            "type": "query",
+            "description": "Returns records updated since this date"
+          },
+          {
+            "name": "PageNumber",
+            "value": "",
+            "type": "query",
+            "description": "Returns the results from page N"
+          },
+          {
+            "name": "RecordsPerPage",
+            "value": "",
+            "type": "query",
+            "description": "Sets the number of results per page. Maximum of 400"
+          }
+        ]
+      },
+      "docs": "contacts (GET)"
+    },
+    {
+      "info": {
+        "name": "contacts by microsite (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/microsites/:id/contacts",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "UpdatedSince",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "PageNumber",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "RecordsPerPage",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "contacts by microsite (GET)"
+    },
+    {
+      "info": {
+        "name": "contacts by organisation (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/organisations/:id/contacts",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "UpdatedSince",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "PageNumber",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "RecordsPerPage",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "contacts by organisation (GET)"
+    },
+    {
+      "info": {
+        "name": "microsites (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/microsites/",
+        "params": [
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "microsites (GET)"
+    },
+    {
+      "info": {
+        "name": "organisation by id (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/organisations/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query",
+            "description": "Your unique provider ID"
+          }
+        ]
+      },
+      "docs": "organisation by id (GET)"
+    },
+    {
+      "info": {
+        "name": "organisation (PUT)",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/organisations/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "organisation (PUT)"
+    },
+    {
+      "info": {
+        "name": "organisations (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/organisations",
+        "params": [
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query",
+            "description": "Your unique provider ID"
+          },
+          {
+            "name": "UpdatedSince",
+            "value": "",
+            "type": "query",
+            "description": "Returns records updated since this date"
+          },
+          {
+            "name": "PageNumber",
+            "value": "",
+            "type": "query",
+            "description": "Returns the results from page N"
+          },
+          {
+            "name": "RecordsPerPage",
+            "value": "",
+            "type": "query",
+            "description": "Sets the number of results per page. Maximum of 400"
+          },
+          {
+            "name": "AccessCode",
+            "value": "",
+            "type": "query",
+            "description": "Returns records that match a specific access code"
+          },
+          {
+            "name": "Domain",
+            "value": "",
+            "type": "query",
+            "description": "Returns records that match a specific domain"
+          },
+          {
+            "name": "ThirdPartyOrgRef",
+            "value": "",
+            "type": "query",
+            "description": "Returns records that match a specific third party ID"
+          }
+        ]
+      },
+      "docs": "organisations (GET)"
+    },
+    {
+      "info": {
+        "name": "organisations by microsite (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/microsites/:id/organisations",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Microsite ID"
+          },
+          {
+            "name": "ProviderID",
+            "value": "",
+            "type": "query",
+            "description": "Your unique provider ID"
+          },
+          {
+            "name": "UpdatedSince",
+            "value": "",
+            "type": "query",
+            "description": "Returns records updated since this date"
+          },
+          {
+            "name": "PageNumber",
+            "value": "",
+            "type": "query",
+            "description": "Returns the results from page N"
+          },
+          {
+            "name": "RecordsPerPage",
+            "value": "",
+            "type": "query",
+            "description": "Sets the number of results per page. Maximum of 400"
+          },
+          {
+            "name": "AccessCode",
+            "value": "",
+            "type": "query",
+            "description": "Returns records that match a specific access code"
+          }
+        ]
+      },
+      "docs": "organisations by microsite (GET)"
+    },
+    {
+      "info": {
+        "name": "ping (GET)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/ping/"
+      },
+      "docs": "Validation call to confirm that you can connect to the API."
+    },
+    {
+      "info": {
+        "name": "organisations (POST)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/sandbox/marketing/v2/organisations/:id/organisations",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "the key of the ‘parent’ organisation"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "organisations (POST)"
+    }
+  ],
+  "bundled": true
+}

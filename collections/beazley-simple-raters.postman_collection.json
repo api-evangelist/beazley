@@ -1,0 +1,137 @@
+{
+  "item": [
+    {
+      "id": "7c75fb37-6d59-4830-9cae-0d7374cd0d65",
+      "name": "Cyber",
+      "request": {
+        "name": "Cyber",
+        "description": {},
+        "url": {
+          "path": [
+            "Cyber"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "code",
+              "value": "49y4ld7h40vdpu0x098wptlnmil6iuut5ztq6sehzsihuuwhfrirjo3n2ft6w095e624d8fflxr",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customer\": \"Sodium Labs\",\n  \"address1\": \"123 Main St\",\n  \"address2\": \"x\",\n  \"city\": \"New York\",\n  \"countryISO\": \"US\",\n  \"turnover\": 250000,\n  \"PIlimit\": 50000,\n  \"buildingsOwned\": 1,\n  \"hazardclass\": 1,\n  \"IsRecruitmentAgent\": \"TRUE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "f25fa076-cc5f-40da-a4d8-261ef3f27ed0",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Cyber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "code",
+                  "value": "49y4ld7h40vdpu0x098wptlnmil6iuut5ztq6sehzsihuuwhfrirjo3n2ft6w095e624d8fflxr"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": \"Sodium Labs\",\n  \"address1\": \"123 Main St\",\n  \"address2\": \"x\",\n  \"city\": \"New York\",\n  \"countryISO\": \"US\",\n  \"turnover\": 250000,\n  \"PIlimit\": 50000,\n  \"buildingsOwned\": 1,\n  \"hazardclass\": 1,\n  \"IsRecruitmentAgent\": \"TRUE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.beazley.com/hack/raters/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "728a745f-dfbd-48ec-8319-993ee930972d",
+    "name": "Simple Raters",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Set of super-simple raters for testing.",
+      "type": "text/plain"
+    }
+  }
+}

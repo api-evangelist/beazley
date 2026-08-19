@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "0a0f1264-4fe4-4e51-bcd5-ab37a266188a",
+      "name": "Rates",
+      "request": {
+        "name": "Rates",
+        "description": {},
+        "url": {
+          "path": [
+            "rates"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "scurr",
+              "value": "<string>",
+              "description": "(Required) Source Currency"
+            },
+            {
+              "disabled": false,
+              "key": "dcurr",
+              "value": "<string>",
+              "description": "(Required) Destination Currency"
+            },
+            {
+              "disabled": false,
+              "key": "bcurr",
+              "value": "<string>",
+              "description": "Bridge Currency"
+            },
+            {
+              "disabled": false,
+              "key": "startdate",
+              "value": "<string>",
+              "description": "Rates from this date"
+            },
+            {
+              "disabled": false,
+              "key": "enddate",
+              "value": "<string>",
+              "description": "Rates to this date"
+            },
+            {
+              "disabled": false,
+              "key": "provider",
+              "value": "<string>",
+              "description": "Rate Provider"
+            },
+            {
+              "disabled": false,
+              "key": "amount",
+              "value": "<string>",
+              "description": "Amount"
+            },
+            {
+              "disabled": false,
+              "key": "divby",
+              "value": "<string>",
+              "description": "Multiply or divide by rate"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0fddc683-98dd-4015-a1a5-e75bf5d48e44",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "scurr",
+                  "value": "<string>"
+                },
+                {
+                  "key": "dcurr",
+                  "value": "<string>"
+                },
+                {
+                  "key": "bcurr",
+                  "value": "<string>"
+                },
+                {
+                  "key": "startdate",
+                  "value": "<string>"
+                },
+                {
+                  "key": "enddate",
+                  "value": "<string>"
+                },
+                {
+                  "key": "provider",
+                  "value": "<string>"
+                },
+                {
+                  "key": "amount",
+                  "value": "<string>"
+                },
+                {
+                  "key": "divby",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"StartDate\": \"2016-02-08T00:00:00.0000000+00:00\",\n  \"SourceCurrency\": \"GBP\",\n  \"DestinationCurrency\": \"USD\",\n  \"BridgeCurrency\": \"USD\",\n  \"ProviderCode\": \"boe\",\n  \"Rate\": 1.43678161,\n  \"CalculatedAmount\": 143.678161,\n  \"DivBy\": false,\n  \"DataFound\": true\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "30d9d372-0b28-4536-8e00-51710d8c53af",
+      "name": "Providers",
+      "request": {
+        "name": "Providers",
+        "description": {},
+        "url": {
+          "path": [
+            "providers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0b80b817-d06a-4e46-a73c-20701f944843",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "providers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"Id\": 1,\n    \"Code\": \"boe\",\n    \"Name\": \"Bank of England\"\n  },\n  {\n    \"Id\": 2,\n    \"Code\": \"oan\",\n    \"Name\": \"Oanda\"\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "47148602-6013-4aee-a08f-e457d0c9aed7",
+      "name": "Currencies",
+      "request": {
+        "name": "Currencies",
+        "description": {},
+        "url": {
+          "path": [
+            "currencies"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "19698bba-282a-45dd-b2d9-f322e305ecf1",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "currencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"ISOCode\": \"GBP\",\n    \"StartDate\": \"2015-12-02T00:00:00.0000000+00:00\"\n  },\n  {\n    \"ISOCode\": \"USD\",\n    \"StartDate\": \"2015-12-02T00:00:00.0000000+00:00\"\n  },\n  {\n    \"ISOCode\": \"EUR\",\n    \"StartDate\": \"2015-12-02T00:00:00.0000000+00:00\"\n  },\n  {\n    \"ISOCode\": \"RON\",\n    \"StartDate\": \"2015-12-02T00:00:00.0000000+00:00\"\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.beazley.com/sandbox/fx/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cead498b-e31d-4781-827b-5b8441c72d43",
+    "name": "Currency Exchange (Sandbox)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A sandbox version of the <b>Currency Exchange Rate</b> API. This API provides a standard set of exchange rates for Beazley systems.<br><br>\n\nPlease contact <a href=\"mailto:ITArchitecture@Beazley.com?Subject=FXAPI\">\nITArchitecture@Beazley.com</a> if you have any questions about this API.",
+      "type": "text/plain"
+    }
+  }
+}

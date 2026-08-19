@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Data Capture: Quote and Risk Data v2 (Sandbox)",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ping",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/riskcapture/v2/ping/"
+      },
+      "docs": "Validation call to confirm that you can connect to the API."
+    },
+    {
+      "info": {
+        "name": "risk",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/riskcapture/v2/risks/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "risk"
+    },
+    {
+      "info": {
+        "name": "update risk",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.beazley.com/sandbox/riskcapture/v2/risks/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Use the PUT method to update existing records. Note that the full risk object is required and any fields that are passed must have a value - blanks values will replace existing data with a empty string."
+    },
+    {
+      "info": {
+        "name": "create risk",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/sandbox/riskcapture/v2/risks/",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Use the POST method to create a new record."
+    },
+    {
+      "info": {
+        "name": "lockstate",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/riskcapture/v2/lockstate/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "lockstate"
+    },
+    {
+      "info": {
+        "name": "update lockstate",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.beazley.com/sandbox/riskcapture/v2/lockstate/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "update lockstate"
+    }
+  ],
+  "bundled": true
+}

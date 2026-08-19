@@ -1,0 +1,853 @@
+{
+  "item": [
+    {
+      "id": "c852e74f-e07f-409c-acec-6449d5c13b09",
+      "name": "check",
+      "request": {
+        "name": "check",
+        "description": {
+          "content": "Given the Input parameters run's a Compliance check based on the Rule determined by the System and Action properties in the parameters. The type of Compliance Check is determined based on the Plugins configured in the Rule. For example: If the rule specifies the LicenseValidationPlugin the Compliance Check will consist of validating if the provided BrokerContact/BrokerAgency has an appropriate license matching the query parameters in the input.\r\n             - Inputs\r\n            {\r\n                 \"Parameters\": \r\n            {\r\n                 \"System\":\"myBeazley\", -The system making the call -used to determine the Rule\r\n                 \"Action\":\"BrokerNewBusinessQuote\" - The action that triggers the call - used to determine the Rule\r\n                 The combination of System and Action determines a lookup to a JSON configuration that determines and specifies:\r\n                          1.ValidationRule - Which plugins will be executed for this query\r\n                          2.ValidationTransforms - How the data in Input is mapped for each / all / particualr Plugin that gets executed.\r\n                          3.AuditInputTransform - How the Auditing System will log(where / how is the data structured) the Input for this request\r\n                          4.AuditOutputTransform - How the Auditing system will log(where / how is the data structured) the Output for this request\r\n            },\r\n              \"Input\": -This input is valid for The BrokerLicensePlugin based on the JsonConfiguration refered in the System / Action secetion.\r\n             \"{\r\n                        \"agency\":\"3930\", - A UniqueId of the Broker Agency for which we want to check Broker Licenses\r\n                        \"productLine\":\"a0ee0bfb-a83e-e011-a864-0050568e000a\\\", - The Id of the Product Line for which we want to check licenses\r\n                        \"category\":\"admitted\", - The Business Category for which we want to check licenses.\r\n                        \"country\":\"US\", Tha Country for which we want to check licenses.\r\n                        \"state\":\"AK\", The applicable state for which we want to check licenses.\r\n                        \"insuredName\":\"John Doe\"\r\n             }\"\r\n             Auditing Feature for Compliance.Get's stored as part of the Audit (Input/Output) determined by the JSON Cofiguration specified in the System/Action section.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "check"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": []
+        }
+      },
+      "response": [
+        {
+          "id": "552bc2ce-662d-4047-ba16-67e6481491de",
+          "name": " - {\"Details\":[{\"Deferred\":false,\"Valid\":false,\"Description\":\"US Broker License Check Result for Broker Agency B21502043\",\"Type\":\"BrokerLicense\",\"SubType\":\"US\",\"CategoryCode\":\"BL_USA\",\"Errors\":[{\"Message\":\"No valid license found based on search parameters.\",\"Category\":\"BL_USA\",\"Code\":1000,\"Source\":\"ValidationEngine\"}]}],\"Valid\":false,\"Identifier\":\"7f7f0f4f-8112-49f4-bfc9-ac85b459e9c0\",\"Deferred\":[],\"IsAsync\":false,\"Errors\":[{\"Message\":\"No valid license found based on search parameters.\",\"Category\":\"BL_USA\",\"Code\":1000,\"Source\":\"ValidationEngine\"}],\"Warnings\":[]}",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Details\": [\n    {\n      \"Deferred\": false,\n      \"Valid\": true,\n      \"Description\": \"string\",\n      \"Type\": \"string\",\n      \"SubType\": \"string\",\n      \"CategoryCode\": \"string\",\n      \"Items\": [\n        {\n          \"Type\": \"string\",\n          \"Parameters\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"Type\": \"string\",\n          \"Parameters\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ],\n      \"Warnings\": [\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 6776,\n          \"Source\": \"string\"\n        },\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 3319,\n          \"Source\": \"string\"\n        }\n      ],\n      \"Errors\": [\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 9873,\n          \"Source\": \"string\"\n        },\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 7285,\n          \"Source\": \"string\"\n        }\n      ]\n    },\n    {\n      \"Deferred\": true,\n      \"Valid\": true,\n      \"Description\": \"string\",\n      \"Type\": \"string\",\n      \"SubType\": \"string\",\n      \"CategoryCode\": \"string\",\n      \"Items\": [\n        {\n          \"Type\": \"string\",\n          \"Parameters\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"Type\": \"string\",\n          \"Parameters\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ],\n      \"Warnings\": [\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 2855,\n          \"Source\": \"string\"\n        },\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 3127,\n          \"Source\": \"string\"\n        }\n      ],\n      \"Errors\": [\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 2330,\n          \"Source\": \"string\"\n        },\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 7652,\n          \"Source\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"Valid\": true,\n  \"Identifier\": \"string\",\n  \"Deferred\": [\n    \"string\",\n    \"string\"\n  ],\n  \"IsAsync\": true,\n  \"Errors\": [\n    {\n      \"Message\": \"string\",\n      \"Category\": \"string\",\n      \"Code\": 1101,\n      \"Source\": \"string\"\n    },\n    {\n      \"Message\": \"string\",\n      \"Category\": \"string\",\n      \"Code\": 4626,\n      \"Source\": \"string\"\n    }\n  ],\n  \"Warnings\": [\n    {\n      \"Message\": \"string\",\n      \"Category\": \"string\",\n      \"Code\": 8818,\n      \"Source\": \"string\"\n    },\n    {\n      \"Message\": \"string\",\n      \"Category\": \"string\",\n      \"Code\": 6732,\n      \"Source\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "30f2d29d-4ad9-4ef3-a69e-44fdb88b3cf7",
+          "name": "Error occurred in processing of the data!",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Details\": [\n    {\n      \"Deferred\": true,\n      \"Valid\": true,\n      \"Description\": \"string\",\n      \"Type\": \"string\",\n      \"SubType\": \"string\",\n      \"CategoryCode\": \"string\",\n      \"Items\": [\n        {\n          \"Type\": \"string\",\n          \"Parameters\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        },\n        {\n          \"Type\": \"string\",\n          \"Parameters\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ],\n      \"Warnings\": [\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 7475,\n          \"Source\": \"string\"\n        },\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 1002,\n          \"Source\": \"string\"\n        }\n      ],\n      \"Errors\": [\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 2045,\n          \"Source\": \"string\"\n        },\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 284,\n          \"Source\": \"string\"\n        }\n      ]\n    },\n    {\n      \"Deferred\": true,\n      \"Valid\": false,\n      \"Description\": \"string\",\n      \"Type\": \"string\",\n      \"SubType\": \"string\",\n      \"CategoryCode\": \"string\",\n      \"Items\": [\n        {\n          \"Type\": \"string\",\n          \"Parameters\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"Type\": \"string\",\n          \"Parameters\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        }\n      ],\n      \"Warnings\": [\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 4907,\n          \"Source\": \"string\"\n        },\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 7665,\n          \"Source\": \"string\"\n        }\n      ],\n      \"Errors\": [\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 7297,\n          \"Source\": \"string\"\n        },\n        {\n          \"Message\": \"string\",\n          \"Category\": \"string\",\n          \"Code\": 6822,\n          \"Source\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"Valid\": true,\n  \"Identifier\": \"string\",\n  \"Deferred\": [\n    \"string\",\n    \"string\"\n  ],\n  \"IsAsync\": true,\n  \"Errors\": [\n    {\n      \"Message\": \"string\",\n      \"Category\": \"string\",\n      \"Code\": 1793,\n      \"Source\": \"string\"\n    },\n    {\n      \"Message\": \"string\",\n      \"Category\": \"string\",\n      \"Code\": 7613,\n      \"Source\": \"string\"\n    }\n  ],\n  \"Warnings\": [\n    {\n      \"Message\": \"string\",\n      \"Category\": \"string\",\n      \"Code\": 8853,\n      \"Source\": \"string\"\n    },\n    {\n      \"Message\": \"string\",\n      \"Category\": \"string\",\n      \"Code\": 7991,\n      \"Source\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "bee53484-de5c-4b19-bf19-a1054b3afc7e",
+      "name": "search",
+      "request": {
+        "name": "search",
+        "description": {
+          "content": "The compliance search supports search for broker agencies, broker contacts and product lines. The search endpoint is used to Search Compliance Related entities for dispalying in UI controls. The query data is a custom DSL that is transformed to the CRM Query API.\r\n            - Inputs\r\n            {\r\n                       \"type\":\"broker\", - Specifies the Entity to Search.\r\n                       \"query\":\r\n            {\r\n                       \"select\":\"all\", - Return all results/properties\r\n                       \"from\":\"agency\", - Determine the type of Broker to search upon.Agency/Contact\r\n                       \"where\": - A collection of query operators that define the filters for this query.\r\n            [{\r\n                       \"property\":\"all\", -On which properties/ property this query operator will run against. \"all\" means that the query operator will be applied to all properties of Broker Agency\r\n                       \"operator\":\"like\", -The operator to be used in this query operation. Like / Equals / NotEqual / Contains\r\n                       \"value\":\"us\" - The value used in the Query Operator.\r\n            }]}} \r\n            -- The above example comes down to Returning Broker Agencies where any of the properties of the Broker Agency Like \"Us\"",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "search"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": []
+        }
+      },
+      "response": [
+        {
+          "id": "6bc1d93d-26be-48b7-a8e8-3447320b16d4",
+          "name": " - {\"Results\":[{\"ProductId\":\"a0ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Accident and Health\"},{\"ProductId\":\"95ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Architects and Engineers\"},{\"ProductId\":\"96ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Binding Authorities\"},{\"ProductId\":\"97ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Commercial Property\"},{\"ProductId\":\"98ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Contingency\"},{\"ProductId\":\"99ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Engineering and Builders Risk\"},{\"ProductId\":\"9aee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Environmental\"},{\"ProductId\":\"9bee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Fidelity and Crime\"},{\"ProductId\":\"9cee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Healthcare\"},{\"ProductId\":\"9dee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Homeowners\"},{\"ProductId\":\"9eee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Jewellers Block\"},{\"ProductId\":\"9fee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Lawyers\"},{\"ProductId\":\"a1ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Management Liability\"},{\"ProductId\":\"a3ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Marine Cargo\"},{\"ProductId\":\"a4ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Marine Energy\"},{\"ProductId\":\"a5ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Marine Hull\"},{\"ProductId\":\"a2ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Marine Liability\"},{\"ProductId\":\"a6ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Political\"},{\"ProductId\":\"e36293ab-320e-de11-9972-0050569534ff\",\"Name\":\"Property and Casualty\"},{\"ProductId\":\"a7ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Reinsurance\"},{\"ProductId\":\"a8ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Technology and Media\"},{\"ProductId\":\"a9ee0bfb-a83e-e011-a864-0050568e000a\",\"Name\":\"Terrorism\"},{\"ProductId\":\"087552e5-a784-e411-80eb-0050568e3e04\",\"Name\":\"Transaction Liability Buy Side\"},{\"ProductId\":\"5afbde53-a884-e411-80eb-0050568e3e04\",\"Name\":\"Transaction Liability Contingency\"},{\"ProductId\":\"f1513729-a884-e411-80eb-0050568e3e04\",\"Name\":\"Transaction Liability Sell Side\"},{\"ProductId\":\"ae5e8940-a884-e411-80eb-0050568e3e04\",\"Name\":\"Transaction Liability Tax\"}]}",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "dba23e08-09a9-498d-b891-61e49b14573f",
+          "name": "Error occurred in processing of the data!",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "778585bc-3569-43db-a036-ec5ddd978e8b",
+      "name": "report",
+      "request": {
+        "name": "report",
+        "description": {
+          "content": "For a given query object returns a collection of audit entries describing compliance checks that have been performed in the system. The parameters that can be passed to the audit report query are similar to the check parameters.Meaning that if we pass a specific product line the Audit Report will return Audit Entries for compliance checks that have been performed for that product. Additionally we can pass a Valid/Invalid/Both query parameter that will filter the Audit Entries based on the result of the compliance check.\r\n             - Inputs \r\n             {\r\n                 \"page\": 1,\r\n                 \"size\": 25,\r\n                 \"filter\": { - Filter contains the Audit Report Filters which separate into two groups.\r\n                 \"from\": \"2017-01-09T00:00:00.000Z\", - From what datetime did the compliance check happen.\r\n                 \"to\": \"2017-01-09T14:39:00.000Z\", - To what datetime did the compliance check happen.\r\n                 \"system\": \"Compliance.UI\", - From what system did the check happen.\r\n                 \"action\": \"RunChecks\", For what action\r\n                 \"user\": \"BFL\\traja\", For which user\r\n                 \"dataParameters\": {\r\n                          \"isValid\": \"\" - Empty string – Both valid and invalid\r\n                          True – only valid checks\r\n                          False – only invalid checks.\r\n             }\r\n            }}\r\n             These filters are dynamic and used to narrow down the search results.Here we can populate from a standard set of possible filters matching information relevant to a compliance check.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "report"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": []
+        }
+      },
+      "response": [
+        {
+          "id": "68056850-3b38-48c3-9569-42d1048f5f8c",
+          "name": " - {\"Entries\":[{\"Id\":\"ae25156e-9d67-4e7d-843c-5daf14c0d6a8\",\"Timestamp\":\"2017-01-09T09:03:26.337\",\"System\":\"Compliance.UI\",\"Action\":\"RunChecks\",\"User\":\"BFL\\traja\",\"Data\":\"{\"Request\":\"{\"Parameters\":{\"System\":\"Compliance.UI\",\"Action\":\"RunChecks\"},\"Input\":\"{\"agency\":\"B21502043\",\"contact\":\"BE1769054\",\"productLine\":\"96ee0bfb-a83e-e011-a864-0050568e000a\",\"category\":\"admitted\",\"country\":\"US\",\"state\":\"AL\",\"insuredName\":\"emir\"}\"}\",\"Response\":\"{\"Details\":[{\"Deferred\":false,\"Valid\":false,\"Description\":\"US Broker License Check Result for Broker Agency B21502043\",\"Type\":\"BrokerLicense\",\"SubType\":\"US\",\"CategoryCode\":\"BL_USA\",\"Errors\":[{\"Message\":\"No valid license found based on search parameters.\",\"Category\":\"BL_USA\",\"Code\":1000,\"Source\":\"ValidationEngine\"}]}],\"Valid\":false,\"Identifier\":\"555a41c6-741c-40d5-a6aa-d36af026dead\",\"Deferred\":[],\"IsAsync\":false,\"Errors\":[{\"Message\":\"No valid license found based on search parameters.\",\"Category\":\"BL_USA\",\"Code\":1000,\"Source\":\"ValidationEngine\"}],\"Warnings\":[]}\"}\",\"MetaData\":[{\"Key\":\"BrokerAgency\",\"Value\":\"B21502043\"},{\"Key\":\"BrokerContact\",\"Value\":\"BE1769054\"},{\"Key\":\"BusinessCategory\",\"Value\":\"admitted\"},{\"Key\":\"RiskCountry\",\"Value\":\"US\"},{\"Key\":\"RiskState\",\"Value\":\"AL\"},{\"Key\":\"InsuredName\",\"Value\":\"emir\"},{\"Key\":\"IsValid\",\"Value\":\"False\"}]}],\"TotalCount\":1,\"Page\":1,\"Size\":25}",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Entries\": [\n    {\n      \"Id\": \"string\",\n      \"Timestamp\": \"1971-01-19T20:04:08.514Z\",\n      \"System\": \"string\",\n      \"Action\": \"string\",\n      \"User\": \"string\",\n      \"Data\": \"string\",\n      \"MetaData\": [\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    {\n      \"Id\": \"string\",\n      \"Timestamp\": \"1987-06-19T09:11:18.939Z\",\n      \"System\": \"string\",\n      \"Action\": \"string\",\n      \"User\": \"string\",\n      \"Data\": \"string\",\n      \"MetaData\": [\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"TotalCount\": 7856,\n  \"Page\": 3489,\n  \"Size\": 9571\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "a7c1443b-2d12-4a21-8ad2-d26326660c28",
+          "name": "Error occurred in processing of the data!",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Entries\": [\n    {\n      \"Id\": \"string\",\n      \"Timestamp\": \"1950-12-08T22:33:56.381Z\",\n      \"System\": \"string\",\n      \"Action\": \"string\",\n      \"User\": \"string\",\n      \"Data\": \"string\",\n      \"MetaData\": [\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    {\n      \"Id\": \"string\",\n      \"Timestamp\": \"2013-05-17T08:16:00.236Z\",\n      \"System\": \"string\",\n      \"Action\": \"string\",\n      \"User\": \"string\",\n      \"Data\": \"string\",\n      \"MetaData\": [\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"TotalCount\": 6301,\n  \"Page\": 9369,\n  \"Size\": 9078\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7402cbf8-1de4-40bd-acb8-a3cdc06f783e",
+      "name": "getauditlookups",
+      "request": {
+        "name": "getauditlookups",
+        "description": {
+          "content": "The Audit Lookups endpoint is used to retrieve registry information relevant to performing lookups. For example it can be used with the key:”action” query to retrieve all possible action values for which Compliance Checks have happened with the purpose of displaying the actions in a dropdown list which the user can use to filter audit lookups. This matches the key with a column name in the Audits table and returns all unique values from all rows for that column. {\"key\":\"system\"} - The key matching the column",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "audit",
+            "lookups"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": []
+        }
+      },
+      "response": [
+        {
+          "id": "e76be428-80ad-4389-ad74-2e2a9c5099aa",
+          "name": " - Result (output)",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "audit",
+                "lookups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  \"string\",\n  \"string\"\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "4b633b4b-c803-4f2b-9c83-f6e55c861754",
+          "name": "Error occurred in processing of the data!",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "audit",
+                "lookups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  \"string\",\n  \"string\"\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "1be9ee05-1501-4135-9e0c-5d8674c003cf",
+      "name": "healthcheck",
+      "request": {
+        "name": "healthcheck",
+        "description": {
+          "content": "The HealthCheck endpoint is used to perform a general system healthcheck. It checks the operational status if integral parts of the system like the Validation Engine and databases. The query object  ( via the Settings Dictionary) can be used to specify which subcomponents of the system are going to be checked which can be for Compliance on of these values: case Contracts.Constants.Keys.COMPLIANCE_MANAGER case Contracts.Constants.Keys.RULES_DATA_ACCESS case Contracts.Constants.Keys.VALIDATION_ENGINE case Contracts.Constants.Keys.ALL_PLUGINS If for example the settings dictionary contains the key “CheckComponent” with the value “ValidationEngine” The health check will be performed only over the Validation Engine Component.\r\n            - Inputs\r\n             {\r\n            \t   \"Settings\": {\r\n            \t     \"HealthCheckOf\": \"ComplianceManager\", - What system is being checked\r\n            \t     \"ExecutedFrom\": \"ComplianceWebApi\", - Where are we making the check from\r\n            \t     \"CheckComponent\": \"ValidationEngine\" – The component we are checking matching on of the above Keys.\r\n            }}",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "health"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": []
+        }
+      },
+      "response": [
+        {
+          "id": "8edfedae-ced5-4fb2-9b9b-042e56964ce6",
+          "name": " - {\"Status\": \"HEALTHY\",\"Type\": \"ValidationEngine\"}",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Status\": \"string\",\n  \"Type\": \"string\",\n  \"Errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Warnings\": [\n    \"string\",\n    \"string\"\n  ],\n  \"InnerResult\": [\n    {\n      \"Status\": \"string\",\n      \"Type\": \"string\",\n      \"Errors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"Warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"InnerResult\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/IHealthCheckResult detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/IHealthCheckResult detected>\"\n        }\n      ]\n    },\n    {\n      \"Status\": \"string\",\n      \"Type\": \"string\",\n      \"Errors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"Warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"InnerResult\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/IHealthCheckResult detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/IHealthCheckResult detected>\"\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "dc42497c-68ea-4154-9d2a-fa0b6fdacbe8",
+          "name": "Error occurred in processing of the data!",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Status\": \"string\",\n  \"Type\": \"string\",\n  \"Errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Warnings\": [\n    \"string\",\n    \"string\"\n  ],\n  \"InnerResult\": [\n    {\n      \"Status\": \"string\",\n      \"Type\": \"string\",\n      \"Errors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"Warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"InnerResult\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/IHealthCheckResult detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/IHealthCheckResult detected>\"\n        }\n      ]\n    },\n    {\n      \"Status\": \"string\",\n      \"Type\": \"string\",\n      \"Errors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"Warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"InnerResult\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/IHealthCheckResult detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/IHealthCheckResult detected>\"\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "dcbd7d5a-409e-4bbc-8021-bf0f65ebf0f7",
+      "name": "getauditentry",
+      "request": {
+        "name": "getauditentry",
+        "description": {
+          "content": "Returns the details for a specific audit entry with the given id",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "audit"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "query.id",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "f4054892-0d68-4bce-86b7-821760879135",
+          "name": " - {\"Id\":\"ae25156e-9d67-4e7d-843c-5daf14c0d6a8\",\"Timestamp\":\"2017-01-09T09:03:26.337\",\"System\":\"Compliance.UI\",\"Action\":\"RunChecks\",\"User\":\"BFL\\traja\",\"Data\":\"{\"Request\":\"{\"Parameters\":{\"System\":\"Compliance.UI\",\"Action\":\"RunChecks\"},\"Input\":\"{\"agency\":\"B21502043\",\"contact\":\"BE1769054\",\"productLine\":\"96ee0bfb-a83e-e011-a864-0050568e000a\",\"category\":\"admitted\",\"country\":\"US\",\"state\":\"AL\",\"insuredName\":\"emir\"}\"}\",\"Response\":\"{\"Details\":[{\"Deferred\":false,\"Valid\":false,\"Description\":\"US Broker License Check Result for Broker Agency B21502043\",\"Type\":\"BrokerLicense\",\"SubType\":\"US\",\"CategoryCode\":\"BL_USA\",\"Errors\":[{\"Message\":\"No valid license found based on search parameters.\",\"Category\":\"BL_USA\",\"Code\":1000,\"Source\":\"ValidationEngine\"}]}],\"Valid\":false,\"Identifier\":\"555a41c6-741c-40d5-a6aa-d36af026dead\",\"Deferred\":[],\"IsAsync\":false,\"Errors\":[{\"Message\":\"No valid license found based on search parameters.\",\"Category\":\"BL_USA\",\"Code\":1000,\"Source\":\"ValidationEngine\"}],\"Warnings\":[]}\"}\",\"MetaData\":[{\"Key\":\"BrokerAgency\",\"Value\":\"B21502043\"},{\"Key\":\"BrokerContact\",\"Value\":\"BE1769054\"},{\"Key\":\"BusinessCategory\",\"Value\":\"admitted\"},{\"Key\":\"RiskCountry\",\"Value\":\"US\"},{\"Key\":\"RiskState\",\"Value\":\"AL\"},{\"Key\":\"InsuredName\",\"Value\":\"emir\"},{\"Key\":\"IsValid\",\"Value\":\"False\"}]}",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "audit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "query.id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Id\": \"string\",\n  \"Timestamp\": \"2018-04-08T05:29:22.770Z\",\n  \"System\": \"string\",\n  \"Action\": \"string\",\n  \"User\": \"string\",\n  \"Data\": \"string\",\n  \"MetaData\": [\n    {\n      \"key\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "b25a6a7c-2f14-4876-b634-edf5686f2eeb",
+          "name": "Error occurred in processing of the data!",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "audit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "query.id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Id\": \"string\",\n  \"Timestamp\": \"2018-04-08T05:29:22.770Z\",\n  \"System\": \"string\",\n  \"Action\": \"string\",\n  \"User\": \"string\",\n  \"Data\": \"string\",\n  \"MetaData\": [\n    {\n      \"key\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.beazley.com/compliance/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0c808346-a9b5-403f-860a-63ae6314031e",
+    "name": "Compliance Web API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An API that provides compliance validation check and compliance search features",
+      "type": "text/plain"
+    }
+  }
+}

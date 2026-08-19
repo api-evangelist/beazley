@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Data Capture: Quote and Risk Data v3 (pre-release)",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "create risk",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/prerelease/riskcapture/v3/risks/",
+        "headers": [
+          {
+            "name": "Event-Type",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "create risk"
+    }
+  ],
+  "bundled": true
+}

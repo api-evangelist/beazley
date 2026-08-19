@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Compliance Web API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "check",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/compliance/v1/check",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Given the Input parameters run's a Compliance check based on the Rule determined by the System and Action properties in the parameters. The type of Compliance Check is determined based on the Plugins configured in the Rule. For example: If the rule specifies the LicenseValidationPlugin the Compliance Check will consist of validating if the provided BrokerContact/BrokerAgency has an appropriate license matching the query parameters in the input.\r\n             - Inputs\r\n            {\r\n            "
+    },
+    {
+      "info": {
+        "name": "search",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/compliance/v1/search",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "The compliance search supports search for broker agencies, broker contacts and product lines. The search endpoint is used to Search Compliance Related entities for dispalying in UI controls. The query data is a custom DSL that is transformed to the CRM Query API.\r\n            - Inputs\r\n            {\r\n                       \"type\":\"broker\", - Specifies the Entity to Search.\r\n                       \"query\":\r\n            {\r\n                       \"select\":\"all\", - Return all results/properties\r\n   "
+    },
+    {
+      "info": {
+        "name": "report",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/compliance/v1/report",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "For a given query object returns a collection of audit entries describing compliance checks that have been performed in the system. The parameters that can be passed to the audit report query are similar to the check parameters.Meaning that if we pass a specific product line the Audit Report will return Audit Entries for compliance checks that have been performed for that product. Additionally we can pass a Valid/Invalid/Both query parameter that will filter the Audit Entries based on the result"
+    },
+    {
+      "info": {
+        "name": "getauditlookups",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/compliance/v1/audit/lookups",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "The Audit Lookups endpoint is used to retrieve registry information relevant to performing lookups. For example it can be used with the key:”action” query to retrieve all possible action values for which Compliance Checks have happened with the purpose of displaying the actions in a dropdown list which the user can use to filter audit lookups. This matches the key with a column name in the Audits table and returns all unique values from all rows for that column. {\"key\":\"system\"} - The key matchi"
+    },
+    {
+      "info": {
+        "name": "healthcheck",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/compliance/v1/health",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "The HealthCheck endpoint is used to perform a general system healthcheck. It checks the operational status if integral parts of the system like the Validation Engine and databases. The query object  ( via the Settings Dictionary) can be used to specify which subcomponents of the system are going to be checked which can be for Compliance on of these values: case Contracts.Constants.Keys.COMPLIANCE_MANAGER case Contracts.Constants.Keys.RULES_DATA_ACCESS case Contracts.Constants.Keys.VALIDATION_ENG"
+    },
+    {
+      "info": {
+        "name": "getauditentry",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/compliance/v1/audit",
+        "params": [
+          {
+            "name": "query.id",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns the details for a specific audit entry with the given id"
+    }
+  ],
+  "bundled": true
+}

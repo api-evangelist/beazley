@@ -1,0 +1,1543 @@
+{
+  "item": [
+    {
+      "id": "a32c5451-afb9-4079-a5ae-6ca600bc967c",
+      "name": "contact (POST)",
+      "request": {
+        "name": "contact (POST)",
+        "description": {},
+        "url": {
+          "path": [
+            "contacts",
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Contact\": {\n    \"EmailAddress\": \"rita.foster79@example.com\",\n    \"FirstName\": \"Rita\",\n    \"LastName\": \"Foster\",\n    \"OrganisationId\": \"9a89d986-f907-4b7b-87c3-50aac2040c64\",\n    \"JobTitle\": \"Health Inspector\",\n    \"MobilePhoneNumber\": \"(859)-931-4822\",\n    \"TelephoneNumber\": \"(484)-496-6034\",\n    \"CreatedOn\": \"2014-10-20\",\n    \"IsActive\": true,\n    \"Industry\": \"Education\",\n    \"FocusArea\": \"Risk Management\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "bcda553e-53c0-4c5b-9229-04dbcb6f5956",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Contact\": {\n    \"EmailAddress\": \"rita.foster79@example.com\",\n    \"FirstName\": \"Rita\",\n    \"LastName\": \"Foster\",\n    \"OrganisationId\": \"9a89d986-f907-4b7b-87c3-50aac2040c64\",\n    \"JobTitle\": \"Health Inspector\",\n    \"MobilePhoneNumber\": \"(859)-931-4822\",\n    \"TelephoneNumber\": \"(484)-496-6034\",\n    \"CreatedOn\": \"2014-10-20\",\n    \"IsActive\": true,\n    \"Industry\": \"Education\",\n    \"FocusArea\": \"Risk Management\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Id\": \"4254e883-55f5-e411-80ff-0050568e7c76\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "aac127ec-9750-4c01-b902-ec17063da492",
+      "name": "contact (PUT)",
+      "request": {
+        "name": "contact (PUT)",
+        "description": {},
+        "url": {
+          "path": [
+            "Contacts",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "PUT",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Contact\": {\n    \"EmailAddress\": \"rita.foster79@example.com\",\n    \"FirstName\": \"Rita\",\n    \"LastName\": \"Foster\",\n    \"JobTitle\": \"Health Inspector\",\n    \"MobilePhoneNumber\": \"(859)-931-4822\",\n    \"TelephoneNumber\": \"(484)-496-6034\",\n    \"IsActive\": true,\n    \"Industry\": \"Education\",\n    \"FocusArea\": \"Risk Management\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "b64ef07b-6f46-4ef3-9af3-55e607e2cfdd",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Contact\": {\n    \"EmailAddress\": \"rita.foster79@example.com\",\n    \"FirstName\": \"Rita\",\n    \"LastName\": \"Foster\",\n    \"JobTitle\": \"Health Inspector\",\n    \"MobilePhoneNumber\": \"(859)-931-4822\",\n    \"TelephoneNumber\": \"(484)-496-6034\",\n    \"IsActive\": true,\n    \"Industry\": \"Education\",\n    \"FocusArea\": \"Risk Management\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "9331462e-2de2-4b38-b56c-bcf7a2def13c",
+      "name": "contact by id (GET)",
+      "request": {
+        "name": "contact by id (GET)",
+        "description": {},
+        "url": {
+          "path": [
+            "contacts",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "bd62ee21-4baf-42de-9c46-fbdda4075d6e",
+          "name": "<h4>Model</h4>\n<pre>\nContacts\n{\n     \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the contact,</font>\n     \"EmailAddress\" (string, <b>required</b>): <font color=\"brown\">Email address of the contact,</font>\n     \"FirstName\" (string, <b>required</b>): <font color=\"brown\">Given name of the contact,</font>\n     \"JobTitle\" (string, <b>optional</b>): <font color=\"brown\">Job title of the contact,</font>\n     \"LastName\" (string, <b>required</b>): <font color=\"brown\">Surname of the contact,</font>\n     \"MobilePhoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Mobile telephone number of the contact,</font>\n     \"TelephoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Groundline telephone number of the contact,</font>\n     \"CreatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was created,</font>\n     \"UpdatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was last updated,</font>\n     \"OrganisationId\" (string, <b>required</b>): <font color=\"brown\">id of the organisation linked to the contact,</font>\n     \"IsActive\" (boolean, <b>optional</b>): <font color=\"brown\">Active indicator,</font>\n     \"Industry\" (string, <b>optional</b>): <font color=\"brown\">Industry description,</font>\n     \"FocusArea\" (string, optional): <font color=\"brown\">Focus area.</font>\n     \"MicroSiteSubscriptions\": \n     [\n     {\n     \"SubscriberId\" (string, <b>optional</b>): <font color=\"brown\">Unique id of the microsite subscription,</font>\n          \"MicroSite\": \n          {\n               \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the microsite,</font>\n               \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the microsite</font> \n          },\n          \"StartDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription starts,</font>\n          \"EndDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription ends,</font>\n          \"PolicyType\" (string, <b>optional</b>): <font color=\"brown\">The policy renewal status: 0 for new, 1 for renewal,</font>\n     }\n     ]\n}\n</pre>",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"PageNumber\": 1,\n  \"Contacts\": [\n    {\n      \"Id\": \"50f80afd-7fee-e411-80ff-0050568e7c76\",\n      \"EmailAddress\": \"rita.foster79@example.com\",\n      \"FirstName\": \"Rita\",\n      \"JobTitle\": \"Health Inspector\",\n      \"LastName\": \"Foster\",\n      \"MobilePhoneNumber\": \"(859)-931-4822\",\n      \"TelephoneNumber\": \"(484)-496-6034\",\n      \"CreatedOn\": \"2015-04-29T14:57:08.0000000+00:00\",\n      \"UpdatedOn\": \"2015-04-29T14:58:47.0000000+00:00\",\n      \"OrganisationId\": \"838a6fce-a2ed-e411-80ff-0050568e7c76\",\n      \"IsActive\": true,\n      \"Industry\": \"Technology\",\n      \"FocusArea\": \"Risk Management\",\n      \"MicroSiteSubscriptions\": [\n        {\n          \"SubscriberId\": \"50f80afd-7fee-e411-80ff-0050568e7c76\",\n          \"MicroSite\": {\n            \"Id\": \"861d97ca-fdee-e411-80ff-0050568e7c76\",\n            \"Name\": \"Breach Solutions\"\n          },\n          \"StartDate\": \"2015-03-31T23:00:00.0000000+00:00\",\n          \"EndDate\": \"2016-03-31T23:00:00.0000000+00:00\",\n          \"PolicyType\": 0\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "bc13cfe0-201c-4bb0-a605-78522ddf052f",
+      "name": "contacts (GET)",
+      "request": {
+        "name": "contacts (GET)",
+        "description": {},
+        "url": {
+          "path": [
+            "contacts"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) Your unique provider ID"
+            },
+            {
+              "disabled": false,
+              "key": "UpdatedSince",
+              "value": "<string>",
+              "description": "Returns records updated since this date"
+            },
+            {
+              "disabled": false,
+              "key": "PageNumber",
+              "value": "<string>",
+              "description": "Returns the results from page N"
+            },
+            {
+              "disabled": false,
+              "key": "RecordsPerPage",
+              "value": "<string>",
+              "description": "Sets the number of results per page. Maximum of 400"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "d76cba87-bbac-4dc3-8d10-f8c3e4c247d2",
+          "name": "<h4>Model</h4>\n<pre>\nContacts\n{\n     \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the contact,</font>\n     \"EmailAddress\" (string, <b>required</b>): <font color=\"brown\">Email address of the contact,</font>\n     \"FirstName\" (string, <b>required</b>): <font color=\"brown\">Given name of the contact,</font>\n     \"JobTitle\" (string, <b>optional</b>): <font color=\"brown\">Job title of the contact,</font>\n     \"LastName\" (string, <b>required</b>): <font color=\"brown\">Surname of the contact,</font>\n     \"MobilePhoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Mobile telephone number of the contact,</font>\n     \"TelephoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Groundline telephone number of the contact,</font>\n     \"CreatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was created,</font>\n     \"UpdatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was last updated,</font>\n     \"OrganisationId\" (string, <b>required</b>): <font color=\"brown\">id of the organisation linked to the contact,</font>\n     \"IsActive\" (boolean, <b>optional</b>): <font color=\"brown\">Active indicator,</font>\n     \"Industry\" (string, <b>optional</b>): <font color=\"brown\">Industry description,</font>\n     \"FocusArea\" (string, optional): <font color=\"brown\">Focus area.</font>\n     \"MicroSiteSubscriptions\": \n     [\n     {\n     \"SubscriberId\" (string, <b>optional</b>): <font color=\"brown\">Unique id of the microsite subscription,</font>\n          \"MicroSite\": \n          {\n               \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the microsite,</font>\n               \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the microsite</font> \n          },\n          \"StartDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription starts,</font>\n          \"EndDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription ends,</font>\n          \"PolicyType\" (string, <b>optional</b>): <font color=\"brown\">The policy renewal status: 0 for new, 1 for renewal,</font>\n     }\n     ]\n}\n</pre>",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                },
+                {
+                  "key": "UpdatedSince",
+                  "value": "<string>"
+                },
+                {
+                  "key": "PageNumber",
+                  "value": "<string>"
+                },
+                {
+                  "key": "RecordsPerPage",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"PageNumber\": 1,\n  \"Contacts\": [\n    {\n      \"Id\": \"50f80afd-7fee-e411-80ff-0050568e7c76\",\n      \"EmailAddress\": \"rita.foster79@example.com\",\n      \"FirstName\": \"Rita\",\n      \"JobTitle\": \"Health Inspector\",\n      \"LastName\": \"Foster\",\n      \"MobilePhoneNumber\": \"(859)-931-4822\",\n      \"TelephoneNumber\": \"(484)-496-6034\",\n      \"CreatedOn\": \"2015-04-29T14:57:08.0000000+00:00\",\n      \"UpdatedOn\": \"2015-04-29T14:58:47.0000000+00:00\",\n      \"OrganisationId\": \"838a6fce-a2ed-e411-80ff-0050568e7c76\",\n      \"IsActive\": true,\n      \"Industry\": \"Technology\",\n      \"FocusArea\": \"Risk Management\",\n      \"MicroSiteSubscriptions\": [\n        {\n          \"SubscriberId\": \"50f80afd-7fee-e411-80ff-0050568e7c76\",\n          \"MicroSite\": {\n            \"Id\": \"861d97ca-fdee-e411-80ff-0050568e7c76\",\n            \"Name\": \"Breach Solutions\"\n          },\n          \"StartDate\": \"2015-03-31T23:00:00.0000000+00:00\",\n          \"EndDate\": \"2016-03-31T23:00:00.0000000+00:00\",\n          \"PolicyType\": 0\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cd44eb11-2329-4ccc-a685-9c4e7e3dd4d9",
+      "name": "contacts by microsite (GET)",
+      "request": {
+        "name": "contacts by microsite (GET)",
+        "description": {},
+        "url": {
+          "path": [
+            "microsites",
+            ":id",
+            "contacts"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "UpdatedSince",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "PageNumber",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "RecordsPerPage",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4103ac3c-631e-4680-96ab-e8aff994f993",
+          "name": "<h4>Model</h4>\n<pre>\nContacts\n{\n     \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the contact,</font>\n     \"EmailAddress\" (string, <b>required</b>): <font color=\"brown\">Email address of the contact,</font>\n     \"FirstName\" (string, <b>required</b>): <font color=\"brown\">Given name of the contact,</font>\n     \"JobTitle\" (string, <b>optional</b>): <font color=\"brown\">Job title of the contact,</font>\n     \"LastName\" (string, <b>required</b>): <font color=\"brown\">Surname of the contact,</font>\n     \"MobilePhoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Mobile telephone number of the contact,</font>\n     \"TelephoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Groundline telephone number of the contact,</font>\n     \"CreatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was created,</font>\n     \"UpdatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was last updated,</font>\n     \"OrganisationId\" (string, <b>required</b>): <font color=\"brown\">id of the organisation linked to the contact,</font>\n     \"IsActive\" (boolean, <b>optional</b>): <font color=\"brown\">Active indicator,</font>\n     \"Industry\" (string, <b>optional</b>): <font color=\"brown\">Industry description,</font>\n     \"FocusArea\" (string, optional): <font color=\"brown\">Focus area,</font>\n     \"MicroSiteSubscriptions\": \n     [\n     {\n     \"SubscriberId\" (string, <b>optional</b>): <font color=\"brown\">Unique id of the microsite subscription,</font>\n          \"MicroSite\": \n          {\n               \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the microsite,</font>\n               \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the microsite</font> \n          },\n          \"StartDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription starts,</font>\n          \"EndDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription ends,</font>\n          \"PolicyType\" (string, <b>optional</b>): <font color=\"brown\">The policy renewal status: 0 for new, 1 for renewal,</font>\n     }\n     ]\n}\n</pre>",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "microsites",
+                ":id",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                },
+                {
+                  "key": "UpdatedSince",
+                  "value": "<string>"
+                },
+                {
+                  "key": "PageNumber",
+                  "value": "<string>"
+                },
+                {
+                  "key": "RecordsPerPage",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"PageNumber\": 1,\n  \"Contacts\": [\n    {\n      \"Id\": \"50f80afd-7fee-e411-80ff-0050568e7c76\",\n      \"EmailAddress\": \"rita.foster79@example.com\",\n      \"FirstName\": \"Rita\",\n      \"JobTitle\": \"Health Inspector\",\n      \"LastName\": \"Foster\",\n      \"MobilePhoneNumber\": \"(859)-931-4822\",\n      \"TelephoneNumber\": \"(484)-496-6034\",\n      \"CreatedOn\": \"2015-04-29T14:57:08.0000000+00:00\",\n      \"UpdatedOn\": \"2015-04-29T14:58:47.0000000+00:00\",\n      \"OrganisationId\": \"838a6fce-a2ed-e411-80ff-0050568e7c76\",\n      \"IsActive\": true,\n      \"Industry\": \"Technology\",\n      \"FocusArea\": \"Risk Management\",\n      \"MicroSiteSubscriptions\": [\n        {\n          \"SubscriberId\": \"50f80afd-7fee-e411-80ff-0050568e7c76\",\n          \"MicroSite\": {\n            \"Id\": \"861d97ca-fdee-e411-80ff-0050568e7c76\",\n            \"Name\": \"Breach Solutions\"\n          },\n          \"StartDate\": \"2015-03-31T23:00:00.0000000+00:00\",\n          \"EndDate\": \"2016-03-31T23:00:00.0000000+00:00\",\n          \"PolicyType\": 0\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "93b148c6-e676-4700-9e70-bee442f01fc1",
+      "name": "contacts by organisation (GET)",
+      "request": {
+        "name": "contacts by organisation (GET)",
+        "description": {},
+        "url": {
+          "path": [
+            "organisations",
+            ":id",
+            "contacts"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "UpdatedSince",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "PageNumber",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "RecordsPerPage",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1cd64544-a700-4a4e-984c-d53abfe68d33",
+          "name": "<h4>Model</h4>\n<pre>\nContacts\n{\n     \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the contact,</font>\n     \"EmailAddress\" (string, <b>required</b>): <font color=\"brown\">Email address of the contact,</font>\n     \"FirstName\" (string, <b>required</b>): <font color=\"brown\">Given name of the contact,</font>\n     \"JobTitle\" (string, <b>optional</b>): <font color=\"brown\">Job title of the contact,</font>\n     \"LastName\" (string, <b>required</b>): <font color=\"brown\">Surname of the contact,</font>\n     \"MobilePhoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Mobile telephone number of the contact,</font>\n     \"TelephoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Groundline telephone number of the contact,</font>\n     \"CreatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was created,</font>\n     \"UpdatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was last updated,</font>\n     \"OrganisationId\" (string, <b>required</b>): <font color=\"brown\">id of the organisation linked to the contact,</font>\n     \"IsActive\" (boolean, <b>optional</b>): <font color=\"brown\">Active indicator,</font>\n     \"Industry\" (string, <b>optional</b>): <font color=\"brown\">Industry description,</font>\n     \"FocusArea\" (string, optional): <font color=\"brown\">Focus area,</font>\n     \"MicroSiteSubscriptions\": \n     [\n     {\n     \"SubscriberId\" (string, <b>optional</b>): <font color=\"brown\">Unique id of the microsite subscription,</font>\n          \"MicroSite\": \n          {\n               \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the microsite,</font>\n               \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the microsite</font> \n          },\n          \"StartDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription starts,</font>\n          \"EndDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription ends,</font>\n          \"PolicyType\" (string, <b>optional</b>): <font color=\"brown\">The policy renewal status: 0 for new, 1 for renewal,</font>\n     }\n     ]\n}\n</pre>",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "organisations",
+                ":id",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                },
+                {
+                  "key": "UpdatedSince",
+                  "value": "<string>"
+                },
+                {
+                  "key": "PageNumber",
+                  "value": "<string>"
+                },
+                {
+                  "key": "RecordsPerPage",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"PageNumber\": 1,\n  \"Contacts\": [\n    {\n      \"Id\": \"50f80afd-7fee-e411-80ff-0050568e7c76\",\n      \"EmailAddress\": \"rita.foster79@example.com\",\n      \"FirstName\": \"Rita\",\n      \"JobTitle\": \"Health Inspector\",\n      \"LastName\": \"Foster\",\n      \"MobilePhoneNumber\": \"(859)-931-4822\",\n      \"TelephoneNumber\": \"(484)-496-6034\",\n      \"CreatedOn\": \"2015-04-29T14:57:08.0000000+00:00\",\n      \"UpdatedOn\": \"2015-04-29T14:58:47.0000000+00:00\",\n      \"OrganisationId\": \"838a6fce-a2ed-e411-80ff-0050568e7c76\",\n      \"IsActive\": true,\n      \"Industry\": \"Technology\",\n      \"FocusArea\": \"Risk Management\",\n      \"MicroSiteSubscriptions\": [\n        {\n          \"SubscriberId\": \"50f80afd-7fee-e411-80ff-0050568e7c76\",\n          \"MicroSite\": {\n            \"Id\": \"861d97ca-fdee-e411-80ff-0050568e7c76\",\n            \"Name\": \"Breach Solutions\"\n          },\n          \"StartDate\": \"2015-03-31T23:00:00.0000000+00:00\",\n          \"EndDate\": \"2016-03-31T23:00:00.0000000+00:00\",\n          \"PolicyType\": 0\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0f884e8e-881f-4a5f-aa84-29e93be41bd9",
+      "name": "microsites (GET)",
+      "request": {
+        "name": "microsites (GET)",
+        "description": {},
+        "url": {
+          "path": [
+            "microsites",
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "23bf1a77-6fc4-4eb2-9fc3-7432b14b6923",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "microsites",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"Id\": \"e3af7404-9d73-44d2-b5c1-2b4785ad8130\",\n    \"Name\": \"NoDataBreach.com\"\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d96b4d2a-8826-49aa-85b8-82d571e33716",
+      "name": "organisation (PUT)",
+      "request": {
+        "name": "organisation (PUT)",
+        "description": {},
+        "url": {
+          "path": [
+            "organisations",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "PUT",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Organisation\": {\n    \"Name\": \"Rook Industries\",\n    \"NAICSCode\": \"541618\",\n    \"IsActive\": \"True\",\n    \"Address\": {\n      \"CityTown\": \"Cambridge\",\n      \"Country\": \"United States\",\n      \"FloorOrSuite\": \"2\",\n      \"Line1\": \"77 Massachusetts Avenue\",\n      \"Line2\": \"Building A\",\n      \"Line3\": \"\",\n      \"StateCountyProvince\": \"MA\",\n      \"PostZipCode\": \"02139\"\n    }\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "8bde8ede-8f2e-4d94-befc-085967dd549d",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "organisations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Organisation\": {\n    \"Name\": \"Rook Industries\",\n    \"NAICSCode\": \"541618\",\n    \"IsActive\": \"True\",\n    \"Address\": {\n      \"CityTown\": \"Cambridge\",\n      \"Country\": \"United States\",\n      \"FloorOrSuite\": \"2\",\n      \"Line1\": \"77 Massachusetts Avenue\",\n      \"Line2\": \"Building A\",\n      \"Line3\": \"\",\n      \"StateCountyProvince\": \"MA\",\n      \"PostZipCode\": \"02139\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "9baef61d-63a8-4220-8444-d48caf5938b8",
+      "name": "organisation by id (GET)",
+      "request": {
+        "name": "organisation by id (GET)",
+        "description": {},
+        "url": {
+          "path": [
+            "organisations",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) Your unique provider ID"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8b2bc803-2f4a-40c1-ac55-b9d8d8384380",
+          "name": "<h4>Model</h4>\n<pre>\nOrganisations\n{\n     \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the organisation,</font>\n     \"NAICSCode\" (string, <b>required</b>): <font color=\"brown\">NAICS classification code of the organisation,</font>\n     \"Address\"  (string, <b>required</b>): <font color=\"brown\">Primary address of the organisation,</font>\n     {\n          \"CityTown\": \"Cambridge\",\n          \"Country\": \"United States\",\n          \"FloorOrSuite\": \"2\",\n          \"Line1\": \"12345 Main Street\",\n          \"Line2\": \"Suite 125\",\n          \"Line3\": null,\n          \"StateCountyProvince\": \"MA\",\n          \"PostZipCode\": \"02139\"\n     },\n     \"IsActive\"  (string, <b>optional</b>): <font color=\"brown\">Organisation active indicator,</font>\n}\n</pre>",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "organisations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"Organisation\": {\n      \"Id\": \"4781dc2e-d980-4a32-8158-937a06423005\",\n      \"MarketSegment\": 1,\n      \"Name\": \"Rook Industries\",\n      \"NAICSCode\": \"541618\",\n      \"AccessCode\": \"touqng\",\n      \"ThirdPartyOrgRef\": \"ABC123XYZ\",\n      \"Domain\": \"www.rook.com\",\n      \"IsActive\": true,\n      \"Programs\": [\n        {\n          \"Name\": \"BBR Select\"\n        }\n      ],\n      \"Address\": {\n        \"CityTown\": \"Cambridge\",\n        \"Country\": \"United States\",\n        \"FloorOrSuite\": \"2\",\n        \"Line1\": \"77 Massachusetts Avenue\",\n        \"Line2\": \"Building A\",\n        \"Line3\": \"\",\n        \"StateCountyProvince\": \"MA\",\n        \"PostZipCode\": \"02139\"\n      }\n    }\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5c9ea0c8-1ebe-4415-8c8e-b61c778bc0c0",
+      "name": "organisations (GET)",
+      "request": {
+        "name": "organisations (GET)",
+        "description": {},
+        "url": {
+          "path": [
+            "organisations"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) Your unique provider ID"
+            },
+            {
+              "disabled": false,
+              "key": "UpdatedSince",
+              "value": "<string>",
+              "description": "Returns records updated since this date"
+            },
+            {
+              "disabled": false,
+              "key": "PageNumber",
+              "value": "<string>",
+              "description": "Returns the results from page N"
+            },
+            {
+              "disabled": false,
+              "key": "RecordsPerPage",
+              "value": "<string>",
+              "description": "Sets the number of results per page. Maximum of 400"
+            },
+            {
+              "disabled": false,
+              "key": "AccessCode",
+              "value": "<string>",
+              "description": "Returns records that match a specific access code"
+            },
+            {
+              "disabled": false,
+              "key": "Domain",
+              "value": "<string>",
+              "description": "Returns records that match a specific domain"
+            },
+            {
+              "disabled": false,
+              "key": "ThirdPartyOrgRef",
+              "value": "<string>",
+              "description": "Returns records that match a specific third party ID"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5469f374-cad6-4323-b2ed-76b337a51458",
+          "name": "<h4>Model</h4>\n<pre>\nOrganisations\n{\n     \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the organisation,</font>\n     \"NAICSCode\" (string, <b>required</b>): <font color=\"brown\">NAICS classification code of the organisation,</font>\n     \"Address\"  (string, <b>required</b>): <font color=\"brown\">Primary address of the organisation,</font>\n     {\n          \"CityTown\": \"Cambridge\",\n          \"Country\": \"United States\",\n          \"FloorOrSuite\": \"2\",\n          \"Line1\": \"12345 Main Street\",\n          \"Line2\": \"Suite 125\",\n          \"Line3\": null,\n          \"StateCountyProvince\": \"MA\",\n          \"PostZipCode\": \"02139\"\n     },\n     \"IsActive\"  (string, <b>optional</b>): <font color=\"brown\">Organisation active indicator,</font>\n}\n</pre>",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "organisations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                },
+                {
+                  "key": "UpdatedSince",
+                  "value": "<string>"
+                },
+                {
+                  "key": "PageNumber",
+                  "value": "<string>"
+                },
+                {
+                  "key": "RecordsPerPage",
+                  "value": "<string>"
+                },
+                {
+                  "key": "AccessCode",
+                  "value": "<string>"
+                },
+                {
+                  "key": "Domain",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ThirdPartyOrgRef",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"Organisation\": {\n      \"Id\": \"4781dc2e-d980-4a32-8158-937a06423005\",\n      \"MarketSegment\": 1,\n      \"Name\": \"Rook Industries\",\n      \"NAICSCode\": \"541618\",\n      \"AccessCode\": \"touqng\",\n      \"ThirdPartyOrgRef\": \"ABC123XYZ\",\n      \"Domain\": \"www.rook.com\",\n      \"IsActive\": true,\n      \"Programs\": [\n        {\n          \"Name\": \"BBR Select\"\n        }\n      ],\n      \"Address\": {\n        \"CityTown\": \"Cambridge\",\n        \"Country\": \"United States\",\n        \"FloorOrSuite\": \"2\",\n        \"Line1\": \"77 Massachusetts Avenue\",\n        \"Line2\": \"Building A\",\n        \"Line3\": \"\",\n        \"StateCountyProvince\": \"MA\",\n        \"PostZipCode\": \"02139\"\n      }\n    }\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "871d3f47-cdbf-41d3-80d5-ee2518e5fc68",
+      "name": "organisations by microsite (GET)",
+      "request": {
+        "name": "organisations by microsite (GET)",
+        "description": {},
+        "url": {
+          "path": [
+            "microsites",
+            ":id",
+            "organisations"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "ProviderID",
+              "value": "<string>",
+              "description": "(Required) Your unique provider ID"
+            },
+            {
+              "disabled": false,
+              "key": "UpdatedSince",
+              "value": "<string>",
+              "description": "Returns records updated since this date"
+            },
+            {
+              "disabled": false,
+              "key": "PageNumber",
+              "value": "<string>",
+              "description": "Returns the results from page N"
+            },
+            {
+              "disabled": false,
+              "key": "RecordsPerPage",
+              "value": "<string>",
+              "description": "Sets the number of results per page. Maximum of 400"
+            },
+            {
+              "disabled": false,
+              "key": "AccessCode",
+              "value": "<string>",
+              "description": "Returns records that match a specific access code"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Microsite ID"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "3e693983-7226-4b2c-b2c1-0d7bc57876d4",
+          "name": "<h4>Model</h4>\n<pre>\nOrganisations\n{\n     \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the organisation,</font>\n     \"NAICSCode\" (string, <b>required</b>): <font color=\"brown\">NAICS classification code of the organisation,</font>\n     \"Address\"  (string, <b>required</b>): <font color=\"brown\">Primary address of the organisation,</font>\n     {\n          \"CityTown\": \"Cambridge\",\n          \"Country\": \"United States\",\n          \"FloorOrSuite\": \"2\",\n          \"Line1\": \"12345 Main Street\",\n          \"Line2\": \"Suite 125\",\n          \"Line3\": null,\n          \"StateCountyProvince\": \"MA\",\n          \"PostZipCode\": \"02139\"\n     },\n     \"IsActive\"  (string, <b>optional</b>): <font color=\"brown\">Organisation active indicator,</font>\n}\n</pre>",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "microsites",
+                ":id",
+                "organisations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "ProviderID",
+                  "value": "<string>"
+                },
+                {
+                  "key": "UpdatedSince",
+                  "value": "<string>"
+                },
+                {
+                  "key": "PageNumber",
+                  "value": "<string>"
+                },
+                {
+                  "key": "RecordsPerPage",
+                  "value": "<string>"
+                },
+                {
+                  "key": "AccessCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Microsite ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"Organisation\": {\n      \"Id\": \"4781dc2e-d980-4a32-8158-937a06423005\",\n      \"MarketSegment\": 1,\n      \"Name\": \"Rook Industries\",\n      \"NAICSCode\": \"541618\",\n      \"AccessCode\": \"touqng\",\n      \"ThirdPartyOrgRef\": \"ABC123XYZ\",\n      \"Domain\": \"www.rook.com\",\n      \"IsActive\": true,\n      \"Programs\": [\n        {\n          \"Name\": \"BBR Select\"\n        }\n      ],\n      \"Address\": {\n        \"CityTown\": \"Cambridge\",\n        \"Country\": \"United States\",\n        \"FloorOrSuite\": \"2\",\n        \"Line1\": \"77 Massachusetts Avenue\",\n        \"Line2\": \"Building A\",\n        \"Line3\": \"\",\n        \"StateCountyProvince\": \"MA\",\n        \"PostZipCode\": \"02139\"\n      }\n    }\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cc0dba32-9667-4838-a23d-54cea00c24b6",
+      "name": "ping (GET)",
+      "request": {
+        "name": "ping (GET)",
+        "description": {
+          "content": "Validation call to confirm that you can connect to the API.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "ping",
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/plain"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6bbc2d73-4ffe-42cc-808d-972db837ad6f",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "ping",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "Achievement Unlocked. You have successfully called the Beazley Marketing API.",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7c91f7f3-0ed7-4cf4-a139-943bcc8f830f",
+      "name": "organisations (POST)",
+      "request": {
+        "name": "organisations (POST)",
+        "description": {},
+        "url": {
+          "path": [
+            "organisations",
+            ":id",
+            "organisations"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) the key of the ‘parent’ organisation"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"Name\": \"A N Other Ltd\",\n    \"DoingBusinessAs\": \"A N Other Trading Ltd\",\n    \"UniqueReference\": \"GH/t336334\",\n    \"StartDate\": \"2016-01-01T00:00:00.0000000+00:00\",\n    \"ExpiryDate\": \"2016-12-31T00:00:00.0000000+00:00\",\n    \"CancellationDate\": null\n  },\n  {\n    \"Name\": \"A and J Skips\",\n    \"DoingBusinessAs\": \"A and J Skips \",\n    \"UniqueReference\": \"1000000082\",\n    \"StartDate\": \"2016-05-01T00:00:00.0000000+00:00\",\n    \"ExpiryDate\": \"2017-05-31T00:00:00.0000000+00:00\",\n    \"CancellationDate\": null\n  }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "cd0ddfa4-9d90-4c7c-93f4-75a1c5b480b9",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "organisations",
+                ":id",
+                "organisations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) the key of the ‘parent’ organisation"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"Name\": \"A N Other Ltd\",\n    \"DoingBusinessAs\": \"A N Other Trading Ltd\",\n    \"UniqueReference\": \"GH/t336334\",\n    \"StartDate\": \"2016-01-01T00:00:00.0000000+00:00\",\n    \"ExpiryDate\": \"2016-12-31T00:00:00.0000000+00:00\",\n    \"CancellationDate\": null\n  },\n  {\n    \"Name\": \"A and J Skips\",\n    \"DoingBusinessAs\": \"A and J Skips \",\n    \"UniqueReference\": \"1000000082\",\n    \"StartDate\": \"2016-05-01T00:00:00.0000000+00:00\",\n    \"ExpiryDate\": \"2017-05-31T00:00:00.0000000+00:00\",\n    \"CancellationDate\": null\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.beazley.com/sandbox/marketing/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "68888a39-acfa-4959-ad4d-9fb6dad59876",
+    "name": "Broker and Insured Marketing Data v2 (Sandbox)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A sandbox version of the <b>Broker and Insured Marketing Data v2</b> API. This API provides marketing details for Beazley's partner organisations.<br><br>\n\nPlease contact <a href=\"mailto:ITArchitecture@Beazley.com?Subject=MarketingData\">\nITArchitecture@Beazley.com</a> if you have any questions about this API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "About Beazley (Sandbox)",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "people",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/about/v1/people",
+        "params": [
+          {
+            "name": "division",
+            "value": "",
+            "type": "query",
+            "description": "Gets an array of people filtered by the specified division ID"
+          },
+          {
+            "name": "firstNameFragment",
+            "value": "",
+            "type": "query",
+            "description": "Gets an array of people whose first name contains the specified fragment"
+          },
+          {
+            "name": "lastNameFragment",
+            "value": "",
+            "type": "query",
+            "description": "Gets an array of people whose last name contains the specified fragment"
+          },
+          {
+            "name": "since",
+            "value": "",
+            "type": "query",
+            "description": "Gets an array of people updated since a date/time (format ISO 8601)"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "<p>The base URL returns the collection of all Beazley people profiles. Individual people profiles can be returned by including the resource ID in the URL.\n</p>\nFor example:<br>\n<b>/people</b> returns the full collection set.<br>\n<b>/people/1</b> returns the individual person record.<br>"
+    },
+    {
+      "info": {
+        "name": "person by ID",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/about/v1/people/:rid",
+        "params": [
+          {
+            "name": "rid",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Individual people profiles can be returned by including the resource ID in the URL."
+    },
+    {
+      "info": {
+        "name": "profileimage by ID",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/about/v1/people/profileimage",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Individual people profiles pictures can be returned by including the resource ID in the URL. Note that there is no collection response for this operation.<br>\n<br>\n<b>Tip:</b> The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes."
+    },
+    {
+      "info": {
+        "name": "deleted people",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/about/v1/People/deleted/",
+        "params": [
+          {
+            "name": "since",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "deleted people"
+    },
+    {
+      "info": {
+        "name": "profileimage by email",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/sandbox/about/v1/people/profileimagebyemail/",
+        "params": [
+          {
+            "name": "email",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Individual people profiles pictures can be returned by including the resource email in the URL. Note that there is no collection response for this operation.<br>\n<br>\n<b>Tip:</b> The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes."
+    }
+  ],
+  "bundled": true
+}

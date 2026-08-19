@@ -1,0 +1,147 @@
+{
+  "item": [
+    {
+      "id": "09b727f5-024e-4d26-ac0f-447ddb7c8a82",
+      "name": "create risk",
+      "request": {
+        "name": "create risk",
+        "description": {},
+        "url": {
+          "path": [
+            "risks",
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) Categorisation of the event type - for example ms.mybeazley.risksubmission",
+            "key": "Event-Type",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "aee7d525-28f1-4c12-aef3-d505925f778a",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "risks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Categorisation of the event type - for example ms.mybeazley.risksubmission",
+                "key": "Event-Type",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CallbackURI\": \"https://callme.api/abhe/\",\n  \"RiskId\": null,\n  \"TransactionDateTimeUTC\": \"2015-06-09T12:00:00.0000000+00:00\",\n  \"TransactionSequenceId\": 1,\n  \"TransactionType\": \"Create\",\n  \"SourceSystem\": \"myBeazley\",\n  \"RiskUniqueId\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\",\n  \"RiskReference\": \"ABC124\",\n  \"OriginalId\": null,\n  \"RiskStatus\": \"Quoted\",\n  \"CancellationReasonId\": null,\n  \"PolicyHolderIndividual\": null,\n  \"Turnover\": null,\n  \"Employees\": null,\n  \"CancellationDate\": null,\n  \"ProductId\": \"PI UK\",\n  \"BzyRiskReference\": \"BZY65479321\",\n  \"Underwriter\": \"Tom Jones\",\n  \"AnnualisedGrossPremium\": 31750,\n  \"PrimaryCurrency\": \"USD\",\n  \"BenchmarkPricingIndicator\": 0.8,\n  \"Parties\": [\n    {\n      \"Type\": \"PrimaryInsured\",\n      \"CustomerId\": null,\n      \"Name\": \"Rook Industries\",\n      \"Parent\": null,\n      \"PrimarySector\": \"Industrial Technology & Research\",\n      \"TechSector\": true,\n      \"PrimaryContact\": \"Sebastian Rooks\",\n      \"PrimaryContactEmail\": \"sebastian@rook.com\",\n      \"PrimaryContactPhone\": \"(140)-640-8191\",\n      \"PrimaryAddress\": {\n        \"CityTown\": \"Cambridge\",\n        \"Country\": \"USA\",\n        \"FloorOrSuite\": \"2\",\n        \"Line1\": \"77 Massachusetts Avenue\",\n        \"Line2\": \"Building A\",\n        \"Line3\": null,\n        \"StateCountyProvince\": \"MA\",\n        \"PostZipCode\": \"02139\"\n      }\n    },\n    {\n      \"Type\": \"PlacingBroker\",\n      \"CustomerId\": null,\n      \"Name\": \"Joseph & Joseph, London UK\",\n      \"Parent\": \"Joseph & Joseph\",\n      \"PrimarySector\": null,\n      \"TechSector\": false,\n      \"PrimaryContact\": \"Sam Spade\",\n      \"PrimaryContactEmail\": \"sam.spade@jj.com\",\n      \"PrimaryContactPhone\": \"(140)-555-5555\",\n      \"PrimaryAddress\": {\n        \"CityTown\": \"London\",\n        \"Country\": \"GBR\",\n        \"FloorOrSuite\": \"\",\n        \"Line1\": null,\n        \"Line2\": null,\n        \"Line3\": null,\n        \"StateCountyProvince\": null,\n        \"PostZipCode\": null\n      }\n    },\n    {\n      \"Type\": \"ProducingBroker\",\n      \"CustomerId\": null,\n      \"Name\": \"Nimlane, Boston MA\",\n      \"Parent\": \"Nimlane USA\",\n      \"PrimarySector\": null,\n      \"TechSector\": false,\n      \"PrimaryContact\": \"Tiffany Harrison\",\n      \"PrimaryContactEmail\": \"tharrison@nimlane.com\",\n      \"PrimaryContactPhone\": \"(916)-975-8644\",\n      \"PrimaryAddress\": {\n        \"CityTown\": \"Boston\",\n        \"Country\": \"USA\",\n        \"FloorOrSuite\": null,\n        \"Line1\": null,\n        \"Line2\": null,\n        \"Line3\": null,\n        \"StateCountyProvince\": \"MA\",\n        \"PostZipCode\": null\n      }\n    }\n  ],\n  \"Sections\": [\n    {\n      \"SectionUniqueId\": null,\n      \"SectionReference\": \"001\",\n      \"SectionSequenceID\": 1,\n      \"CoverageName\": \"Buildings\",\n      \"CreationDate\": \"2014-10-20T00:00:00.0000000+00:00\",\n      \"BindDate\": \"2014-10-20T00:00:00.0000000+00:00\",\n      \"InceptionDate\": \"2014-11-20T00:00:00.0000000+00:00\",\n      \"ExpiryDate\": \"2015-11-20T00:00:00.0000000+00:00\",\n      \"RetroactiveDate\": \"2010-10-20T00:00:00.0000000+00:00\",\n      \"EndorsementEffectiveDateFrom\": null,\n      \"EndorsementEffectiveDateTo\": null,\n      \"SectionStatus\": \"Quoted\",\n      \"Currency\": \"USD\",\n      \"GrossPremium\": 1111111.99,\n      \"NetPremium\": null,\n      \"Commissions\": [\n        {\n          \"Type\": \"PlacingBroker\",\n          \"Rate\": 0.03,\n          \"TaxableAmount\": 25000,\n          \"Amount\": 750\n        },\n        {\n          \"Type\": \"ProducingBroker\",\n          \"Rate\": 0.03,\n          \"TaxableAmount\": 25000,\n          \"Amount\": 750\n        }\n      ],\n      \"Taxes\": [\n        {\n          \"Type\": \"State fire tax\",\n          \"Rate\": 0.07,\n          \"TaxableAmount\": 25000,\n          \"Amount\": 1750\n        },\n        {\n          \"Type\": \"GST\",\n          \"Rate\": 0.2,\n          \"TaxableAmount\": 25000,\n          \"Amount\": 5000\n        }\n      ],\n      \"Limits\": [\n        {\n          \"Type\": \"Limit per Claim, expenses in addition\",\n          \"Amount\": 100000\n        },\n        {\n          \"Type\": \"Limit per Claim, expenses in addition\",\n          \"Amount\": 25000\n        }\n      ],\n      \"Links\": [\n        {\n          \"Rel\": \"inbody_asset\",\n          \"Link_id\": \"100001\",\n          \"href\": \"/riskcapture/v3/risks/606ab36d-292a-4ebd-9357-f6ec598c240c/assets/100001\"\n        }\n      ],\n      \"Questions\": [\n        {\n          \"Question_id\": \"bzy_10012\",\n          \"Question\": \"Wine Expiring Sum Insured\",\n          \"Response\": 1500000\n        }\n      ]\n    }\n  ],\n  \"Assets\": [\n    {\n      \"Type\": \"FixedLocation\",\n      \"AssetId\": \"100001\",\n      \"Name\": \"Rook Tower\",\n      \"Description\": \"250 story tower block in central New York\",\n      \"Parent\": null,\n      \"Value\": 900500000,\n      \"ValueCurrency\": \"USD\",\n      \"PrimaryLocation\": {\n        \"CityTown\": \"New York\",\n        \"Country\": \"USA\",\n        \"FloorOrSuite\": null,\n        \"Line1\": \"1 Main Avenue\",\n        \"Line2\": \"Rook Tower\",\n        \"Line3\": null,\n        \"StateCountyProvince\": \"NY\",\n        \"PostZipCode\": \"10001\",\n        \"Latitude\": null,\n        \"Longitude\": null\n      },\n      \"Links\": [\n        {\n          \"Rel\": \"inbody_section\",\n          \"Link_id\": \"001\",\n          \"href\": \"/riskcapture/v3/risks/606ab36d-292a-4ebd-9357-f6ec598c240c/sections/001\"\n        }\n      ],\n      \"PrimaryContact\": \"Sebastian Rooks\",\n      \"PrimaryContactEmail\": \"sebastian@rook.com\",\n      \"PrimaryContactPhone\": \"(140)-640-8191\",\n      \"Questions\": [\n        {\n          \"Question_id\": \"bzy_10001\",\n          \"Question\": \"Wall Construction Type\",\n          \"Response\": \"diamond reinforced carbon-fibre\"\n        },\n        {\n          \"Question_id\": \"bzy_10002\",\n          \"Question\": \"Construction Start Date\",\n          \"Response\": \"2011-01-11T00:00:00.0000000+00:00\"\n        },\n        {\n          \"Question_id\": \"bzy_10003\",\n          \"Question\": \"Construction End Date\",\n          \"Response\": \"2012-12-18T00:00:00.0000000+00:00\"\n        },\n        {\n          \"Question_id\": \"bzy_10004\",\n          \"Question\": \"Property or Grounds open to public\",\n          \"Response\": true\n        }\n      ]\n    }\n  ],\n  \"Installments\": [\n    {\n      \"PaymentType\": \"Unknown\",\n      \"PaymentCurrency\": \"USD\",\n      \"PaymentDueDate\": \"2014-10-25T00:00:00.0000000+00:00\",\n      \"GrossPremiumAmount\": 2645.99,\n      \"CommissionPercentage\": 0.03,\n      \"CommissionAmount\": 100.99,\n      \"NetPremium\": 100000.99,\n      \"TaxandFeesPremium\": 1000.99,\n      \"FinalTotal\": 1000000.99\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"callback\": \"https://callme.api/abhe/\",\n  \"response\": \"item stored to queue\",\n  \"source\": \"myBeazley\",\n  \"uniqueId\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.beazley.com/prerelease/riskcapture/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fc418ac0-d1c2-4901-99bc-fe4ea98ca673",
+    "name": "Data Capture: Quote and Risk Data v3 (pre-release)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A pre-release version of the <b>Data Capture</b> API. This API provides a channel for partner systems to feed quote and risk data directly into Beazley's core Record of Risk systems. The current published version of this API is V2.",
+      "type": "text/plain"
+    }
+  }
+}

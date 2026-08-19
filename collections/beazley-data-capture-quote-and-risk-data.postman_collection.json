@@ -1,0 +1,547 @@
+{
+  "item": [
+    {
+      "id": "1dc02529-089c-4c80-b315-b6b5ec6e40f9",
+      "name": "ping",
+      "request": {
+        "name": "ping",
+        "description": {
+          "content": "Validation call to confirm that you can connect to the API.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "ping",
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a221ea04-7bd9-4195-85b8-ef3ec3cd009d",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "ping",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "8fadaabf-3753-4660-b574-572235aa9a20",
+      "name": "risk",
+      "request": {
+        "name": "risk",
+        "description": {},
+        "url": {
+          "path": [
+            "risks",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "39f4beb6-5093-4e0a-80c4-4f174b1deaef",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "risks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2df3929d-deaf-4c52-9b73-0c158fe99a7b",
+      "name": "update risk",
+      "request": {
+        "name": "update risk",
+        "description": {
+          "content": "Use the PUT method to update existing records. Note that the full risk object is required and any fields that are passed must have a value - blanks values will replace existing data with a empty string.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "risks",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "PUT",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"SourceSystem\": \"myBeazley\",\n  \"RiskUniqueID\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\",\n  \"RiskReference\": \"ABC1234\",\n  \"BzyRiskReference\": \"BZY65479321\",\n  \"Underwriter\": \"Tom Jones\",\n  \"PlacingBrokerID\": \"ff0513fe-c363-4d8d-903a-36e936ac50d9\",\n  \"PlacingBrokerGroup\": \"Joseph & Joseph\",\n  \"PlacingBrokerContact\": \"Sam Spade\",\n  \"PlacingBrokerStateProvince\": \"London\",\n  \"PlacingBrokerCountry\": \"GBR\",\n  \"PlacingBrokerBranchName\": \"Joseph & Joseph, London UK\",\n  \"ProducingBrokerID\": \"df5da783-33bc-4e42-a25a-1879abc5c51a\",\n  \"ProducingBrokerGroup\": \"Sunway Brokerage\",\n  \"ProducingBrokerContact\": \"Thomas Callaway\",\n  \"ProducingBrokerStateProvince\": \"CA\",\n  \"ProducingBrokerCountry\": \"USA\",\n  \"ProducingBrokerBranchName\": \"Sunway, San Francisco - CA\",\n  \"InsuredID\": \"7ce92886-b75f-4db6-996c-c5ec8ce4e1a7\",\n  \"InsuredName\": \"Rook Industries\",\n  \"InsuredContact\": \"Sebastian Rooks\",\n  \"InsuredContactEmail\": \"sebastian@rook.com\",\n  \"InsuredCity\": \"San Francisco\",\n  \"InsuredStateProvince\": \"CA\",\n  \"InsuredCountry\": \"USA\",\n  \"Sections\": [\n    {\n      \"SectionUniqueID\": \"34c1dae2-e255-4ff1-b41a-0d8834b5474b\",\n      \"SectionReference\": \"001\",\n      \"SectionSequenceID\": \"1\",\n      \"CoverageName\": \"Breach\",\n      \"ClassOfBusinessCode\": \"WX\",\n      \"CreationDate\": \"2014-10-20\",\n      \"InceptionDate\": \"2014-11-25\",\n      \"ExpiryDate\": \"2015-11-24\",\n      \"SectionStatus\": \"Bound\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "d0a8ef0a-7825-461c-90f6-91828b66dc99",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "risks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SourceSystem\": \"myBeazley\",\n  \"RiskUniqueID\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\",\n  \"RiskReference\": \"ABC1234\",\n  \"BzyRiskReference\": \"BZY65479321\",\n  \"Underwriter\": \"Tom Jones\",\n  \"PlacingBrokerID\": \"ff0513fe-c363-4d8d-903a-36e936ac50d9\",\n  \"PlacingBrokerGroup\": \"Joseph & Joseph\",\n  \"PlacingBrokerContact\": \"Sam Spade\",\n  \"PlacingBrokerStateProvince\": \"London\",\n  \"PlacingBrokerCountry\": \"GBR\",\n  \"PlacingBrokerBranchName\": \"Joseph & Joseph, London UK\",\n  \"ProducingBrokerID\": \"df5da783-33bc-4e42-a25a-1879abc5c51a\",\n  \"ProducingBrokerGroup\": \"Sunway Brokerage\",\n  \"ProducingBrokerContact\": \"Thomas Callaway\",\n  \"ProducingBrokerStateProvince\": \"CA\",\n  \"ProducingBrokerCountry\": \"USA\",\n  \"ProducingBrokerBranchName\": \"Sunway, San Francisco - CA\",\n  \"InsuredID\": \"7ce92886-b75f-4db6-996c-c5ec8ce4e1a7\",\n  \"InsuredName\": \"Rook Industries\",\n  \"InsuredContact\": \"Sebastian Rooks\",\n  \"InsuredContactEmail\": \"sebastian@rook.com\",\n  \"InsuredCity\": \"San Francisco\",\n  \"InsuredStateProvince\": \"CA\",\n  \"InsuredCountry\": \"USA\",\n  \"Sections\": [\n    {\n      \"SectionUniqueID\": \"34c1dae2-e255-4ff1-b41a-0d8834b5474b\",\n      \"SectionReference\": \"001\",\n      \"SectionSequenceID\": \"1\",\n      \"CoverageName\": \"Breach\",\n      \"ClassOfBusinessCode\": \"WX\",\n      \"CreationDate\": \"2014-10-20\",\n      \"InceptionDate\": \"2014-11-25\",\n      \"ExpiryDate\": \"2015-11-24\",\n      \"SectionStatus\": \"Bound\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "034b4f09-833c-4da6-a75b-82e99a685a66",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "risks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SourceSystem\": \"myBeazley\",\n  \"RiskUniqueID\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\",\n  \"RiskReference\": \"ABC1234\",\n  \"BzyRiskReference\": \"BZY65479321\",\n  \"Underwriter\": \"Tom Jones\",\n  \"PlacingBrokerID\": \"ff0513fe-c363-4d8d-903a-36e936ac50d9\",\n  \"PlacingBrokerGroup\": \"Joseph & Joseph\",\n  \"PlacingBrokerContact\": \"Sam Spade\",\n  \"PlacingBrokerStateProvince\": \"London\",\n  \"PlacingBrokerCountry\": \"GBR\",\n  \"PlacingBrokerBranchName\": \"Joseph & Joseph, London UK\",\n  \"ProducingBrokerID\": \"df5da783-33bc-4e42-a25a-1879abc5c51a\",\n  \"ProducingBrokerGroup\": \"Sunway Brokerage\",\n  \"ProducingBrokerContact\": \"Thomas Callaway\",\n  \"ProducingBrokerStateProvince\": \"CA\",\n  \"ProducingBrokerCountry\": \"USA\",\n  \"ProducingBrokerBranchName\": \"Sunway, San Francisco - CA\",\n  \"InsuredID\": \"7ce92886-b75f-4db6-996c-c5ec8ce4e1a7\",\n  \"InsuredName\": \"Rook Industries\",\n  \"InsuredContact\": \"Sebastian Rooks\",\n  \"InsuredContactEmail\": \"sebastian@rook.com\",\n  \"InsuredCity\": \"San Francisco\",\n  \"InsuredStateProvince\": \"CA\",\n  \"InsuredCountry\": \"USA\",\n  \"Sections\": [\n    {\n      \"SectionUniqueID\": \"34c1dae2-e255-4ff1-b41a-0d8834b5474b\",\n      \"SectionReference\": \"001\",\n      \"SectionSequenceID\": \"1\",\n      \"CoverageName\": \"Breach\",\n      \"ClassOfBusinessCode\": \"WX\",\n      \"CreationDate\": \"2014-10-20\",\n      \"InceptionDate\": \"2014-11-25\",\n      \"ExpiryDate\": \"2015-11-24\",\n      \"SectionStatus\": \"Bound\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5923044f-444d-4389-8c6e-12c49cecafc2",
+      "name": "create risk",
+      "request": {
+        "name": "create risk",
+        "description": {
+          "content": "Use the POST method to create a new record. Please note that all required fields must include a non-blank value.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "risks",
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"SourceSystem\": \"myBeazley\",\n  \"RiskUniqueID\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\",\n  \"RiskReference\": \"ABC1234\",\n  \"BzyRiskReference\": \"BZY65479321\",\n  \"Underwriter\": \"Tom Jones\",\n  \"PlacingBrokerID\": \"ff0513fe-c363-4d8d-903a-36e936ac50d9\",\n  \"PlacingBrokerGroup\": \"Joseph & Joseph\",\n  \"PlacingBrokerContact\": \"Sam Spade\",\n  \"PlacingBrokerStateProvince\": \"London\",\n  \"PlacingBrokerCountry\": \"GBR\",\n  \"PlacingBrokerBranchName\": \"Joseph & Joseph, London UK\",\n  \"ProducingBrokerID\": \"df5da783-33bc-4e42-a25a-1879abc5c51a\",\n  \"ProducingBrokerGroup\": \"Sunway Brokerage\",\n  \"ProducingBrokerContact\": \"Thomas Callaway\",\n  \"ProducingBrokerStateProvince\": \"CA\",\n  \"ProducingBrokerCountry\": \"USA\",\n  \"ProducingBrokerBranchName\": \"Sunway, San Francisco - CA\",\n  \"InsuredID\": \"7ce92886-b75f-4db6-996c-c5ec8ce4e1a7\",\n  \"InsuredName\": \"Rook Industries\",\n  \"InsuredContact\": \"Sebastian Rooks\",\n  \"InsuredContactEmail\": \"sebastian@rook.com\",\n  \"InsuredCity\": \"San Francisco\",\n  \"InsuredStateProvince\": \"CA\",\n  \"InsuredCountry\": \"USA\",\n  \"Sections\": [\n    {\n      \"SectionUniqueID\": \"34c1dae2-e255-4ff1-b41a-0d8834b5474b\",\n      \"SectionReference\": \"001\",\n      \"SectionSequenceID\": \"1\",\n      \"CoverageName\": \"Breach\",\n      \"ClassOfBusinessCode\": \"WX\",\n      \"CreationDate\": \"2014-10-20\",\n      \"InceptionDate\": \"2014-11-25\",\n      \"ExpiryDate\": \"2015-11-24\",\n      \"SectionStatus\": \"Quoted\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "bc4d40c8-e989-4828-b001-7abb916bd1b0",
+          "name": "New risk entry created successfully. Responds with resource ID which must be recorded for all future PUTs.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "risks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SourceSystem\": \"myBeazley\",\n  \"RiskUniqueID\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\",\n  \"RiskReference\": \"ABC1234\",\n  \"BzyRiskReference\": \"BZY65479321\",\n  \"Underwriter\": \"Tom Jones\",\n  \"PlacingBrokerID\": \"ff0513fe-c363-4d8d-903a-36e936ac50d9\",\n  \"PlacingBrokerGroup\": \"Joseph & Joseph\",\n  \"PlacingBrokerContact\": \"Sam Spade\",\n  \"PlacingBrokerStateProvince\": \"London\",\n  \"PlacingBrokerCountry\": \"GBR\",\n  \"PlacingBrokerBranchName\": \"Joseph & Joseph, London UK\",\n  \"ProducingBrokerID\": \"df5da783-33bc-4e42-a25a-1879abc5c51a\",\n  \"ProducingBrokerGroup\": \"Sunway Brokerage\",\n  \"ProducingBrokerContact\": \"Thomas Callaway\",\n  \"ProducingBrokerStateProvince\": \"CA\",\n  \"ProducingBrokerCountry\": \"USA\",\n  \"ProducingBrokerBranchName\": \"Sunway, San Francisco - CA\",\n  \"InsuredID\": \"7ce92886-b75f-4db6-996c-c5ec8ce4e1a7\",\n  \"InsuredName\": \"Rook Industries\",\n  \"InsuredContact\": \"Sebastian Rooks\",\n  \"InsuredContactEmail\": \"sebastian@rook.com\",\n  \"InsuredCity\": \"San Francisco\",\n  \"InsuredStateProvince\": \"CA\",\n  \"InsuredCountry\": \"USA\",\n  \"Sections\": [\n    {\n      \"SectionUniqueID\": \"34c1dae2-e255-4ff1-b41a-0d8834b5474b\",\n      \"SectionReference\": \"001\",\n      \"SectionSequenceID\": \"1\",\n      \"CoverageName\": \"Breach\",\n      \"ClassOfBusinessCode\": \"WX\",\n      \"CreationDate\": \"2014-10-20\",\n      \"InceptionDate\": \"2014-11-25\",\n      \"ExpiryDate\": \"2015-11-24\",\n      \"SectionStatus\": \"Quoted\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "1debed81-47e0-4f23-8b39-f70edecc35de",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "risks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SourceSystem\": \"myBeazley\",\n  \"RiskUniqueID\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\",\n  \"RiskReference\": \"ABC1234\",\n  \"BzyRiskReference\": \"BZY65479321\",\n  \"Underwriter\": \"Tom Jones\",\n  \"PlacingBrokerID\": \"ff0513fe-c363-4d8d-903a-36e936ac50d9\",\n  \"PlacingBrokerGroup\": \"Joseph & Joseph\",\n  \"PlacingBrokerContact\": \"Sam Spade\",\n  \"PlacingBrokerStateProvince\": \"London\",\n  \"PlacingBrokerCountry\": \"GBR\",\n  \"PlacingBrokerBranchName\": \"Joseph & Joseph, London UK\",\n  \"ProducingBrokerID\": \"df5da783-33bc-4e42-a25a-1879abc5c51a\",\n  \"ProducingBrokerGroup\": \"Sunway Brokerage\",\n  \"ProducingBrokerContact\": \"Thomas Callaway\",\n  \"ProducingBrokerStateProvince\": \"CA\",\n  \"ProducingBrokerCountry\": \"USA\",\n  \"ProducingBrokerBranchName\": \"Sunway, San Francisco - CA\",\n  \"InsuredID\": \"7ce92886-b75f-4db6-996c-c5ec8ce4e1a7\",\n  \"InsuredName\": \"Rook Industries\",\n  \"InsuredContact\": \"Sebastian Rooks\",\n  \"InsuredContactEmail\": \"sebastian@rook.com\",\n  \"InsuredCity\": \"San Francisco\",\n  \"InsuredStateProvince\": \"CA\",\n  \"InsuredCountry\": \"USA\",\n  \"Sections\": [\n    {\n      \"SectionUniqueID\": \"34c1dae2-e255-4ff1-b41a-0d8834b5474b\",\n      \"SectionReference\": \"001\",\n      \"SectionSequenceID\": \"1\",\n      \"CoverageName\": \"Breach\",\n      \"ClassOfBusinessCode\": \"WX\",\n      \"CreationDate\": \"2014-10-20\",\n      \"InceptionDate\": \"2014-11-25\",\n      \"ExpiryDate\": \"2015-11-24\",\n      \"SectionStatus\": \"Quoted\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "f47495fc-222a-4d7e-b985-7646b5852170",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "risks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SourceSystem\": \"myBeazley\",\n  \"RiskUniqueID\": \"606ab36d-292a-4ebd-9357-f6ec598c240c\",\n  \"RiskReference\": \"ABC1234\",\n  \"BzyRiskReference\": \"BZY65479321\",\n  \"Underwriter\": \"Tom Jones\",\n  \"PlacingBrokerID\": \"ff0513fe-c363-4d8d-903a-36e936ac50d9\",\n  \"PlacingBrokerGroup\": \"Joseph & Joseph\",\n  \"PlacingBrokerContact\": \"Sam Spade\",\n  \"PlacingBrokerStateProvince\": \"London\",\n  \"PlacingBrokerCountry\": \"GBR\",\n  \"PlacingBrokerBranchName\": \"Joseph & Joseph, London UK\",\n  \"ProducingBrokerID\": \"df5da783-33bc-4e42-a25a-1879abc5c51a\",\n  \"ProducingBrokerGroup\": \"Sunway Brokerage\",\n  \"ProducingBrokerContact\": \"Thomas Callaway\",\n  \"ProducingBrokerStateProvince\": \"CA\",\n  \"ProducingBrokerCountry\": \"USA\",\n  \"ProducingBrokerBranchName\": \"Sunway, San Francisco - CA\",\n  \"InsuredID\": \"7ce92886-b75f-4db6-996c-c5ec8ce4e1a7\",\n  \"InsuredName\": \"Rook Industries\",\n  \"InsuredContact\": \"Sebastian Rooks\",\n  \"InsuredContactEmail\": \"sebastian@rook.com\",\n  \"InsuredCity\": \"San Francisco\",\n  \"InsuredStateProvince\": \"CA\",\n  \"InsuredCountry\": \"USA\",\n  \"Sections\": [\n    {\n      \"SectionUniqueID\": \"34c1dae2-e255-4ff1-b41a-0d8834b5474b\",\n      \"SectionReference\": \"001\",\n      \"SectionSequenceID\": \"1\",\n      \"CoverageName\": \"Breach\",\n      \"ClassOfBusinessCode\": \"WX\",\n      \"CreationDate\": \"2014-10-20\",\n      \"InceptionDate\": \"2014-11-25\",\n      \"ExpiryDate\": \"2015-11-24\",\n      \"SectionStatus\": \"Quoted\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.beazley.com/riskcapture/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e7a71890-05b9-4f1f-b00f-d71973a36f4b",
+    "name": "Data Capture: Quote and Risk Data",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API provides a channel for partner systems to feed quote and risk data directly into Beazley's core Record of Risk systems. Please use the <a href=\"/docs/services/54c8996797fe1e0db81ee740/operations/54c8996797fe1e0d805f714d\">sandbox version</a> of this API  for initial development and testing. The current version of this API is V2.<br><br>\n\nPlease contact <a href=\"mailto:ITArchitecture@Beazley.com?Subject=RiskCaptureAPI\">\nITArchitecture@Beazley.com</a> if you have any questions about this API.",
+      "type": "text/plain"
+    }
+  }
+}

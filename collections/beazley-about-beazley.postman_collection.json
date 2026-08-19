@@ -1,0 +1,422 @@
+{
+  "item": [
+    {
+      "id": "b40ac7a3-317f-4b12-86e2-04fee9641854",
+      "name": "deleted people",
+      "request": {
+        "name": "deleted people",
+        "description": {},
+        "url": {
+          "path": [
+            "People",
+            "deleted",
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "since",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6ae0d6e8-cef9-4e6a-8dfc-1aa69139fc53",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "People",
+                "deleted",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b56e1077-0bf3-4254-86c6-20f3418d498f",
+      "name": "people",
+      "request": {
+        "name": "people",
+        "description": {
+          "content": "<p>The base URL returns the collection of all Beazley people profiles. Individual people profiles can be returned by including the resource ID in the URL.\n</p>\nFor example:<br>\n<b>/people</b> returns the full collection set.<br>\n<b>/people/1</b> returns the individual person record.<br>",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "people"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "division",
+              "value": "<string>",
+              "description": "Gets an array of people filtered by the specified division ID"
+            },
+            {
+              "disabled": false,
+              "key": "firstNameFragment",
+              "value": "<string>",
+              "description": "Gets an array of people whose first name contains the specified fragment"
+            },
+            {
+              "disabled": false,
+              "key": "lastNameFragment",
+              "value": "<string>",
+              "description": "Gets an array of people whose last name contains the specified fragment"
+            },
+            {
+              "disabled": false,
+              "key": "since",
+              "value": "<string>",
+              "description": "Gets an array of people updated since a date/time (format ISO 8601)"
+            },
+            {
+              "disabled": false,
+              "key": "key",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4f2ac010-4eb9-4085-b6f2-818ef28c9674",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "division",
+                  "value": "<string>"
+                },
+                {
+                  "key": "firstNameFragment",
+                  "value": "<string>"
+                },
+                {
+                  "key": "lastNameFragment",
+                  "value": "<string>"
+                },
+                {
+                  "key": "since",
+                  "value": "<string>"
+                },
+                {
+                  "key": "key",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d7ae7665-7b34-48c1-9d90-5cd236b068b7",
+      "name": "person by ID",
+      "request": {
+        "name": "person by ID",
+        "description": {
+          "content": "Individual people profiles can be returned by including the resource ID in the URL.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "people",
+            ":rid"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "key",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "rid",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e91ccaff-5584-437e-91fc-d1fb79fe8d6c",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "people",
+                ":rid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5de52b5f-34e0-4f80-aa45-343ddeb5ecc2",
+      "name": "profileimage by ID",
+      "request": {
+        "name": "profileimage by ID",
+        "description": {
+          "content": "Individual people profiles pictures can be returned by including the resource ID in the URL. Note that there is no collection response for this operation.<br>\n<br>\n<b>Tip:</b> The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "people",
+            "profileimage"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "id",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "key",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7befa914-479d-4806-8a3c-073bcaaabbc8",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "people",
+                "profileimage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "key",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.beazley.com/about/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2327a3aa-405a-405d-9ae0-06a644458675",
+    "name": "About Beazley",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API provides information on Beazley's people and divisions. Please use the <a href=\"/docs/services/54e21d5297fe1e0f2475cf33/operations/54e21d5297fe1e08786b4f2d\">sandbox version</a> of this API  for initial development and testing. The current version of this is V1.<br><br>\r\n\r\nPlease contact <a href=\"mailto:ITArchitecture@Beazley.com?Subject=AboutBeazleyAPI\">\r\nITArchitecture@Beazley.com</a> if you have any questions about this API.",
+      "type": "text/plain"
+    }
+  }
+}

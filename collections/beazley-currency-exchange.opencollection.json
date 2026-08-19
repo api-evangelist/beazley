@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Currency Exchange",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rates",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/fx/v1/rates",
+        "params": [
+          {
+            "name": "scurr",
+            "value": "",
+            "type": "query",
+            "description": "Source Currency"
+          },
+          {
+            "name": "dcurr",
+            "value": "",
+            "type": "query",
+            "description": "Destination Currency"
+          },
+          {
+            "name": "bcurr",
+            "value": "",
+            "type": "query",
+            "description": "Bridge Currency"
+          },
+          {
+            "name": "startdate",
+            "value": "",
+            "type": "query",
+            "description": "Rates from this date"
+          },
+          {
+            "name": "enddate",
+            "value": "",
+            "type": "query",
+            "description": "Rates to this date"
+          },
+          {
+            "name": "provider",
+            "value": "",
+            "type": "query",
+            "description": "Rate Provider"
+          },
+          {
+            "name": "amount",
+            "value": "",
+            "type": "query",
+            "description": "Amount"
+          },
+          {
+            "name": "divby",
+            "value": "",
+            "type": "query",
+            "description": "Multiply or divide by rate"
+          }
+        ]
+      },
+      "docs": "Rates"
+    },
+    {
+      "info": {
+        "name": "Providers",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/fx/v1/providers"
+      },
+      "docs": "Providers"
+    },
+    {
+      "info": {
+        "name": "Currencies",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.beazley.com/fx/v1/currencies"
+      },
+      "docs": "Currencies"
+    }
+  ],
+  "bundled": true
+}

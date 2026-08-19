@@ -194,3 +194,9 @@ tools:
   description: Cyber
   source_operation: openapi/beazley-simple-raters.yml#5804a8ff8097920fbc0ae7ea
   http: POST https://api.beazley.com/hack/raters/v1/Cyber
+deployment:
+  mode: none
+  verified: derived
+  tools: 44
+  checked: '2026-08-12'
+  source: catalog MCP census

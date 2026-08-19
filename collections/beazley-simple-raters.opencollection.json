@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Simple Raters",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cyber",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.beazley.com/hack/raters/v1/Cyber",
+        "params": [
+          {
+            "name": "code",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Cyber"
+    }
+  ],
+  "bundled": true
+}

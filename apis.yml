@@ -36,6 +36,17 @@ tags:
 - Lloyd's of London
 - Underwriting
 - Risk Data
+- Brokers
+- Carrier
+tags_raw:
+- Insurance
+- United Kingdom
+- Property and Casualty
+- Cyber Insurance
+- Specialty Insurance
+- Lloyd's of London
+- Underwriting
+- Risk Data
 - Broker
 - Carrier
 created: '2026-07-25'
@@ -52,6 +63,11 @@ apis:
   humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
   baseURL: https://api.beazley.com/riskcapture/v2
   tags:
+  - Quotes
+  - Risk Data
+  - Underwriting
+  - Data Capture
+  tags_raw:
   - Quote
   - Risk Data
   - Underwriting
@@ -78,6 +94,11 @@ apis:
   humanURL: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
   baseURL: https://api.beazley.com/riskcapture/v1
   tags:
+  - Quotes
+  - Risk Data
+  - Underwriting
+  - Data Capture
+  tags_raw:
   - Quote
   - Risk Data
   - Underwriting
@@ -103,6 +124,11 @@ apis:
   humanURL: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
   baseURL: https://api.beazley.com/prerelease/riskcapture/v3
   tags:
+  - Quotes
+  - Risk Data
+  - Underwriting
+  - Pre-release
+  tags_raw:
   - Quote
   - Risk Data
   - Underwriting
@@ -128,6 +154,11 @@ apis:
   tags:
   - Compliance
   - Regulatory
+  - Brokers
+  - Audit
+  tags_raw:
+  - Compliance
+  - Regulatory
   - Broker
   - Audit
   properties:
@@ -148,6 +179,11 @@ apis:
   humanURL: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
   baseURL: https://api.beazley.com/marketing/v2
   tags:
+  - Brokers
+  - Marketing
+  - Contacts
+  - Organisations
+  tags_raw:
   - Broker
   - Marketing
   - Contacts
@@ -244,6 +280,10 @@ apis:
   humanURL: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
   baseURL: https://api.beazley.com/hack/raters/v1
   tags:
+  - Rating
+  - Cyber Insurance
+  - Quotes
+  tags_raw:
   - Rating
   - Cyber Insurance
   - Quote

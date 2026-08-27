@@ -53,250 +53,785 @@ created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.23'
 apis:
-- aid: beazley:beazley-data-capture-quote-and-risk-data-v2
-  name: 'Beazley Data Capture: Quote and Risk Data v2'
-  description: The current published version of Beazley's risk data capture API. Provides
-    a channel for partner systems to feed quote and risk data directly into Beazley's
-    core Record of Risk systems, with create, read and update of risk records plus a
-    lock-state resource for concurrency control. Partner-facing, subscription-key
-    authenticated, and gated behind an approval-required Azure APIM product.
+- aid: beazley:beazley-audit-api
+  name: Beazley Audit API
+  description: The Audit API from Beazley — 2 operation(s) for audit.
   humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
   baseURL: https://api.beazley.com/riskcapture/v2
   tags:
-  - Quotes
-  - Risk Data
-  - Underwriting
-  - Data Capture
-  tags_raw:
-  - Quote
-  - Risk Data
-  - Underwriting
-  - Data Capture
+  - Audit
   properties:
   - type: OpenAPI
-    url: openapi/beazley-data-capture-quote-and-risk-data-v2.yml
-  - type: Overlay
-    url: overlays/beazley-data-capture-v2-overlay.yaml
-  - type: OpenAPI
-    url: openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
+    url: openapi/beazley-audit-api-openapi.yml
   - type: Documentation
     url: https://developer.beazley.com/apis
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
   - type: Sandbox
     url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
-- aid: beazley:beazley-data-capture-quote-and-risk-data-v1
-  name: 'Beazley Data Capture: Quote and Risk Data v1'
-  description: The original version of Beazley's risk data capture API, feeding quote
-    and risk data from partner systems into Beazley's core Record of Risk systems.
-    Superseded by v2 but still published in the developer portal with its own sandbox
-    environment.
-  humanURL: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
-  baseURL: https://api.beazley.com/riskcapture/v1
-  tags:
-  - Quotes
-  - Risk Data
-  - Underwriting
-  - Data Capture
-  tags_raw:
-  - Quote
-  - Risk Data
-  - Underwriting
-  - Data Capture
-  properties:
-  - type: OpenAPI
-    url: openapi/beazley-data-capture-quote-and-risk-data.yml
-  - type: Overlay
-    url: overlays/beazley-data-capture-v1-overlay.yaml
-  - type: OpenAPI
-    url: openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml
-  - type: Documentation
-    url: https://developer.beazley.com/apis
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
   - type: Sandbox
     url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
-- aid: beazley:beazley-data-capture-quote-and-risk-data-v3
-  name: 'Beazley Data Capture: Quote and Risk Data v3 (pre-release)'
-  description: A pre-release version of the Data Capture API published under Beazley's
-    Prerelease APIM product, exposing a single create-risk operation. Backed by an
-    Azure Logic App rather than the core Record of Risk service URL used by v1 and v2.
-  humanURL: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
-  baseURL: https://api.beazley.com/prerelease/riskcapture/v3
-  tags:
-  - Quotes
-  - Risk Data
-  - Underwriting
-  - Pre-release
-  tags_raw:
-  - Quote
-  - Risk Data
-  - Underwriting
-  - Pre-release
-  properties:
-  - type: OpenAPI
-    url: openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml
-  - type: Overlay
-    url: overlays/beazley-data-capture-v3-overlay.yaml
-  - type: Documentation
-    url: https://developer.beazley.com/apis
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
-- aid: beazley:beazley-compliance-web-api
-  name: Beazley Compliance Web API
-  description: Compliance validation and search for Beazley's underwriting systems.
-    Runs rule-driven compliance checks determined by system and action parameters,
-    searches broker agencies, broker contacts and product lines, returns audit reports
-    of compliance checks performed, exposes audit lookup registries, and provides a
-    system health check across the validation engine and databases.
-  humanURL: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
-  baseURL: https://api.beazley.com/compliance/v1
-  tags:
-  - Compliance
-  - Regulatory
-  - Brokers
-  - Audit
-  tags_raw:
-  - Compliance
-  - Regulatory
-  - Broker
-  - Audit
-  properties:
-  - type: OpenAPI
-    url: openapi/beazley-compliance-web-api.yml
-  - type: Overlay
-    url: overlays/beazley-compliance-overlay.yaml
-  - type: Documentation
-    url: https://developer.beazley.com/apis
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
-- aid: beazley:beazley-broker-and-insured-marketing-data-v2
-  name: Beazley Broker and Insured Marketing Data v2
-  description: Marketing details for Beazley's partner organisations — broker and
-    insured organisations, contacts and microsites — with read and write operations
-    over contacts and organisations plus microsite-scoped and organisation-scoped
-    collections. Published with a matching sandbox environment.
-  humanURL: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
-  baseURL: https://api.beazley.com/marketing/v2
-  tags:
-  - Brokers
-  - Marketing
-  - Contacts
-  - Organisations
-  tags_raw:
-  - Broker
-  - Marketing
-  - Contacts
-  - Organisations
-  properties:
-  - type: OpenAPI
-    url: openapi/beazley-broker-and-insured-marketing-data-v2.yml
-  - type: Overlay
-    url: overlays/beazley-marketing-v2-overlay.yaml
-  - type: OpenAPI
-    url: openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml
-  - type: Documentation
-    url: https://developer.beazley.com/apis
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
   - type: Sandbox
     url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
-- aid: beazley:beazley-currency-exchange
-  name: Beazley Currency Exchange
-  description: A standard set of foreign exchange rates for Beazley systems, exposing
-    rates, rate providers and supported currencies. Reference data supporting
-    multi-currency specialty insurance placement, published with a sandbox
-    environment.
-  humanURL: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
-  baseURL: https://api.beazley.com/fx/v1
-  tags:
-  - Currency
-  - Exchange Rates
-  - Reference Data
-  properties:
-  - type: OpenAPI
-    url: openapi/beazley-currency-exchange.yml
-  - type: Overlay
-    url: overlays/beazley-currency-exchange-overlay.yaml
-  - type: OpenAPI
-    url: openapi/beazley-currency-exchange-sandbox.yml
-  - type: Documentation
-    url: https://developer.beazley.com/apis
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
   - type: Sandbox
     url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
-- aid: beazley:beazley-about-beazley
-  name: About Beazley
-  description: Public-facing reference data on Beazley's people and divisions, with
-    person lookup by record id, profile images, profile image by email, and a deleted
-    people feed for downstream synchronisation. Sold through the Beazley Public Data
-    APIM product at up to 1,000 calls per hour, with a matching sandbox environment.
-  humanURL: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
-  baseURL: https://api.beazley.com/about/v1
-  tags:
-  - Reference Data
-  - People
-  - Public Data
-  properties:
-  - type: OpenAPI
-    url: openapi/beazley-about-beazley.yml
-  - type: Overlay
-    url: overlays/beazley-about-beazley-overlay.yaml
-  - type: OpenAPI
-    url: openapi/beazley-about-beazley-sandbox.yml
-  - type: Documentation
-    url: https://developer.beazley.com/apis
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
   - type: Sandbox
     url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
-- aid: beazley:beazley-fast-reader
-  name: Beazley Fast Reader
-  description: Insurance glossary and knowledge API providing definitions of insurance
-    terms, frequently asked questions by intent name, and Beazley product lookup by
-    term. Published sandbox-only and backed by an Azure Logic App.
-  humanURL: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
-  baseURL: https://api.beazley.com/sandbox/fastreader/v1
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-check-api
+  name: Beazley Check API
+  description: The Check API from Beazley — 1 operation(s) for check.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
   tags:
-  - Reference Data
-  - Glossary
-  - Insurance Terms
+  - Check
   properties:
   - type: OpenAPI
-    url: openapi/beazley-fast-reader.yml
-  - type: Overlay
-    url: overlays/beazley-fast-reader-overlay.yaml
+    url: openapi/beazley-check-api-openapi.yml
   - type: Documentation
     url: https://developer.beazley.com/apis
   - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
     url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
-- aid: beazley:beazley-simple-raters
-  name: Beazley Simple Raters
-  description: A set of simple rating endpoints published for testing, exposing a
-    single cyber rating operation. The only rating surface in Beazley's public
-    catalog, and explicitly described as being for testing rather than production
-    quoting.
-  humanURL: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
-  baseURL: https://api.beazley.com/hack/raters/v1
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-contacts-api
+  name: Beazley Contacts API
+  description: The Contacts API from Beazley — 4 operation(s) for contacts.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
   tags:
-  - Rating
-  - Cyber Insurance
-  - Quotes
-  tags_raw:
-  - Rating
-  - Cyber Insurance
-  - Quote
+  - Contacts
   properties:
   - type: OpenAPI
-    url: openapi/beazley-simple-raters.yml
-  - type: Overlay
-    url: overlays/beazley-simple-raters-overlay.yaml
+    url: openapi/beazley-contacts-api-openapi.yml
   - type: Documentation
     url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-currencies-api
+  name: Beazley Currencies API
+  description: The Currencies API from Beazley — 1 operation(s) for currencies.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Currencies
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-currencies-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-cyber-api
+  name: Beazley Cyber API
+  description: The Cyber API from Beazley — 1 operation(s) for cyber.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Cyber
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-cyber-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-definitions-api
+  name: Beazley Definitions API
+  description: The Definitions API from Beazley — 2 operation(s) for definitions.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Definitions
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-definitions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-faqs-api
+  name: Beazley Faqs API
+  description: The Faqs API from Beazley — 2 operation(s) for faqs.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Faqs
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-faqs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-health-api
+  name: Beazley Health API
+  description: The Health API from Beazley — 1 operation(s) for health.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-health-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-lockstate-api
+  name: Beazley Lockstate API
+  description: The Lockstate API from Beazley — 1 operation(s) for lockstate.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Lockstate
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-lockstate-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-microsites-api
+  name: Beazley Microsites API
+  description: The Microsites API from Beazley — 3 operation(s) for microsites.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Microsites
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-microsites-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-organisations-api
+  name: Beazley Organisations API
+  description: The Organisations API from Beazley — 4 operation(s) for organisations.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Organisations
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-organisations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-people-api
+  name: Beazley People API
+  description: The People API from Beazley — 5 operation(s) for people.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - People
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-people-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-ping-api
+  name: Beazley Ping API
+  description: The Ping API from Beazley — 1 operation(s) for ping.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Ping
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-ping-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-products-api
+  name: Beazley Products API
+  description: The Products API from Beazley — 1 operation(s) for products.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-products-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-providers-api
+  name: Beazley Providers API
+  description: The Providers API from Beazley — 1 operation(s) for providers.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-providers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-rates-api
+  name: Beazley Rates API
+  description: The Rates API from Beazley — 1 operation(s) for rates.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Rates
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-rates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-report-api
+  name: Beazley Report API
+  description: The Report API from Beazley — 1 operation(s) for report.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Report
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-report-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-risks-api
+  name: Beazley Risks API
+  description: The Risks API from Beazley — 2 operation(s) for risks.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Risks
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-risks-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-search-api
+  name: Beazley Search API
+  description: The Search API from Beazley — 1 operation(s) for search.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
 common:
+- type: Overlay
+  url: overlays/beazley-data-capture-v2-overlay.yaml
+- type: Overlay
+  url: overlays/beazley-data-capture-v1-overlay.yaml
+- type: Overlay
+  url: overlays/beazley-data-capture-v3-overlay.yaml
+- type: Overlay
+  url: overlays/beazley-compliance-overlay.yaml
+- type: Overlay
+  url: overlays/beazley-marketing-v2-overlay.yaml
+- type: Overlay
+  url: overlays/beazley-currency-exchange-overlay.yaml
+- type: Overlay
+  url: overlays/beazley-about-beazley-overlay.yaml
+- type: Overlay
+  url: overlays/beazley-fast-reader-overlay.yaml
+- type: Overlay
+  url: overlays/beazley-simple-raters-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/beazley-agentic-access.yml
 - type: DomainSecurity

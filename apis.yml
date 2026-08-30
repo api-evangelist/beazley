@@ -191,6 +191,8 @@ apis:
   humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
   baseURL: https://api.beazley.com/riskcapture/v2
   tags:
+  - Currency
+  tags_raw:
   - Currencies
   properties:
   - type: OpenAPI
@@ -311,6 +313,8 @@ apis:
   humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
   baseURL: https://api.beazley.com/riskcapture/v2
   tags:
+  - FAQs
+  tags_raw:
   - Faqs
   properties:
   - type: OpenAPI
@@ -591,6 +595,8 @@ apis:
   humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
   baseURL: https://api.beazley.com/riskcapture/v2
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI

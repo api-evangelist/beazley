@@ -1,0 +1,50 @@
+openapi: 3.2.0
+info:
+  title: Beazley Ping API
+  version: '1.0'
+  description: 'Operations tagged Ping across 6 of this provider''s published API definitions: beazley-broker-and-insured-marketing-data-v2-sandbox.yml, beazley-broker-and-insured-marketing-data-v2.yml, beazley-data-capture-quote-and-risk-data-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2.yml, beazley-data-capture-quote-and-risk-data.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.beazley.com/sandbox/marketing/v2
+- url: https://api.beazley.com/marketing/v2
+- url: https://api.beazley.com/sandbox/riskcapture/v1
+- url: https://api.beazley.com/sandbox/riskcapture/v2
+- url: https://api.beazley.com/riskcapture/v2
+- url: https://api.beazley.com/riskcapture/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Ping
+paths:
+  /ping/:
+    get:
+      summary: ping (GET)
+      description: Validation call to confirm that you can connect to the API.
+      operationId: 561e208f8097920ed881e641
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              example: Achievement Unlocked. You have successfully called the Beazley Marketing API.
+      tags:
+      - Ping
+    servers:
+    - url: https://api.beazley.com/sandbox/marketing/v2
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-refined-from:
+- beazley-broker-and-insured-marketing-data-v2-sandbox.yml
+- beazley-broker-and-insured-marketing-data-v2.yml
+- beazley-data-capture-quote-and-risk-data-sandbox.yml
+- beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
+- beazley-data-capture-quote-and-risk-data-v2.yml
+- beazley-data-capture-quote-and-risk-data.yml

@@ -1,0 +1,118 @@
+openapi: 3.2.0
+info:
+  title: Compliance Web Health API
+  description: An API that provides compliance validation check and compliance search features
+  version: '1.0'
+servers:
+- url: https://api.beazley.com/compliance/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Health
+paths:
+  /health:
+    post:
+      summary: healthcheck
+      description: "The HealthCheck endpoint is used to perform a general system healthcheck. It checks the operational status if integral parts of the system like the Validation Engine and databases. The query object  ( via the Settings Dictionary) can be used to specify which subcomponents of the system are going to be checked which can be for Compliance on of these values: case Contracts.Constants.Keys.COMPLIANCE_MANAGER case Contracts.Constants.Keys.RULES_DATA_ACCESS case Contracts.Constants.Keys.VALIDATION_ENGINE case Contracts.Constants.Keys.ALL_PLUGINS If for example the settings dictionary contains the key “CheckComponent” with the value “ValidationEngine” The health check will be performed only over the Validation Engine Component.\n            - Inputs\n             {\n            \t   \"Settings\": {\n            \t     \"HealthCheckOf\": \"ComplianceManager\", - What system is being checked\n            \t     \"ExecutedFrom\": \"ComplianceWebApi\", - Where are we making the check from\n            \t     \"CheckComponent\": \"ValidationEngine\" – The component we are checking matching on of the above Keys.\n            }}"
+      operationId: 5893134739845516588448cc
+      requestBody:
+        description: '{ "Settings": { "HealthCheckOf": "ComplianceManager", "ExecutedFrom": "ComplianceWebApi", "CheckComponent": "ValidationEngine" }}'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HealthCheckQuery'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/HealthCheckQuery'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/HealthCheckQuery'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/HealthCheckQuery'
+          application/x-www-form-urlencoded: {}
+      responses:
+        '200':
+          description: ' - {"Status": "HEALTHY","Type": "ValidationEngine"}'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IHealthCheckResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IHealthCheckResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/IHealthCheckResult'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/IHealthCheckResult'
+        '500':
+          description: Error occurred in processing of the data!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IHealthCheckResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IHealthCheckResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/IHealthCheckResult'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/IHealthCheckResult'
+      tags:
+      - Health
+components:
+  schemas:
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
+    HealthCheckQuery:
+      type: object
+      properties:
+        Settings:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair_String_String_'
+          readOnly: true
+    IHealthCheckResult:
+      type: object
+      properties:
+        Status:
+          type: string
+          readOnly: true
+        Type:
+          type: string
+          readOnly: true
+        Errors:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        Warnings:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        InnerResult:
+          type: array
+          items:
+            $ref: '#/components/schemas/IHealthCheckResult'
+          readOnly: true
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

@@ -1,0 +1,129 @@
+openapi: 3.2.0
+info:
+  title: Fast Reader Definitions API
+  description: The Fast Reader API provides basic information on insurance terms, frequently asked questions (coming soon), and Beazley products (also coming soon).
+  version: '1.0'
+servers:
+- url: https://api.beazley.com/sandbox/fastreader/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Definitions
+paths:
+  /definitions:
+    get:
+      summary: definition by term
+      description: Request the definition of a specific term
+      operationId: 596757de398455123cd32ae7
+      parameters:
+      - name: term
+        in: query
+        description: the value you would like a definition for
+        required: true
+        schema:
+          type: string
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        schema:
+          enum:
+          - application/json
+          type: string
+          default: application/json
+      requestBody:
+        description: The request body.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request-manual'
+      responses:
+        '200':
+          description: Responds with details or one or more terms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/'
+        '204':
+          description: successful call, but no matching content for the term provided
+      tags:
+      - Definitions
+    post:
+      summary: definitions (POST)
+      operationId: 596872adc8b9bbc2a3352428
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        schema:
+          enum:
+          - application/json
+          type: string
+          default: application/json
+      requestBody:
+        description: The request body.
+        content:
+          application/json:
+            example:
+              term: catastrophe
+              synonyms:
+              - cataclysm
+              - disaster
+              abbreviations:
+              - cat
+              definition: Catastrophe (cat for short), is an event causing great and usually sudden damage or suffering; a disaster.
+      responses:
+        '200':
+          description: Responds with details or one or more terms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/'
+      tags:
+      - Definitions
+  /definitions/:
+    get:
+      summary: definitions
+      description: Retrieve all definitions
+      operationId: 5971dd5476b7b3f0e01a426f
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        schema:
+          enum:
+          - application/json
+          type: string
+          default: application/json
+      requestBody:
+        description: The request body.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request-manual'
+      responses:
+        '200':
+          description: Responds with details or one or more terms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/'
+        '204':
+          description: successful call, but no matching content for the term provided
+      tags:
+      - Definitions
+components:
+  schemas:
+    request-manual: {}
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

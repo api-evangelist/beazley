@@ -1,0 +1,164 @@
+openapi: 3.2.0
+info:
+  title: Beazley Risks API
+  version: '1.0'
+  description: 'Operations tagged Risks across 5 of this provider''s published API definitions: beazley-data-capture-quote-and-risk-data-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2.yml, beazley-data-capture-quote-and-risk-data-v3-pre-release.yml, beazley-data-capture-quote-and-risk-data.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.beazley.com/sandbox/riskcapture/v1
+- url: https://api.beazley.com/sandbox/riskcapture/v2
+- url: https://api.beazley.com/riskcapture/v2
+- url: https://api.beazley.com/prerelease/riskcapture/v3
+- url: https://api.beazley.com/riskcapture/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Risks
+paths:
+  /risks/{id}:
+    get:
+      summary: GET Risk
+      operationId: 54c8996797fe1e0d805f714c
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Risks
+    put:
+      summary: PUT risk
+      description: Use the PUT method to update existing records. Note that the full risk object is required and any fields that are passed must have a value - blanks values will replace existing data with a empty string.
+      operationId: 54c8996797fe1e0d805f714e
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: "<h4>Model</h4>\n<pre>\nRisk \n{\n     SourceSystem (string, <b>required</b>): <font color=\"brown\">The name of the system from which the data has been extracted,</font>\n     RiskUniqueID (string, <b>required</b>): <font color=\"brown\">An internal unique non-changing code to uniquely identify each risk,</font>\n     RiskReference (string, <b>required</b>): <font color=\"brown\">An external facing reference code used to uniquely identify each risk,</font>\n     BzyRiskReference (string, optional): <font color=\"brown\">Beazley re-keyed reference from our internal record of risk system,</font>\n     Underwriter (string, <b>required</b>): <font color=\"brown\">The name of the Beazley underwriter linked to the risk,</font>\n     PlacingBrokerID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the broker,</font>\n     PlacingBrokerGroup (string, <b>required</b>): <font color=\"brown\">The name of the primary broking firm that is placing the risk,</font>\n     PlacingBrokerContact (string, optional): <font color=\"brown\">The contact name within the placing broker's organisation,</font>\n     PlacingBrokerStateProvince (string, optional): <font color=\"brown\">Placing broker’s state or provide,</font>\n     PlacingBrokerCountry (string, optional): <font color=\"brown\">Placing broker’s country 3 digit ISO 3166 code,</font>\n     PlacingBrokerBranchName (string, optional): <font color=\"brown\">Distinct name for the placing broker’s office,</font>\n     ProducingBrokerID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the broker,</font>\n     ProducingBrokerGroup (string, optional): <font color=\"brown\">The name of the producing broking firm that is placing the risk,</font>\n     ProducingBrokerContact (string, optional): <font color=\"brown\">The contact name within the producing broker's organisation,</font>\n     ProducingBrokerStateProvince (string, optional): <font color=\"brown\">Producing broker’s state or provide,</font>\n     ProducingBrokerCountry (string, optional): <font color=\"brown\">Producing broker’s country 3 digit ISO 3166 code,</font>\n     ProducingBrokerBranchName (string, optional): <font color=\"brown\">Distinct name for the producing broker’s office,</font>\n     InsuredID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the insured,</font>\n     InsuredName (string, <b>required</b>): <font color=\"brown\">The name of the organisation or individual linked to the risk,</font>\n     InsuredContact (string, optional): <font color=\"brown\">The primary contact name for the insured,</font>\n     InsuredContactEmail (string, optional): <font color=\"brown\">The email address for the primary contact,</font>\n     InsuredCity (string, optional): <font color=\"brown\">Insured’s city,</font>\n     InsuredStateProvince (string, optional): <font color=\"brown\">Insured’s state or provide,</font>\n     InsuredCountry (string, optional): <font color=\"brown\">Insured’s country 3 digit ISO 3166 code,</font>\n     Sections (array[Section], <b>required</b>)\n}\nSection \n{\n     SectionUniqueID (string, optional): <font color=\"brown\">An internal unique non-changing code to uniquely identify each section</font>,\n     SectionReference (string, <b>required</b>): <font color=\"brown\">An external facing reference code used to uniquely identify each section</font>,\n     SectionSequenceID (integer, <b>required</b>): <font color=\"brown\">An incrementing integer beginning with 1 used to sequence sections within a risk</font>,\n     CoverageName (string, <b>required</b>): <font color=\"brown\">Unique coverage name or description</font>,\n     ClassOfBusinessCode (string, optional): <font color=\"brown\">Beazley categorisation code. Not the same as Lloyds' class of business code</font>,\n     CreationDate (string, <b>required</b>): <font color=\"brown\">Creation date (ISO 8601)</font>,\n     InceptionDate (string, <b>required</b>): <font color=\"brown\">Inception date (ISO 8601)</font>,\n     ExpiryDate (string, optional): <font color=\"brown\">Expiration date (ISO 8601)</font>,\n     SectionStatus (string, <b>required</b>): <font color=\"brown\">Current status of the section</font>\n}\n</pre>"
+        content:
+          application/json:
+            example:
+              SourceSystem: myBeazley
+              RiskUniqueID: 606ab36d-292a-4ebd-9357-f6ec598c240c
+              RiskReference: ABC1234
+              BzyRiskReference: BZY65479321
+              Underwriter: Tom Jones
+              PlacingBrokerID: ff0513fe-c363-4d8d-903a-36e936ac50d9
+              PlacingBrokerGroup: Joseph & Joseph
+              PlacingBrokerContact: Sam Spade
+              PlacingBrokerStateProvince: London
+              PlacingBrokerCountry: GBR
+              PlacingBrokerBranchName: Joseph & Joseph, London UK
+              ProducingBrokerID: df5da783-33bc-4e42-a25a-1879abc5c51a
+              ProducingBrokerGroup: Sunway Brokerage
+              ProducingBrokerContact: Thomas Callaway
+              ProducingBrokerStateProvince: CA
+              ProducingBrokerCountry: USA
+              ProducingBrokerBranchName: Sunway, San Francisco - CA
+              InsuredID: 7ce92886-b75f-4db6-996c-c5ec8ce4e1a7
+              InsuredName: Rook Industries
+              InsuredContact: Sebastian Rooks
+              InsuredContactEmail: sebastian@rook.com
+              InsuredCity: San Francisco
+              InsuredStateProvince: CA
+              InsuredCountry: USA
+              Sections:
+              - SectionUniqueID: 34c1dae2-e255-4ff1-b41a-0d8834b5474b
+                SectionReference: '001'
+                SectionSequenceID: '1'
+                CoverageName: Breach
+                ClassOfBusinessCode: WX
+                CreationDate: '2014-10-20'
+                InceptionDate: '2014-11-25'
+                ExpiryDate: '2015-11-24'
+                SectionStatus: Bound
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: ''
+      tags:
+      - Risks
+    servers:
+    - url: https://api.beazley.com/sandbox/riskcapture/v1
+  /risks/:
+    post:
+      summary: POST Risk
+      description: Use the POST method to create a new record. Please note that all required fields must include a non-blank value.
+      operationId: 54c8996797fe1e0d805f714d
+      requestBody:
+        description: "<h4>Model</h4>\n<pre>\nRisk \n{\n     SourceSystem (string, <b>required</b>): <font color=\"brown\">The name of the system from which the data has been extracted,</font>\n     RiskUniqueID (string, <b>required</b>): <font color=\"brown\">An internal unique non-changing code to uniquely identify each risk,</font>\n     RiskReference (string, <b>required</b>): <font color=\"brown\">An external facing reference code used to uniquely identify each risk,</font>\n     BzyRiskReference (string, optional): <font color=\"brown\">Beazley re-keyed reference from our internal record of risk system,</font>\n     Underwriter (string, <b>required</b>): <font color=\"brown\">The name of the Beazley underwriter linked to the risk,</font>\n     PlacingBrokerID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the broker,</font>\n     PlacingBrokerGroup (string, <b>required</b>): <font color=\"brown\">The name of the primary broking firm that is placing the risk,</font>\n     PlacingBrokerContact (string, optional): <font color=\"brown\">The contact name within the placing broker's organisation,</font>\n     PlacingBrokerStateProvince (string, optional): <font color=\"brown\">Placing broker’s state or provide,</font>\n     PlacingBrokerCountry (string, optional): <font color=\"brown\">Placing broker’s country 3 digit ISO 3166 code,</font>\n     PlacingBrokerBranchName (string, optional): <font color=\"brown\">Distinct name for the placing broker’s office,</font>\n     ProducingBrokerID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the broker,</font>\n     ProducingBrokerGroup (string, optional): <font color=\"brown\">The name of the producing broking firm that is placing the risk,</font>\n     ProducingBrokerContact (string, optional): <font color=\"brown\">The contact name within the producing broker's organisation,</font>\n     ProducingBrokerStateProvince (string, optional): <font color=\"brown\">Producing broker’s state or provide,</font>\n     ProducingBrokerCountry (string, optional): <font color=\"brown\">Producing broker’s country 3 digit ISO 3166 code,</font>\n     ProducingBrokerBranchName (string, optional): <font color=\"brown\">Distinct name for the producing broker’s office,</font>\n     InsuredID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the insured,</font>\n     InsuredName (string, <b>required</b>): <font color=\"brown\">The name of the organisation or individual linked to the risk,</font>\n     InsuredContact (string, optional): <font color=\"brown\">The primary contact name for the insured,</font>\n     InsuredContactEmail (string, optional): <font color=\"brown\">The email address for the primary contact,</font>\n     InsuredCity (string, optional): <font color=\"brown\">Insured’s city,</font>\n     InsuredStateProvince (string, optional): <font color=\"brown\">Insured’s state or provide,</font>\n     InsuredCountry (string, optional): <font color=\"brown\">Insured’s country 3 digit ISO 3166 code,</font>\n     Sections (array[Section], <b>required</b>)\n}\nSection \n{\n     SectionUniqueID (string, optional): <font color=\"brown\">An internal unique non-changing code to uniquely identify each section</font>,\n     SectionReference (string, <b>required</b>): <font color=\"brown\">An external facing reference code used to uniquely identify each section</font>,\n     SectionSequenceID (integer, <b>required</b>): <font color=\"brown\">An incrementing integer beginning with 1 used to sequence sections within a risk</font>,\n     CoverageName (string, <b>required</b>): <font color=\"brown\">Unique coverage name or description</font>,\n     ClassOfBusinessCode (string, optional): <font color=\"brown\">Beazley categorisation code. Not the same as Lloyds' class of business code</font>,\n     CreationDate (string, <b>required</b>): <font color=\"brown\">Creation date (ISO 8601)</font>,\n     InceptionDate (string, <b>required</b>): <font color=\"brown\">Inception date (ISO 8601)</font>,\n     ExpiryDate (string, optional): <font color=\"brown\">Expiration date (ISO 8601)</font>,\n     SectionStatus (string, <b>required</b>): <font color=\"brown\">Current status of the section</font>\n}\n</pre>"
+        content:
+          application/json:
+            example:
+              SourceSystem: myBeazley
+              RiskUniqueID: 606ab36d-292a-4ebd-9357-f6ec598c240c
+              RiskReference: ABC1234
+              BzyRiskReference: BZY65479321
+              Underwriter: Tom Jones
+              PlacingBrokerID: ff0513fe-c363-4d8d-903a-36e936ac50d9
+              PlacingBrokerGroup: Joseph & Joseph
+              PlacingBrokerContact: Sam Spade
+              PlacingBrokerStateProvince: London
+              PlacingBrokerCountry: GBR
+              PlacingBrokerBranchName: Joseph & Joseph, London UK
+              ProducingBrokerID: df5da783-33bc-4e42-a25a-1879abc5c51a
+              ProducingBrokerGroup: Sunway Brokerage
+              ProducingBrokerContact: Thomas Callaway
+              ProducingBrokerStateProvince: CA
+              ProducingBrokerCountry: USA
+              ProducingBrokerBranchName: Sunway, San Francisco - CA
+              InsuredID: 7ce92886-b75f-4db6-996c-c5ec8ce4e1a7
+              InsuredName: Rook Industries
+              InsuredContact: Sebastian Rooks
+              InsuredContactEmail: sebastian@rook.com
+              InsuredCity: San Francisco
+              InsuredStateProvince: CA
+              InsuredCountry: USA
+              Sections:
+              - SectionUniqueID: 34c1dae2-e255-4ff1-b41a-0d8834b5474b
+                SectionReference: '001'
+                SectionSequenceID: '1'
+                CoverageName: Breach
+                ClassOfBusinessCode: WX
+                CreationDate: '2014-10-20'
+                InceptionDate: '2014-11-25'
+                ExpiryDate: '2015-11-24'
+                SectionStatus: Quoted
+      responses:
+        '400':
+          description: ''
+        '201':
+          description: New risk entry created successfully. Responds with resource ID which must be recorded for all future PUTs.
+          content:
+            application/json:
+              example:
+                id: d7922e56-b527-4c01-a2a5-79ccc0dc7340
+      tags:
+      - Risks
+    servers:
+    - url: https://api.beazley.com/sandbox/riskcapture/v1
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-refined-from:
+- beazley-data-capture-quote-and-risk-data-sandbox.yml
+- beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
+- beazley-data-capture-quote-and-risk-data-v2.yml
+- beazley-data-capture-quote-and-risk-data-v3-pre-release.yml
+- beazley-data-capture-quote-and-risk-data.yml

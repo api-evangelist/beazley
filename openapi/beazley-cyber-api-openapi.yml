@@ -1,0 +1,56 @@
+openapi: 3.2.0
+info:
+  title: Simple Raters Cyber API
+  description: Set of super-simple raters for testing.
+  version: '1.0'
+servers:
+- url: https://api.beazley.com/hack/raters/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Cyber
+paths:
+  /Cyber:
+    post:
+      summary: Cyber
+      operationId: 5804a8ff8097920fbc0ae7ea
+      parameters:
+      - name: code
+        in: query
+        description: ''
+        required: true
+        schema:
+          enum:
+          - 49y4ld7h40vdpu0x098wptlnmil6iuut5ztq6sehzsihuuwhfrirjo3n2ft6w095e624d8fflxr
+          type: string
+          default: 49y4ld7h40vdpu0x098wptlnmil6iuut5ztq6sehzsihuuwhfrirjo3n2ft6w095e624d8fflxr
+      requestBody:
+        content:
+          application/json:
+            example:
+              customer: Sodium Labs
+              address1: 123 Main St
+              address2: x
+              city: New York
+              countryISO: US
+              turnover: 250000
+              PIlimit: 50000
+              buildingsOwned: 1
+              hazardclass: 1
+              IsRecruitmentAgent: 'TRUE'
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Cyber
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

@@ -1,0 +1,74 @@
+openapi: 3.2.0
+info:
+  title: Beazley Lockstate API
+  version: '1.0'
+  description: 'Operations tagged Lockstate across 2 of this provider''s published API definitions: beazley-data-capture-quote-and-risk-data-v2-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.beazley.com/sandbox/riskcapture/v2
+- url: https://api.beazley.com/riskcapture/v2
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Lockstate
+paths:
+  /lockstate/{id}:
+    get:
+      summary: lockstate
+      operationId: 554a0e3f8097920d90ff4e34
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                Id: b767637a-9af9-446b-9622-55679fbaf543
+                LockedState: true
+                LastUpdated: '2015-08-05T12:33:07.5272587+00:00'
+                LastUpdatedVersionNumber: 1
+      tags:
+      - Lockstate
+    put:
+      summary: update lockstate
+      operationId: 554a108d8097920d90ff4e36
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            example:
+              Id: b767637a-9af9-446b-9622-55679fbaf543
+              LockedState: 'true'
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Lockstate
+    servers:
+    - url: https://api.beazley.com/sandbox/riskcapture/v2
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-refined-from:
+- beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
+- beazley-data-capture-quote-and-risk-data-v2.yml

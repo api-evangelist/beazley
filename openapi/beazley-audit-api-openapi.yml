@@ -1,0 +1,186 @@
+openapi: 3.2.0
+info:
+  title: Compliance Web Audit API
+  description: An API that provides compliance validation check and compliance search features
+  version: '1.0'
+servers:
+- url: https://api.beazley.com/compliance/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Audit
+paths:
+  /audit/lookups:
+    post:
+      summary: getauditlookups
+      description: The Audit Lookups endpoint is used to retrieve registry information relevant to performing lookups. For example it can be used with the key:”action” query to retrieve all possible action values for which Compliance Checks have happened with the purpose of displaying the actions in a dropdown list which the user can use to filter audit lookups. This matches the key with a column name in the Audits table and returns all unique values from all rows for that column. {"key":"system"} - The key matching the column
+      operationId: 5893134739845516588448cb
+      requestBody:
+        description: '{"key":"system"}'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuditLookupQuery'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AuditLookupQuery'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AuditLookupQuery'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/AuditLookupQuery'
+          application/x-www-form-urlencoded: {}
+      responses:
+        '200':
+          description: ' - Result (output)'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditLookupsPost200ApplicationJsonResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuditLookupsPost200TextJsonResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuditLookupsPost200ApplicationXmlResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuditLookupsPost200TextXmlResponse'
+        '500':
+          description: Error occurred in processing of the data!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditLookupsPost500ApplicationJsonResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuditLookupsPost500TextJsonResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuditLookupsPost500ApplicationXmlResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuditLookupsPost500TextXmlResponse'
+      tags:
+      - Audit
+  /audit:
+    get:
+      summary: getauditentry
+      description: Returns the details for a specific audit entry with the given id
+      operationId: 5893134739845516588448cd
+      parameters:
+      - name: query.id
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ' - {"Id":"ae25156e-9d67-4e7d-843c-5daf14c0d6a8","Timestamp":"2017-01-09T09:03:26.337","System":"Compliance.UI","Action":"RunChecks","User":"BFL\traja","Data":"{"Request":"{"Parameters":{"System":"Compliance.UI","Action":"RunChecks"},"Input":"{"agency":"B21502043","contact":"BE1769054","productLine":"96ee0bfb-a83e-e011-a864-0050568e000a","category":"admitted","country":"US","state":"AL","insuredName":"emir"}"}","Response":"{"Details":[{"Deferred":false,"Valid":false,"Description":"US Broker License Check Result for Broker Agency B21502043","Type":"BrokerLicense","SubType":"US","CategoryCode":"BL_USA","Errors":[{"Message":"No valid license found based on search parameters.","Category":"BL_USA","Code":1000,"Source":"ValidationEngine"}]}],"Valid":false,"Identifier":"555a41c6-741c-40d5-a6aa-d36af026dead","Deferred":[],"IsAsync":false,"Errors":[{"Message":"No valid license found based on search parameters.","Category":"BL_USA","Code":1000,"Source":"ValidationEngine"}],"Warnings":[]}"}","MetaData":[{"Key":"BrokerAgency","Value":"B21502043"},{"Key":"BrokerContact","Value":"BE1769054"},{"Key":"BusinessCategory","Value":"admitted"},{"Key":"RiskCountry","Value":"US"},{"Key":"RiskState","Value":"AL"},{"Key":"InsuredName","Value":"emir"},{"Key":"IsValid","Value":"False"}]}'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditEntry'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuditEntry'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuditEntry'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuditEntry'
+        '500':
+          description: Error occurred in processing of the data!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditEntry'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuditEntry'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuditEntry'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuditEntry'
+      tags:
+      - Audit
+components:
+  schemas:
+    AuditEntry:
+      type: object
+      properties:
+        Id:
+          type: string
+        Timestamp:
+          type: string
+          format: date-time
+        System:
+          type: string
+        Action:
+          type: string
+        User:
+          type: string
+        Data:
+          type: string
+        MetaData:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair_String_String_'
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
+    AuditLookupsPost200ApplicationXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost200TextJsonResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost200TextXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost200ApplicationJsonResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupQuery:
+      type: object
+      properties:
+        Key:
+          type: string
+    AuditLookupsPost500ApplicationXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500TextXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500TextJsonResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500ApplicationJsonResponse:
+      type: array
+      items:
+        type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

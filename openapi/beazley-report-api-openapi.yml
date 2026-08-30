@@ -1,0 +1,152 @@
+openapi: 3.2.0
+info:
+  title: Compliance Web Report API
+  description: An API that provides compliance validation check and compliance search features
+  version: '1.0'
+servers:
+- url: https://api.beazley.com/compliance/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Report
+paths:
+  /report:
+    post:
+      summary: report
+      description: "For a given query object returns a collection of audit entries describing compliance checks that have been performed in the system. The parameters that can be passed to the audit report query are similar to the check parameters.Meaning that if we pass a specific product line the Audit Report will return Audit Entries for compliance checks that have been performed for that product. Additionally we can pass a Valid/Invalid/Both query parameter that will filter the Audit Entries based on the result of the compliance check.\n             - Inputs \n             {\n                 \"page\": 1,\n                 \"size\": 25,\n                 \"filter\": { - Filter contains the Audit Report Filters which separate into two groups.\n                 \"from\": \"2017-01-09T00:00:00.000Z\", - From what datetime did the compliance check happen.\n                 \"to\": \"2017-01-09T14:39:00.000Z\", - To what datetime did the compliance check happen.\n                 \"system\": \"Compliance.UI\", - From what system did the check happen.\n                 \"action\": \"RunChecks\", For what action\n                 \"user\": \"BFL\\traja\", For which user\n                 \"dataParameters\": {\n                          \"isValid\": \"\" - Empty string – Both valid and invalid\n                          True – only valid checks\n                          False – only invalid checks.\n             }\n            }}\n             These filters are dynamic and used to narrow down the search results.Here we can populate from a standard set of possible filters matching information relevant to a compliance check."
+      operationId: 5893134739845516588448ca
+      requestBody:
+        description: '{ "page": 1, "size": 25,"filter": { "from": "2017-01-09T00:00:00.000Z", "to": "2017-01-09T14:39:00.000Z", "system": "Compliance.UI", "action": "RunChecks", "user": "BFL\traja", "dataParameters": { "isValid": "" }}}'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuditQuery'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AuditQuery'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AuditQuery'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/AuditQuery'
+          application/x-www-form-urlencoded: {}
+      responses:
+        '200':
+          description: ' - {"Entries":[{"Id":"ae25156e-9d67-4e7d-843c-5daf14c0d6a8","Timestamp":"2017-01-09T09:03:26.337","System":"Compliance.UI","Action":"RunChecks","User":"BFL\traja","Data":"{"Request":"{"Parameters":{"System":"Compliance.UI","Action":"RunChecks"},"Input":"{"agency":"B21502043","contact":"BE1769054","productLine":"96ee0bfb-a83e-e011-a864-0050568e000a","category":"admitted","country":"US","state":"AL","insuredName":"emir"}"}","Response":"{"Details":[{"Deferred":false,"Valid":false,"Description":"US Broker License Check Result for Broker Agency B21502043","Type":"BrokerLicense","SubType":"US","CategoryCode":"BL_USA","Errors":[{"Message":"No valid license found based on search parameters.","Category":"BL_USA","Code":1000,"Source":"ValidationEngine"}]}],"Valid":false,"Identifier":"555a41c6-741c-40d5-a6aa-d36af026dead","Deferred":[],"IsAsync":false,"Errors":[{"Message":"No valid license found based on search parameters.","Category":"BL_USA","Code":1000,"Source":"ValidationEngine"}],"Warnings":[]}"}","MetaData":[{"Key":"BrokerAgency","Value":"B21502043"},{"Key":"BrokerContact","Value":"BE1769054"},{"Key":"BusinessCategory","Value":"admitted"},{"Key":"RiskCountry","Value":"US"},{"Key":"RiskState","Value":"AL"},{"Key":"InsuredName","Value":"emir"},{"Key":"IsValid","Value":"False"}]}],"TotalCount":1,"Page":1,"Size":25}'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuditResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuditResult'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuditResult'
+        '500':
+          description: Error occurred in processing of the data!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuditResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuditResult'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AuditResult'
+      tags:
+      - Report
+components:
+  schemas:
+    AuditEntry:
+      type: object
+      properties:
+        Id:
+          type: string
+        Timestamp:
+          type: string
+          format: date-time
+        System:
+          type: string
+        Action:
+          type: string
+        User:
+          type: string
+        Data:
+          type: string
+        MetaData:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair_String_String_'
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
+    AuditResult:
+      type: object
+      properties:
+        Entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuditEntry'
+        TotalCount:
+          type: integer
+          format: int32
+        Page:
+          type: integer
+          format: int32
+        Size:
+          type: integer
+          format: int32
+    AuditQuery:
+      type: object
+      properties:
+        Page:
+          type: integer
+          format: int32
+        Size:
+          type: integer
+          format: int32
+        Filter:
+          $ref: '#/components/schemas/AuditQueryFilter'
+    AuditQueryFilter:
+      type: object
+      properties:
+        From:
+          type: string
+          format: date-time
+        To:
+          type: string
+          format: date-time
+        System:
+          type: string
+        Action:
+          type: string
+        User:
+          type: string
+        DataParameters:
+          type: object
+          additionalProperties:
+            type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

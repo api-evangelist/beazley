@@ -1,0 +1,49 @@
+openapi: 3.2.0
+info:
+  title: Beazley Providers API
+  version: '1.0'
+  description: 'Operations tagged Providers across 2 of this provider''s published API definitions: beazley-currency-exchange-sandbox.yml, beazley-currency-exchange.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.beazley.com/sandbox/fx/v1
+- url: https://api.beazley.com/fx/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Providers
+paths:
+  /providers:
+    get:
+      summary: Providers
+      operationId: 56d088f797fe1e081ca252eb
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+              - Id: 1
+                Code: boe
+                Name: Bank of England
+              - Id: 2
+                Code: oan
+                Name: Oanda
+            text/xml:
+              example: <ArrayOfProvider xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Beazley.FX.WebService.Models.FX"> <Provider> <Code>boe</Code> <Id>1</Id> <Name>Bank of England</Name> </Provider> <Provider> <Code>oan</Code> <Id>2</Id> <Name>Oanda</Name> </Provider> </ArrayOfProvider>
+      tags:
+      - Providers
+    servers:
+    - url: https://api.beazley.com/sandbox/fx/v1
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-refined-from:
+- beazley-currency-exchange-sandbox.yml
+- beazley-currency-exchange.yml

@@ -1,0 +1,283 @@
+openapi: 3.2.0
+info:
+  title: Beazley Organisations API
+  version: '1.0'
+  description: 'Operations tagged Organisations across 2 of this provider''s published API definitions: beazley-broker-and-insured-marketing-data-v2-sandbox.yml, beazley-broker-and-insured-marketing-data-v2.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.beazley.com/sandbox/marketing/v2
+- url: https://api.beazley.com/marketing/v2
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Organisations
+paths:
+  /organisations/{id}/contacts:
+    get:
+      summary: contacts by organisation (GET)
+      operationId: 561e208f8097920ed881e63b
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: ProviderID
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: UpdatedSince
+        in: query
+        schema:
+          type: string
+      - name: PageNumber
+        in: query
+        schema:
+          type: string
+      - name: RecordsPerPage
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "<h4>Model</h4>\n<pre>\nContacts\n{\n     \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the contact,</font>\n     \"EmailAddress\" (string, <b>required</b>): <font color=\"brown\">Email address of the contact,</font>\n     \"FirstName\" (string, <b>required</b>): <font color=\"brown\">Given name of the contact,</font>\n     \"JobTitle\" (string, <b>optional</b>): <font color=\"brown\">Job title of the contact,</font>\n     \"LastName\" (string, <b>required</b>): <font color=\"brown\">Surname of the contact,</font>\n     \"MobilePhoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Mobile telephone number of the contact,</font>\n     \"TelephoneNumber\" (string, <b>optional</b>): <font color=\"brown\">Groundline telephone number of the contact,</font>\n     \"CreatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was created,</font>\n     \"UpdatedOn\" (string, <b>required</b>): <font color=\"brown\">Date time that the contact record was last updated,</font>\n     \"OrganisationId\" (string, <b>required</b>): <font color=\"brown\">id of the organisation linked to the contact,</font>\n     \"IsActive\" (boolean, <b>optional</b>): <font color=\"brown\">Active indicator,</font>\n     \"Industry\" (string, <b>optional</b>): <font color=\"brown\">Industry description,</font>\n     \"FocusArea\" (string, optional): <font color=\"brown\">Focus area,</font>\n     \"MicroSiteSubscriptions\": \n     [\n     {\n     \"SubscriberId\" (string, <b>optional</b>): <font color=\"brown\">Unique id of the microsite subscription,</font>\n          \"MicroSite\": \n          {\n               \"Id\" (string, <b>required</b>): <font color=\"brown\">Unique id of the microsite,</font>\n               \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the microsite</font> \n          },\n          \"StartDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription starts,</font>\n          \"EndDate\" (string, <b>optional</b>): <font color=\"brown\">Date time that the subscription ends,</font>\n          \"PolicyType\" (string, <b>optional</b>): <font color=\"brown\">The policy renewal status: 0 for new, 1 for renewal,</font>\n     }\n     ]\n}\n</pre>"
+          content:
+            application/json:
+              example:
+                PageNumber: 1
+                Contacts:
+                - Id: 50f80afd-7fee-e411-80ff-0050568e7c76
+                  EmailAddress: rita.foster79@example.com
+                  FirstName: Rita
+                  JobTitle: Health Inspector
+                  LastName: Foster
+                  MobilePhoneNumber: (859)-931-4822
+                  TelephoneNumber: (484)-496-6034
+                  CreatedOn: '2015-04-29T14:57:08.0000000+00:00'
+                  UpdatedOn: '2015-04-29T14:58:47.0000000+00:00'
+                  OrganisationId: 838a6fce-a2ed-e411-80ff-0050568e7c76
+                  IsActive: true
+                  Industry: Technology
+                  FocusArea: Risk Management
+                  MicroSiteSubscriptions:
+                  - SubscriberId: 50f80afd-7fee-e411-80ff-0050568e7c76
+                    MicroSite:
+                      Id: 861d97ca-fdee-e411-80ff-0050568e7c76
+                      Name: Breach Solutions
+                    StartDate: '2015-03-31T23:00:00.0000000+00:00'
+                    EndDate: '2016-03-31T23:00:00.0000000+00:00'
+                    PolicyType: 0
+      tags:
+      - Organisations
+    servers:
+    - url: https://api.beazley.com/sandbox/marketing/v2
+  /organisations/{id}:
+    put:
+      summary: organisation (PUT)
+      operationId: 561e208f8097920ed881e63d
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: ProviderID
+        in: query
+        description: ''
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: "<h4>Model</h4>\n<pre>\nOrganisations\n{\n     \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the organisation,</font>\n     \"NAICSCode\" (string, <b>required</b>): <font color=\"brown\">NAICS classification code of the organisation,</font>\n     \"Address\"  (string, <b>required</b>): <font color=\"brown\">Primary address of the organisation,</font>\n     {\n          \"CityTown\": \"Cambridge\",\n          \"Country\": \"United States\",\n          \"FloorOrSuite\": \"2\",\n          \"Line1\": \"12345 Main Street\",\n          \"Line2\": \"Suite 125\",\n          \"Line3\": null,\n          \"StateCountyProvince\": \"MA\",\n          \"PostZipCode\": \"02139\"\n     },\n     \"IsActive\"  (string, <b>optional</b>): <font color=\"brown\">Organisation active indicator,</font>\n}\n</pre>"
+        content:
+          application/json:
+            example:
+              Organisation:
+                Name: Rook Industries
+                NAICSCode: '541618'
+                IsActive: 'True'
+                Address:
+                  CityTown: Cambridge
+                  Country: United States
+                  FloorOrSuite: '2'
+                  Line1: 77 Massachusetts Avenue
+                  Line2: Building A
+                  Line3: ''
+                  StateCountyProvince: MA
+                  PostZipCode: 02139
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Organisations
+    get:
+      summary: organisation by id (GET)
+      operationId: 561e208f8097920ed881e63e
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: ProviderID
+        in: query
+        description: Your unique provider ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "<h4>Model</h4>\n<pre>\nOrganisations\n{\n     \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the organisation,</font>\n     \"NAICSCode\" (string, <b>required</b>): <font color=\"brown\">NAICS classification code of the organisation,</font>\n     \"Address\"  (string, <b>required</b>): <font color=\"brown\">Primary address of the organisation,</font>\n     {\n          \"CityTown\": \"Cambridge\",\n          \"Country\": \"United States\",\n          \"FloorOrSuite\": \"2\",\n          \"Line1\": \"12345 Main Street\",\n          \"Line2\": \"Suite 125\",\n          \"Line3\": null,\n          \"StateCountyProvince\": \"MA\",\n          \"PostZipCode\": \"02139\"\n     },\n     \"IsActive\"  (string, <b>optional</b>): <font color=\"brown\">Organisation active indicator,</font>\n}\n</pre>"
+          content:
+            application/json:
+              example:
+              - Organisation:
+                  Id: 4781dc2e-d980-4a32-8158-937a06423005
+                  MarketSegment: 1
+                  Name: Rook Industries
+                  NAICSCode: '541618'
+                  AccessCode: touqng
+                  ThirdPartyOrgRef: ABC123XYZ
+                  Domain: www.rook.com
+                  IsActive: true
+                  Programs:
+                  - Name: BBR Select
+                  Address:
+                    CityTown: Cambridge
+                    Country: United States
+                    FloorOrSuite: '2'
+                    Line1: 77 Massachusetts Avenue
+                    Line2: Building A
+                    Line3: ''
+                    StateCountyProvince: MA
+                    PostZipCode: 02139
+      tags:
+      - Organisations
+    servers:
+    - url: https://api.beazley.com/sandbox/marketing/v2
+  /organisations:
+    get:
+      summary: organisations (GET)
+      operationId: 561e208f8097920ed881e63f
+      parameters:
+      - name: ProviderID
+        in: query
+        description: Your unique provider ID
+        required: true
+        schema:
+          type: string
+      - name: UpdatedSince
+        in: query
+        description: Returns records updated since this date
+        schema:
+          type: string
+      - name: PageNumber
+        in: query
+        description: Returns the results from page N
+        schema:
+          enum:
+          - '1'
+          type: string
+      - name: RecordsPerPage
+        in: query
+        description: Sets the number of results per page. Maximum of 400
+        schema:
+          enum:
+          - '400'
+          type: string
+      - name: AccessCode
+        in: query
+        description: Returns records that match a specific access code
+        schema:
+          type: string
+      - name: Domain
+        in: query
+        description: Returns records that match a specific domain
+        schema:
+          type: string
+      - name: ThirdPartyOrgRef
+        in: query
+        description: Returns records that match a specific third party ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "<h4>Model</h4>\n<pre>\nOrganisations\n{\n     \"Name\" (string, <b>required</b>): <font color=\"brown\">Name of the organisation,</font>\n     \"NAICSCode\" (string, <b>required</b>): <font color=\"brown\">NAICS classification code of the organisation,</font>\n     \"Address\"  (string, <b>required</b>): <font color=\"brown\">Primary address of the organisation,</font>\n     {\n          \"CityTown\": \"Cambridge\",\n          \"Country\": \"United States\",\n          \"FloorOrSuite\": \"2\",\n          \"Line1\": \"12345 Main Street\",\n          \"Line2\": \"Suite 125\",\n          \"Line3\": null,\n          \"StateCountyProvince\": \"MA\",\n          \"PostZipCode\": \"02139\"\n     },\n     \"IsActive\"  (string, <b>optional</b>): <font color=\"brown\">Organisation active indicator,</font>\n}\n</pre>"
+          content:
+            application/json:
+              example:
+              - Organisation:
+                  Id: 4781dc2e-d980-4a32-8158-937a06423005
+                  MarketSegment: 1
+                  Name: Rook Industries
+                  NAICSCode: '541618'
+                  AccessCode: touqng
+                  ThirdPartyOrgRef: ABC123XYZ
+                  Domain: www.rook.com
+                  IsActive: true
+                  Programs:
+                  - Name: BBR Select
+                  Address:
+                    CityTown: Cambridge
+                    Country: United States
+                    FloorOrSuite: '2'
+                    Line1: 77 Massachusetts Avenue
+                    Line2: Building A
+                    Line3: ''
+                    StateCountyProvince: MA
+                    PostZipCode: 02139
+      tags:
+      - Organisations
+    servers:
+    - url: https://api.beazley.com/sandbox/marketing/v2
+  /organisations/{id}/organisations:
+    post:
+      summary: organisations (POST)
+      operationId: 57236b6697fe1e136834c547
+      parameters:
+      - name: id
+        in: path
+        description: the key of the ‘parent’ organisation
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: "<h4>Model</h4>\n<pre>\nOrganisations\n[\n  {\n     \"Name\" (string, required): <font color=\"brown\">Name of the organisation,</font>\n     \"DoingBusinessAs\" (string, required): <font color=\"brown\">Trading name,</font>\n     \"UniqueReference\" (string, required): <font color=\"brown\">Unique reference of the organisation,</font>\n     \"StartDate\" (string, required): <font color=\"brown\">Policy start date,</font>\n     \"ExpiryDate\" (string, required): <font color=\"brown\">Policy expiration date,</font>\n     \"CancellationDate\" (string, optional): <font color=\"brown\">Policy cancellation date.</font>\n }\n]\n</pre>"
+        content:
+          application/json:
+            example:
+            - Name: A N Other Ltd
+              DoingBusinessAs: A N Other Trading Ltd
+              UniqueReference: GH/t336334
+              StartDate: '2016-01-01T00:00:00.0000000+00:00'
+              ExpiryDate: '2016-12-31T00:00:00.0000000+00:00'
+              CancellationDate: null
+            - Name: A and J Skips
+              DoingBusinessAs: 'A and J Skips '
+              UniqueReference: '1000000082'
+              StartDate: '2016-05-01T00:00:00.0000000+00:00'
+              ExpiryDate: '2017-05-31T00:00:00.0000000+00:00'
+              CancellationDate: null
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Organisations
+    servers:
+    - url: https://api.beazley.com/sandbox/marketing/v2
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-refined-from:
+- beazley-broker-and-insured-marketing-data-v2-sandbox.yml
+- beazley-broker-and-insured-marketing-data-v2.yml

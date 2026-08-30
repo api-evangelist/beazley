@@ -1,0 +1,169 @@
+openapi: 3.2.0
+info:
+  title: Compliance Web Check API
+  description: An API that provides compliance validation check and compliance search features
+  version: '1.0'
+servers:
+- url: https://api.beazley.com/compliance/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Check
+paths:
+  /check:
+    post:
+      summary: check
+      description: "Given the Input parameters run's a Compliance check based on the Rule determined by the System and Action properties in the parameters. The type of Compliance Check is determined based on the Plugins configured in the Rule. For example: If the rule specifies the LicenseValidationPlugin the Compliance Check will consist of validating if the provided BrokerContact/BrokerAgency has an appropriate license matching the query parameters in the input.\n             - Inputs\n            {\n                 \"Parameters\": \n            {\n                 \"System\":\"myBeazley\", -The system making the call -used to determine the Rule\n                 \"Action\":\"BrokerNewBusinessQuote\" - The action that triggers the call - used to determine the Rule\n                 The combination of System and Action determines a lookup to a JSON configuration that determines and specifies:\n                          1.ValidationRule - Which plugins will be executed for this query\n                          2.ValidationTransforms - How the data in Input is mapped for each / all / particualr Plugin that gets executed.\n                          3.AuditInputTransform - How the Auditing System will log(where / how is the data structured) the Input for this request\n                          4.AuditOutputTransform - How the Auditing system will log(where / how is the data structured) the Output for this request\n            },\n              \"Input\": -This input is valid for The BrokerLicensePlugin based on the JsonConfiguration refered in the System / Action secetion.\n             \"{\n                        \"agency\":\"3930\", - A UniqueId of the Broker Agency for which we want to check Broker Licenses\n                        \"productLine\":\"a0ee0bfb-a83e-e011-a864-0050568e000a\\\", - The Id of the Product Line for which we want to check licenses\n                        \"category\":\"admitted\", - The Business Category for which we want to check licenses.\n                        \"country\":\"US\", Tha Country for which we want to check licenses.\n                        \"state\":\"AK\", The applicable state for which we want to check licenses.\n                        \"insuredName\":\"John Doe\"\n             }\"\n             Auditing Feature for Compliance.Get's stored as part of the Audit (Input/Output) determined by the JSON Cofiguration specified in the System/Action section."
+      operationId: 5893134739845516588448c8
+      requestBody:
+        description: '{"parameters":{"System":"Compliance.UI","Action":"RunChecks"},"input":"{\"agency\":\"B21502043\",\"contact\":\"BE1769054\",\"productLine\":\"e36293ab-320e-de11-9972-0050569534ff\",\"category\":\"surplus\",\"country\":\"US\",\"state\":\"NY\",\"insuredName\":\"JQ Test\"}"}'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceCheckQuery'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceCheckQuery'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ComplianceCheckQuery'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/ComplianceCheckQuery'
+          application/x-www-form-urlencoded: {}
+      responses:
+        '200':
+          description: ' - {"Details":[{"Deferred":false,"Valid":false,"Description":"US Broker License Check Result for Broker Agency B21502043","Type":"BrokerLicense","SubType":"US","CategoryCode":"BL_USA","Errors":[{"Message":"No valid license found based on search parameters.","Category":"BL_USA","Code":1000,"Source":"ValidationEngine"}]}],"Valid":false,"Identifier":"7f7f0f4f-8112-49f4-bfc9-ac85b459e9c0","Deferred":[],"IsAsync":false,"Errors":[{"Message":"No valid license found based on search parameters.","Category":"BL_USA","Code":1000,"Source":"ValidationEngine"}],"Warnings":[]}'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceCheckResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceCheckResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ComplianceCheckResult'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ComplianceCheckResult'
+        '500':
+          description: Error occurred in processing of the data!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceCheckResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceCheckResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ComplianceCheckResult'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ComplianceCheckResult'
+      tags:
+      - Check
+components:
+  schemas:
+    ComplianceCheckQuery:
+      type: object
+      properties:
+        Parameters:
+          type: object
+          additionalProperties:
+            type: string
+        Input:
+          type: string
+    ComplianceResultDetailItem:
+      type: object
+      properties:
+        Type:
+          type: string
+        Parameters:
+          type: object
+          additionalProperties:
+            type: string
+          readOnly: true
+    ComplianceCheckResult:
+      type: object
+      properties:
+        Details:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceResultDetail'
+          readOnly: true
+        Valid:
+          type: boolean
+          readOnly: true
+        Identifier:
+          type: string
+        Deferred:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        IsAsync:
+          type: boolean
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceMessage'
+          readOnly: true
+        Warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceMessage'
+          readOnly: true
+    ComplianceMessage:
+      type: object
+      properties:
+        Message:
+          type: string
+        Category:
+          type: string
+        Code:
+          type: integer
+          format: int32
+        Source:
+          type: string
+    ComplianceResultDetail:
+      type: object
+      properties:
+        Deferred:
+          type: boolean
+        Valid:
+          type: boolean
+        Description:
+          type: string
+        Type:
+          type: string
+        SubType:
+          type: string
+        CategoryCode:
+          type: string
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceResultDetailItem'
+          readOnly: true
+        Warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceMessage'
+          readOnly: true
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceMessage'
+          readOnly: true
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

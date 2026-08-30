@@ -1,0 +1,93 @@
+openapi: 3.2.0
+info:
+  title: Beazley Rates API
+  version: '1.0'
+  description: 'Operations tagged Rates across 2 of this provider''s published API definitions: beazley-currency-exchange-sandbox.yml, beazley-currency-exchange.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.beazley.com/sandbox/fx/v1
+- url: https://api.beazley.com/fx/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Rates
+paths:
+  /rates:
+    get:
+      summary: Rates
+      operationId: 56d088f797fe1e081ca252ea
+      parameters:
+      - name: scurr
+        in: query
+        description: Source Currency
+        required: true
+        schema:
+          type: string
+      - name: dcurr
+        in: query
+        description: Destination Currency
+        required: true
+        schema:
+          type: string
+      - name: bcurr
+        in: query
+        description: Bridge Currency
+        schema:
+          type: string
+      - name: startdate
+        in: query
+        description: Rates from this date
+        schema:
+          type: string
+      - name: enddate
+        in: query
+        description: Rates to this date
+        schema:
+          type: string
+      - name: provider
+        in: query
+        description: Rate Provider
+        schema:
+          type: string
+      - name: amount
+        in: query
+        description: Amount
+        schema:
+          type: string
+      - name: divby
+        in: query
+        description: Multiply or divide by rate
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                StartDate: '2016-02-08T00:00:00.0000000+00:00'
+                SourceCurrency: GBP
+                DestinationCurrency: USD
+                BridgeCurrency: USD
+                ProviderCode: boe
+                Rate: 1.43678161
+                CalculatedAmount: 143.678161
+                DivBy: false
+                DataFound: true
+      tags:
+      - Rates
+    servers:
+    - url: https://api.beazley.com/sandbox/fx/v1
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-refined-from:
+- beazley-currency-exchange-sandbox.yml
+- beazley-currency-exchange.yml

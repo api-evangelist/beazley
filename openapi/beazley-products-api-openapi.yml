@@ -1,0 +1,63 @@
+openapi: 3.2.0
+info:
+  title: Fast Reader Products API
+  description: The Fast Reader API provides basic information on insurance terms, frequently asked questions (coming soon), and Beazley products (also coming soon).
+  version: '1.0'
+servers:
+- url: https://api.beazley.com/sandbox/fastreader/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Products
+paths:
+  /products/{term}:
+    get:
+      summary: products
+      operationId: 59675c4259efa7b3b8c0fa3b
+      parameters:
+      - name: term
+        in: path
+        description: Product keyword or query term
+        required: true
+        schema:
+          type: string
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        schema:
+          enum:
+          - application/json
+          type: string
+          default: application/json
+      requestBody:
+        description: The request body.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request-manual'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManualPathsInvokeDefinitions_term_Get200ApplicationJsonResponse'
+      tags:
+      - Products
+components:
+  schemas:
+    ManualPathsInvokeDefinitions_term_Get200ApplicationJsonResponse:
+      type: object
+      x-apim-schema-name: ManualPathsInvokeDefinitions{term}Get200ApplicationJsonResponse
+    request-manual: {}
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

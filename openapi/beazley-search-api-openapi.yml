@@ -1,0 +1,94 @@
+openapi: 3.2.0
+info:
+  title: Compliance Web Search API
+  description: An API that provides compliance validation check and compliance search features
+  version: '1.0'
+servers:
+- url: https://api.beazley.com/compliance/v1
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Search
+paths:
+  /search:
+    post:
+      summary: search
+      description: "The compliance search supports search for broker agencies, broker contacts and product lines. The search endpoint is used to Search Compliance Related entities for dispalying in UI controls. The query data is a custom DSL that is transformed to the CRM Query API.\n            - Inputs\n            {\n                       \"type\":\"broker\", - Specifies the Entity to Search.\n                       \"query\":\n            {\n                       \"select\":\"all\", - Return all results/properties\n                       \"from\":\"agency\", - Determine the type of Broker to search upon.Agency/Contact\n                       \"where\": - A collection of query operators that define the filters for this query.\n            [{\n                       \"property\":\"all\", -On which properties/ property this query operator will run against. \"all\" means that the query operator will be applied to all properties of Broker Agency\n                       \"operator\":\"like\", -The operator to be used in this query operation. Like / Equals / NotEqual / Contains\n                       \"value\":\"us\" - The value used in the Query Operator.\n            }]}} \n            -- The above example comes down to Returning Broker Agencies where any of the properties of the Broker Agency Like \"Us\""
+      operationId: 5893134739845516588448c9
+      requestBody:
+        description: '{ "type":"broker", "query": { "select":"all", "from":"agency", "where": s [{ "property":"all", "operator":"like", "value":"us" }]}}'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceSearchQuery'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceSearchQuery'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ComplianceSearchQuery'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/ComplianceSearchQuery'
+          application/x-www-form-urlencoded: {}
+      responses:
+        '200':
+          description: ' - {"Results":[{"ProductId":"a0ee0bfb-a83e-e011-a864-0050568e000a","Name":"Accident and Health"},{"ProductId":"95ee0bfb-a83e-e011-a864-0050568e000a","Name":"Architects and Engineers"},{"ProductId":"96ee0bfb-a83e-e011-a864-0050568e000a","Name":"Binding Authorities"},{"ProductId":"97ee0bfb-a83e-e011-a864-0050568e000a","Name":"Commercial Property"},{"ProductId":"98ee0bfb-a83e-e011-a864-0050568e000a","Name":"Contingency"},{"ProductId":"99ee0bfb-a83e-e011-a864-0050568e000a","Name":"Engineering and Builders Risk"},{"ProductId":"9aee0bfb-a83e-e011-a864-0050568e000a","Name":"Environmental"},{"ProductId":"9bee0bfb-a83e-e011-a864-0050568e000a","Name":"Fidelity and Crime"},{"ProductId":"9cee0bfb-a83e-e011-a864-0050568e000a","Name":"Healthcare"},{"ProductId":"9dee0bfb-a83e-e011-a864-0050568e000a","Name":"Homeowners"},{"ProductId":"9eee0bfb-a83e-e011-a864-0050568e000a","Name":"Jewellers Block"},{"ProductId":"9fee0bfb-a83e-e011-a864-0050568e000a","Name":"Lawyers"},{"ProductId":"a1ee0bfb-a83e-e011-a864-0050568e000a","Name":"Management Liability"},{"ProductId":"a3ee0bfb-a83e-e011-a864-0050568e000a","Name":"Marine Cargo"},{"ProductId":"a4ee0bfb-a83e-e011-a864-0050568e000a","Name":"Marine Energy"},{"ProductId":"a5ee0bfb-a83e-e011-a864-0050568e000a","Name":"Marine Hull"},{"ProductId":"a2ee0bfb-a83e-e011-a864-0050568e000a","Name":"Marine Liability"},{"ProductId":"a6ee0bfb-a83e-e011-a864-0050568e000a","Name":"Political"},{"ProductId":"e36293ab-320e-de11-9972-0050569534ff","Name":"Property and Casualty"},{"ProductId":"a7ee0bfb-a83e-e011-a864-0050568e000a","Name":"Reinsurance"},{"ProductId":"a8ee0bfb-a83e-e011-a864-0050568e000a","Name":"Technology and Media"},{"ProductId":"a9ee0bfb-a83e-e011-a864-0050568e000a","Name":"Terrorism"},{"ProductId":"087552e5-a784-e411-80eb-0050568e3e04","Name":"Transaction Liability Buy Side"},{"ProductId":"5afbde53-a884-e411-80eb-0050568e3e04","Name":"Transaction Liability Contingency"},{"ProductId":"f1513729-a884-e411-80eb-0050568e3e04","Name":"Transaction Liability Sell Side"},{"ProductId":"ae5e8940-a884-e411-80eb-0050568e3e04","Name":"Transaction Liability Tax"}]}'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceSearchResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceSearchResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ComplianceSearchResult'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ComplianceSearchResult'
+        '500':
+          description: Error occurred in processing of the data!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceSearchResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceSearchResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ComplianceSearchResult'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ComplianceSearchResult'
+      tags:
+      - Search
+components:
+  schemas:
+    Object:
+      type: object
+    ComplianceSearchResult:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Object'
+    ComplianceSearchQuery:
+      type: object
+      properties:
+        Type:
+          type: string
+        Query:
+          $ref: '#/components/schemas/Object'
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

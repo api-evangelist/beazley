@@ -323,48 +323,6 @@ apis:
     url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
-- aid: beazley:beazley-faqs-api
-  name: Beazley Faqs API
-  description: The Faqs API from Beazley — 2 operation(s) for faqs.
-  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
-  baseURL: https://api.beazley.com/riskcapture/v2
-  tags:
-  - FAQs
-  tags_raw:
-  - Faqs
-  properties:
-  - type: OpenAPI
-    url: openapi/beazley-faqs-api-openapi.yml
-  - type: Documentation
-    url: https://developer.beazley.com/apis
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
-  - type: Sandbox
-    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
-  - type: Sandbox
-    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
-  - type: Sandbox
-    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
-  - type: Sandbox
-    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
-  - type: Sandbox
-    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
-  - type: APIReference
-    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
 - aid: beazley:beazley-health-api
   name: Beazley Health API
   description: The Health API from Beazley — 1 operation(s) for health.
@@ -817,6 +775,46 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/beazley-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.beazley.com/apis
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=5538d88d97fe1e0db80089f7
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54c8996797fe1e0db81ee740
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=58931347398455121c4a697f
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=561e208f8097921da8a6fbf8
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=56d088f697fe1e18e889da2e
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf
+  - type: Sandbox
+    url: https://developer.beazley.com/api-details#api=54e21d5297fe1e0f2475cf33
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203
+  - type: APIReference
+    url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
+- aid: beazley:beazley-faqs-api
+  name: Beazley Faqs API
+  description: The Faqs API from Beazley — 2 operation(s) for faqs.
+  humanURL: https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb
+  baseURL: https://api.beazley.com/riskcapture/v2
+  tags:
+  - Faqs
+  properties:
+  - type: OpenAPI
+    url: openapi/beazley-faqs-api-openapi.yml
   - type: Documentation
     url: https://developer.beazley.com/apis
   - type: APIReference

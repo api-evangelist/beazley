@@ -14,7 +14,41 @@ paths:
   /report:
     post:
       summary: report
-      description: "For a given query object returns a collection of audit entries describing compliance checks that have been performed in the system. The parameters that can be passed to the audit report query are similar to the check parameters.Meaning that if we pass a specific product line the Audit Report will return Audit Entries for compliance checks that have been performed for that product. Additionally we can pass a Valid/Invalid/Both query parameter that will filter the Audit Entries based on the result of the compliance check.\n             - Inputs \n             {\n                 \"page\": 1,\n                 \"size\": 25,\n                 \"filter\": { - Filter contains the Audit Report Filters which separate into two groups.\n                 \"from\": \"2017-01-09T00:00:00.000Z\", - From what datetime did the compliance check happen.\n                 \"to\": \"2017-01-09T14:39:00.000Z\", - To what datetime did the compliance check happen.\n                 \"system\": \"Compliance.UI\", - From what system did the check happen.\n                 \"action\": \"RunChecks\", For what action\n                 \"user\": \"BFL\\traja\", For which user\n                 \"dataParameters\": {\n                          \"isValid\": \"\" - Empty string – Both valid and invalid\n                          True – only valid checks\n                          False – only invalid checks.\n             }\n            }}\n             These filters are dynamic and used to narrow down the search results.Here we can populate from a standard set of possible filters matching information relevant to a compliance check."
+      description: 'For a given query object returns a collection of audit entries describing compliance checks that have been performed in the system. The parameters that can be passed to the audit report query are similar to the check parameters.Meaning that if we pass a specific product line the Audit Report will return Audit Entries for compliance checks that have been performed for that product. Additionally we can pass a Valid/Invalid/Both query parameter that will filter the Audit Entries based on the result of the compliance check.
+
+        - Inputs
+
+        {
+
+        "page": 1,
+
+        "size": 25,
+
+        "filter": { - Filter contains the Audit Report Filters which separate into two groups.
+
+        "from": "2017-01-09T00:00:00.000Z", - From what datetime did the compliance check happen.
+
+        "to": "2017-01-09T14:39:00.000Z", - To what datetime did the compliance check happen.
+
+        "system": "Compliance.UI", - From what system did the check happen.
+
+        "action": "RunChecks", For what action
+
+        "user": "BFL\traja", For which user
+
+        "dataParameters": {
+
+        "isValid": "" - Empty string – Both valid and invalid
+
+        True – only valid checks
+
+        False – only invalid checks.
+
+        }
+
+        }}
+
+        These filters are dynamic and used to narrow down the search results.Here we can populate from a standard set of possible filters matching information relevant to a compliance check.'
       operationId: 5893134739845516588448ca
       requestBody:
         description: '{ "page": 1, "size": 25,"filter": { "from": "2017-01-09T00:00:00.000Z", "to": "2017-01-09T14:39:00.000Z", "system": "Compliance.UI", "action": "RunChecks", "user": "BFL\traja", "dataParameters": { "isValid": "" }}}'
@@ -67,50 +101,6 @@ paths:
       - Report
 components:
   schemas:
-    AuditEntry:
-      type: object
-      properties:
-        Id:
-          type: string
-        Timestamp:
-          type: string
-          format: date-time
-        System:
-          type: string
-        Action:
-          type: string
-        User:
-          type: string
-        Data:
-          type: string
-        MetaData:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValuePair_String_String_'
-    KeyValuePair_String_String_:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-      x-apim-schema-name: KeyValuePair[String,String]
-    AuditResult:
-      type: object
-      properties:
-        Entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuditEntry'
-        TotalCount:
-          type: integer
-          format: int32
-        Page:
-          type: integer
-          format: int32
-        Size:
-          type: integer
-          format: int32
     AuditQuery:
       type: object
       properties:
@@ -141,6 +131,50 @@ components:
           type: object
           additionalProperties:
             type: string
+    AuditEntry:
+      type: object
+      properties:
+        Id:
+          type: string
+        Timestamp:
+          type: string
+          format: date-time
+        System:
+          type: string
+        Action:
+          type: string
+        User:
+          type: string
+        Data:
+          type: string
+        MetaData:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair_String_String_'
+    AuditResult:
+      type: object
+      properties:
+        Entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuditEntry'
+        TotalCount:
+          type: integer
+          format: int32
+        Page:
+          type: integer
+          format: int32
+        Size:
+          type: integer
+          format: int32
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
   securitySchemes:
     apiKeyHeader:
       type: apiKey

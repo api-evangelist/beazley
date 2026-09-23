@@ -14,7 +14,21 @@ paths:
   /health:
     post:
       summary: healthcheck
-      description: "The HealthCheck endpoint is used to perform a general system healthcheck. It checks the operational status if integral parts of the system like the Validation Engine and databases. The query object  ( via the Settings Dictionary) can be used to specify which subcomponents of the system are going to be checked which can be for Compliance on of these values: case Contracts.Constants.Keys.COMPLIANCE_MANAGER case Contracts.Constants.Keys.RULES_DATA_ACCESS case Contracts.Constants.Keys.VALIDATION_ENGINE case Contracts.Constants.Keys.ALL_PLUGINS If for example the settings dictionary contains the key “CheckComponent” with the value “ValidationEngine” The health check will be performed only over the Validation Engine Component.\n            - Inputs\n             {\n            \t   \"Settings\": {\n            \t     \"HealthCheckOf\": \"ComplianceManager\", - What system is being checked\n            \t     \"ExecutedFrom\": \"ComplianceWebApi\", - Where are we making the check from\n            \t     \"CheckComponent\": \"ValidationEngine\" – The component we are checking matching on of the above Keys.\n            }}"
+      description: 'The HealthCheck endpoint is used to perform a general system healthcheck. It checks the operational status if integral parts of the system like the Validation Engine and databases. The query object ( via the Settings Dictionary) can be used to specify which subcomponents of the system are going to be checked which can be for Compliance on of these values: case Contracts.Constants.Keys.COMPLIANCE_MANAGER case Contracts.Constants.Keys.RULES_DATA_ACCESS case Contracts.Constants.Keys.VALIDATION_ENGINE case Contracts.Constants.Keys.ALL_PLUGINS If for example the settings dictionary contains the key “CheckComponent” with the value “ValidationEngine” The health check will be performed only over the Validation Engine Component.
+
+        - Inputs
+
+        {
+
+        "Settings": {
+
+        "HealthCheckOf": "ComplianceManager", - What system is being checked
+
+        "ExecutedFrom": "ComplianceWebApi", - Where are we making the check from
+
+        "CheckComponent": "ValidationEngine" – The component we are checking matching on of the above Keys.
+
+        }}'
       operationId: 5893134739845516588448cc
       requestBody:
         description: '{ "Settings": { "HealthCheckOf": "ComplianceManager", "ExecutedFrom": "ComplianceWebApi", "CheckComponent": "ValidationEngine" }}'
@@ -67,14 +81,6 @@ paths:
       - Health
 components:
   schemas:
-    KeyValuePair_String_String_:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-      x-apim-schema-name: KeyValuePair[String,String]
     HealthCheckQuery:
       type: object
       properties:
@@ -107,6 +113,14 @@ components:
           items:
             $ref: '#/components/schemas/IHealthCheckResult'
           readOnly: true
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
   securitySchemes:
     apiKeyHeader:
       type: apiKey

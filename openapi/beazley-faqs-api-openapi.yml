@@ -9,7 +9,7 @@ security:
 - apiKeyHeader: []
 - apiKeyQuery: []
 tags:
-- name: Faqs
+- name: FAQs
 paths:
   /faqs/:
     get:
@@ -40,7 +40,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ManualPathsInvokeDefinitions_term_Get200ApplicationJsonResponse'
       tags:
-      - Faqs
+      - FAQs
   /faqs:
     get:
       summary: FAQ by intent
@@ -75,7 +75,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ManualPathsInvokeDefinitions_term_Get200ApplicationJsonResponse'
       tags:
-      - Faqs
+      - FAQs
 components:
   schemas:
     ManualPathsInvokeDefinitions_term_Get200ApplicationJsonResponse:

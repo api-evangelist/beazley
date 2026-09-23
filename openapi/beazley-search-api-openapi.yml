@@ -14,7 +14,35 @@ paths:
   /search:
     post:
       summary: search
-      description: "The compliance search supports search for broker agencies, broker contacts and product lines. The search endpoint is used to Search Compliance Related entities for dispalying in UI controls. The query data is a custom DSL that is transformed to the CRM Query API.\n            - Inputs\n            {\n                       \"type\":\"broker\", - Specifies the Entity to Search.\n                       \"query\":\n            {\n                       \"select\":\"all\", - Return all results/properties\n                       \"from\":\"agency\", - Determine the type of Broker to search upon.Agency/Contact\n                       \"where\": - A collection of query operators that define the filters for this query.\n            [{\n                       \"property\":\"all\", -On which properties/ property this query operator will run against. \"all\" means that the query operator will be applied to all properties of Broker Agency\n                       \"operator\":\"like\", -The operator to be used in this query operation. Like / Equals / NotEqual / Contains\n                       \"value\":\"us\" - The value used in the Query Operator.\n            }]}} \n            -- The above example comes down to Returning Broker Agencies where any of the properties of the Broker Agency Like \"Us\""
+      description: 'The compliance search supports search for broker agencies, broker contacts and product lines. The search endpoint is used to Search Compliance Related entities for dispalying in UI controls. The query data is a custom DSL that is transformed to the CRM Query API.
+
+        - Inputs
+
+        {
+
+        "type":"broker", - Specifies the Entity to Search.
+
+        "query":
+
+        {
+
+        "select":"all", - Return all results/properties
+
+        "from":"agency", - Determine the type of Broker to search upon.Agency/Contact
+
+        "where": - A collection of query operators that define the filters for this query.
+
+        [{
+
+        "property":"all", -On which properties/ property this query operator will run against. "all" means that the query operator will be applied to all properties of Broker Agency
+
+        "operator":"like", -The operator to be used in this query operation. Like / Equals / NotEqual / Contains
+
+        "value":"us" - The value used in the Query Operator.
+
+        }]}}
+
+        -- The above example comes down to Returning Broker Agencies where any of the properties of the Broker Agency Like "Us"'
       operationId: 5893134739845516588448c9
       requestBody:
         description: '{ "type":"broker", "query": { "select":"all", "from":"agency", "where": s [{ "property":"all", "operator":"like", "value":"us" }]}}'

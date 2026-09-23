@@ -110,6 +110,18 @@ paths:
       - Audit
 components:
   schemas:
+    AuditLookupsPost200ApplicationXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500ApplicationJsonResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500ApplicationXmlResponse:
+      type: array
+      items:
+        type: string
     AuditEntry:
       type: object
       properties:
@@ -130,19 +142,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KeyValuePair_String_String_'
-    KeyValuePair_String_String_:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-      x-apim-schema-name: KeyValuePair[String,String]
-    AuditLookupsPost200ApplicationXmlResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost200TextJsonResponse:
+    AuditLookupsPost500TextJsonResponse:
       type: array
       items:
         type: string
@@ -150,7 +150,15 @@ components:
       type: array
       items:
         type: string
+    AuditLookupsPost500TextXmlResponse:
+      type: array
+      items:
+        type: string
     AuditLookupsPost200ApplicationJsonResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost200TextJsonResponse:
       type: array
       items:
         type: string
@@ -159,22 +167,14 @@ components:
       properties:
         Key:
           type: string
-    AuditLookupsPost500ApplicationXmlResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost500TextXmlResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost500TextJsonResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost500ApplicationJsonResponse:
-      type: array
-      items:
-        type: string
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
   securitySchemes:
     apiKeyHeader:
       type: apiKey

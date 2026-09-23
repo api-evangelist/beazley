@@ -1,11 +1,15 @@
 openapi: 3.2.0
 info:
-  title: Beazley People API
+  title: About Beazley (Sandbox) People API
+  description: 'A sandbox version of the About Beazley API. This API provides information on Beazley''s people.
+
+
+    Please contact
+
+    ITArchitecture@Beazley.com if you have any questions about this API.'
   version: '1.0'
-  description: 'Operations tagged People across 2 of this provider''s published API definitions: beazley-about-beazley-sandbox.yml, beazley-about-beazley.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.beazley.com/sandbox/about/v1
-- url: https://api.beazley.com/about/v1
 security:
 - apiKeyHeader: []
 - apiKeyQuery: []
@@ -15,15 +19,16 @@ paths:
   /people:
     get:
       summary: people
-      description: '<p>The base URL returns the collection of all Beazley people profiles. Individual people profiles can be returned by including the resource ID in the URL.
+      description: 'The base URL returns the collection of all Beazley people profiles. Individual people profiles can be returned by including the resource ID in the URL.
 
-        </p>
 
-        For example:<br>
+        For example:
 
-        <b>/people</b> returns the full collection set.<br>
 
-        <b>/people/1</b> returns the individual person record.<br>'
+        /people returns the full collection set.
+
+
+        /people/1 returns the individual person record.'
       operationId: 54e21d5297fe1e08786b4f2d
       parameters:
       - name: division
@@ -58,8 +63,6 @@ paths:
             application/json: {}
       tags:
       - People
-    servers:
-    - url: https://api.beazley.com/sandbox/about/v1
   /people/{rid}:
     get:
       summary: person by ID
@@ -82,16 +85,13 @@ paths:
           description: ''
       tags:
       - People
-    servers:
-    - url: https://api.beazley.com/sandbox/about/v1
   /people/profileimage:
     get:
       summary: profileimage by ID
-      description: 'Individual people profiles pictures can be returned by including the resource ID in the URL. Note that there is no collection response for this operation.<br>
+      description: 'Individual people profiles pictures can be returned by including the resource ID in the URL. Note that there is no collection response for this operation.
 
-        <br>
 
-        <b>Tip:</b> The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes.'
+        Tip: The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes.'
       operationId: 54e21d5297fe1e08786b4f2f
       parameters:
       - name: id
@@ -110,8 +110,6 @@ paths:
           description: ''
       tags:
       - People
-    servers:
-    - url: https://api.beazley.com/sandbox/about/v1
   /People/deleted/:
     get:
       summary: deleted people
@@ -128,16 +126,13 @@ paths:
           description: ''
       tags:
       - People
-    servers:
-    - url: https://api.beazley.com/sandbox/about/v1
   /people/profileimagebyemail/:
     get:
       summary: profileimage by email
-      description: 'Individual people profiles pictures can be returned by including the resource email in the URL. Note that there is no collection response for this operation.<br>
+      description: 'Individual people profiles pictures can be returned by including the resource email in the URL. Note that there is no collection response for this operation.
 
-        <br>
 
-        <b>Tip:</b> The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes.'
+        Tip: The API Console will return the profile image as characters. Use Postman or similar to view the images for testing purposes.'
       operationId: 5720682580979201c899e68d
       parameters:
       - name: email
@@ -156,8 +151,6 @@ paths:
           description: ''
       tags:
       - People
-    servers:
-    - url: https://api.beazley.com/sandbox/about/v1
 components:
   securitySchemes:
     apiKeyHeader:
@@ -168,6 +161,3 @@ components:
       type: apiKey
       name: subscription-key
       in: query
-x-refined-from:
-- beazley-about-beazley-sandbox.yml
-- beazley-about-beazley.yml

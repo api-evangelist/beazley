@@ -1,11 +1,15 @@
 openapi: 3.2.0
 info:
-  title: Beazley Currencies API
+  title: Currency Exchange (Sandbox) Currencies API
+  description: 'A sandbox version of the Currency Exchange Rate API. This API provides a standard set of exchange rates for Beazley systems.
+
+
+    Please contact
+
+    ITArchitecture@Beazley.com if you have any questions about this API.'
   version: '1.0'
-  description: 'Operations tagged Currencies across 2 of this provider''s published API definitions: beazley-currency-exchange-sandbox.yml, beazley-currency-exchange.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.beazley.com/sandbox/fx/v1
-- url: https://api.beazley.com/fx/v1
 security:
 - apiKeyHeader: []
 - apiKeyQuery: []
@@ -34,8 +38,6 @@ paths:
               example: <ArrayOfCurrency xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Beazley.FX.WebService.Models.FX"> <Currency> <ISOCode>GBP</ISOCode> <StartDate>02-Dec-2015</StartDate> </Currency> <Currency> <ISOCode>USD</ISOCode> <StartDate>02-Dec-2015</StartDate> </Currency> <Currency> <ISOCode>EUR</ISOCode> <StartDate>02-Dec-2015</StartDate> </Currency> <Currency> <ISOCode>RON</ISOCode> <StartDate>02-Dec-2015</StartDate> </Currency> </ArrayOfCurrency>
       tags:
       - Currencies
-    servers:
-    - url: https://api.beazley.com/sandbox/fx/v1
 components:
   securitySchemes:
     apiKeyHeader:
@@ -46,6 +48,3 @@ components:
       type: apiKey
       name: subscription-key
       in: query
-x-refined-from:
-- beazley-currency-exchange-sandbox.yml
-- beazley-currency-exchange.yml

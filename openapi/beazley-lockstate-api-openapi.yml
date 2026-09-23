@@ -1,11 +1,15 @@
 openapi: 3.2.0
 info:
-  title: Beazley Lockstate API
+  title: 'Data Capture: Quote and Risk Data v2 (Sandbox) Lockstate API'
+  description: 'A sandbox version of version 2 of the Data Capture API. This API provides a channel for partner systems to feed quote and risk data directly into Beazley''s core Record of Risk systems. The current published version of this API is V1.
+
+
+    Please contact
+
+    ITArchitecture@Beazley.com if you have any questions about this API.'
   version: '1.0'
-  description: 'Operations tagged Lockstate across 2 of this provider''s published API definitions: beazley-data-capture-quote-and-risk-data-v2-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.beazley.com/sandbox/riskcapture/v2
-- url: https://api.beazley.com/riskcapture/v2
 security:
 - apiKeyHeader: []
 - apiKeyQuery: []
@@ -57,8 +61,6 @@ paths:
           description: ''
       tags:
       - Lockstate
-    servers:
-    - url: https://api.beazley.com/sandbox/riskcapture/v2
 components:
   securitySchemes:
     apiKeyHeader:
@@ -69,6 +71,3 @@ components:
       type: apiKey
       name: subscription-key
       in: query
-x-refined-from:
-- beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
-- beazley-data-capture-quote-and-risk-data-v2.yml

@@ -2,14 +2,10 @@ openapi: 3.2.0
 info:
   title: Beazley Ping API
   version: '1.0'
-  description: 'Operations tagged Ping across 6 of this provider''s published API definitions: beazley-broker-and-insured-marketing-data-v2-sandbox.yml, beazley-broker-and-insured-marketing-data-v2.yml, beazley-data-capture-quote-and-risk-data-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2.yml, beazley-data-capture-quote-and-risk-data.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Ping across 2 of this provider''s published API definitions: beazley-broker-and-insured-marketing-data-v2-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2-sandbox.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.beazley.com/sandbox/marketing/v2
-- url: https://api.beazley.com/marketing/v2
-- url: https://api.beazley.com/sandbox/riskcapture/v1
 - url: https://api.beazley.com/sandbox/riskcapture/v2
-- url: https://api.beazley.com/riskcapture/v2
-- url: https://api.beazley.com/riskcapture/v1
 security:
 - apiKeyHeader: []
 - apiKeyQuery: []
@@ -43,8 +39,4 @@ components:
       in: query
 x-refined-from:
 - beazley-broker-and-insured-marketing-data-v2-sandbox.yml
-- beazley-broker-and-insured-marketing-data-v2.yml
-- beazley-data-capture-quote-and-risk-data-sandbox.yml
 - beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
-- beazley-data-capture-quote-and-risk-data-v2.yml
-- beazley-data-capture-quote-and-risk-data.yml

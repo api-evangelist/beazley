@@ -1,11 +1,15 @@
 openapi: 3.2.0
 info:
-  title: Beazley Microsites API
+  title: Broker and Insured Marketing Data v2 (Sandbox) Microsites…
+  description: 'A sandbox version of the Broker and Insured Marketing Data v2 API. This API provides marketing details for Beazley''s partner organisations.
+
+
+    Please contact
+
+    ITArchitecture@Beazley.com if you have any questions about this API.'
   version: '1.0'
-  description: 'Operations tagged Microsites across 2 of this provider''s published API definitions: beazley-broker-and-insured-marketing-data-v2-sandbox.yml, beazley-broker-and-insured-marketing-data-v2.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.beazley.com/sandbox/marketing/v2
-- url: https://api.beazley.com/marketing/v2
 security:
 - apiKeyHeader: []
 - apiKeyQuery: []
@@ -70,8 +74,6 @@ paths:
                     PolicyType: 0
       tags:
       - Microsites
-    servers:
-    - url: https://api.beazley.com/sandbox/marketing/v2
   /microsites/:
     get:
       summary: microsites (GET)
@@ -92,8 +94,6 @@ paths:
                 Name: NoDataBreach.com
       tags:
       - Microsites
-    servers:
-    - url: https://api.beazley.com/sandbox/marketing/v2
   /microsites/{id}/organisations:
     get:
       summary: organisations by microsite (GET)
@@ -163,8 +163,6 @@ paths:
                     PostZipCode: 02139
       tags:
       - Microsites
-    servers:
-    - url: https://api.beazley.com/sandbox/marketing/v2
 components:
   securitySchemes:
     apiKeyHeader:
@@ -175,6 +173,3 @@ components:
       type: apiKey
       name: subscription-key
       in: query
-x-refined-from:
-- beazley-broker-and-insured-marketing-data-v2-sandbox.yml
-- beazley-broker-and-insured-marketing-data-v2.yml

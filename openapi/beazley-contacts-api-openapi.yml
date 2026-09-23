@@ -1,11 +1,15 @@
 openapi: 3.2.0
 info:
-  title: Beazley Contacts API
+  title: Broker and Insured Marketing Data v2 (Sandbox) Contacts API
+  description: 'A sandbox version of the Broker and Insured Marketing Data v2 API. This API provides marketing details for Beazley''s partner organisations.
+
+
+    Please contact
+
+    ITArchitecture@Beazley.com if you have any questions about this API.'
   version: '1.0'
-  description: 'Operations tagged Contacts across 2 of this provider''s published API definitions: beazley-broker-and-insured-marketing-data-v2-sandbox.yml, beazley-broker-and-insured-marketing-data-v2.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.beazley.com/sandbox/marketing/v2
-- url: https://api.beazley.com/marketing/v2
 security:
 - apiKeyHeader: []
 - apiKeyQuery: []
@@ -48,8 +52,6 @@ paths:
                 Id: 4254e883-55f5-e411-80ff-0050568e7c76
       tags:
       - Contacts
-    servers:
-    - url: https://api.beazley.com/sandbox/marketing/v2
   /Contacts/{id}:
     put:
       summary: contact (PUT)
@@ -85,8 +87,6 @@ paths:
           description: ''
       tags:
       - Contacts
-    servers:
-    - url: https://api.beazley.com/sandbox/marketing/v2
   /contacts/{id}:
     get:
       summary: contact by id (GET)
@@ -132,8 +132,6 @@ paths:
                     PolicyType: 0
       tags:
       - Contacts
-    servers:
-    - url: https://api.beazley.com/sandbox/marketing/v2
   /contacts:
     get:
       summary: contacts (GET)
@@ -195,8 +193,6 @@ paths:
                     PolicyType: 0
       tags:
       - Contacts
-    servers:
-    - url: https://api.beazley.com/sandbox/marketing/v2
 components:
   securitySchemes:
     apiKeyHeader:
@@ -207,6 +203,3 @@ components:
       type: apiKey
       name: subscription-key
       in: query
-x-refined-from:
-- beazley-broker-and-insured-marketing-data-v2-sandbox.yml
-- beazley-broker-and-insured-marketing-data-v2.yml

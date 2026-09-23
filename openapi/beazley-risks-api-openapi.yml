@@ -1,14 +1,15 @@
 openapi: 3.2.0
 info:
-  title: Beazley Risks API
+  title: 'Data Capture: Quote and Risk Data v2 (Sandbox) Risks API'
+  description: 'A sandbox version of version 2 of the Data Capture API. This API provides a channel for partner systems to feed quote and risk data directly into Beazley''s core Record of Risk systems. The current published version of this API is V1.
+
+
+    Please contact
+
+    ITArchitecture@Beazley.com if you have any questions about this API.'
   version: '1.0'
-  description: 'Operations tagged Risks across 5 of this provider''s published API definitions: beazley-data-capture-quote-and-risk-data-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2.yml, beazley-data-capture-quote-and-risk-data-v3-pre-release.yml, beazley-data-capture-quote-and-risk-data.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://api.beazley.com/sandbox/riskcapture/v1
 - url: https://api.beazley.com/sandbox/riskcapture/v2
-- url: https://api.beazley.com/riskcapture/v2
-- url: https://api.beazley.com/prerelease/riskcapture/v3
-- url: https://api.beazley.com/riskcapture/v1
 security:
 - apiKeyHeader: []
 - apiKeyQuery: []
@@ -17,11 +18,12 @@ tags:
 paths:
   /risks/{id}:
     get:
-      summary: GET Risk
-      operationId: 54c8996797fe1e0d805f714c
+      summary: risk
+      operationId: 5538d88d97fe1e0ff06f4248
       parameters:
       - name: id
         in: path
+        description: ''
         required: true
         schema:
           type: string
@@ -31,9 +33,9 @@ paths:
       tags:
       - Risks
     put:
-      summary: PUT risk
+      summary: update risk
       description: Use the PUT method to update existing records. Note that the full risk object is required and any fields that are passed must have a value - blanks values will replace existing data with a empty string.
-      operationId: 54c8996797fe1e0d805f714e
+      operationId: 5538d88d97fe1e0ff06f424a
       parameters:
       - name: id
         in: path
@@ -42,110 +44,414 @@ paths:
         schema:
           type: string
       requestBody:
-        description: "<h4>Model</h4>\n<pre>\nRisk \n{\n     SourceSystem (string, <b>required</b>): <font color=\"brown\">The name of the system from which the data has been extracted,</font>\n     RiskUniqueID (string, <b>required</b>): <font color=\"brown\">An internal unique non-changing code to uniquely identify each risk,</font>\n     RiskReference (string, <b>required</b>): <font color=\"brown\">An external facing reference code used to uniquely identify each risk,</font>\n     BzyRiskReference (string, optional): <font color=\"brown\">Beazley re-keyed reference from our internal record of risk system,</font>\n     Underwriter (string, <b>required</b>): <font color=\"brown\">The name of the Beazley underwriter linked to the risk,</font>\n     PlacingBrokerID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the broker,</font>\n     PlacingBrokerGroup (string, <b>required</b>): <font color=\"brown\">The name of the primary broking firm that is placing the risk,</font>\n     PlacingBrokerContact (string, optional): <font color=\"brown\">The contact name within the placing broker's organisation,</font>\n     PlacingBrokerStateProvince (string, optional): <font color=\"brown\">Placing broker’s state or provide,</font>\n     PlacingBrokerCountry (string, optional): <font color=\"brown\">Placing broker’s country 3 digit ISO 3166 code,</font>\n     PlacingBrokerBranchName (string, optional): <font color=\"brown\">Distinct name for the placing broker’s office,</font>\n     ProducingBrokerID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the broker,</font>\n     ProducingBrokerGroup (string, optional): <font color=\"brown\">The name of the producing broking firm that is placing the risk,</font>\n     ProducingBrokerContact (string, optional): <font color=\"brown\">The contact name within the producing broker's organisation,</font>\n     ProducingBrokerStateProvince (string, optional): <font color=\"brown\">Producing broker’s state or provide,</font>\n     ProducingBrokerCountry (string, optional): <font color=\"brown\">Producing broker’s country 3 digit ISO 3166 code,</font>\n     ProducingBrokerBranchName (string, optional): <font color=\"brown\">Distinct name for the producing broker’s office,</font>\n     InsuredID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the insured,</font>\n     InsuredName (string, <b>required</b>): <font color=\"brown\">The name of the organisation or individual linked to the risk,</font>\n     InsuredContact (string, optional): <font color=\"brown\">The primary contact name for the insured,</font>\n     InsuredContactEmail (string, optional): <font color=\"brown\">The email address for the primary contact,</font>\n     InsuredCity (string, optional): <font color=\"brown\">Insured’s city,</font>\n     InsuredStateProvince (string, optional): <font color=\"brown\">Insured’s state or provide,</font>\n     InsuredCountry (string, optional): <font color=\"brown\">Insured’s country 3 digit ISO 3166 code,</font>\n     Sections (array[Section], <b>required</b>)\n}\nSection \n{\n     SectionUniqueID (string, optional): <font color=\"brown\">An internal unique non-changing code to uniquely identify each section</font>,\n     SectionReference (string, <b>required</b>): <font color=\"brown\">An external facing reference code used to uniquely identify each section</font>,\n     SectionSequenceID (integer, <b>required</b>): <font color=\"brown\">An incrementing integer beginning with 1 used to sequence sections within a risk</font>,\n     CoverageName (string, <b>required</b>): <font color=\"brown\">Unique coverage name or description</font>,\n     ClassOfBusinessCode (string, optional): <font color=\"brown\">Beazley categorisation code. Not the same as Lloyds' class of business code</font>,\n     CreationDate (string, <b>required</b>): <font color=\"brown\">Creation date (ISO 8601)</font>,\n     InceptionDate (string, <b>required</b>): <font color=\"brown\">Inception date (ISO 8601)</font>,\n     ExpiryDate (string, optional): <font color=\"brown\">Expiration date (ISO 8601)</font>,\n     SectionStatus (string, <b>required</b>): <font color=\"brown\">Current status of the section</font>\n}\n</pre>"
+        description: ''
         content:
           application/json:
             example:
+              RiskId: 6a491ef4-36b8-4157-842c-ecac4cb936fa
+              TransactionDateTimeUTC: '2015-06-09T12:00:00.0000000+00:00'
+              TransactionSequenceId: 1
+              TransactionType: Create
               SourceSystem: myBeazley
-              RiskUniqueID: 606ab36d-292a-4ebd-9357-f6ec598c240c
+              RiskUniqueId: 606ab36d-292a-4ebd-9357-f6ec598c240c
               RiskReference: ABC1234
+              OriginalId: null
+              RiskStatus: Quoted
+              CancellationReasonId: null
+              PolicyHolderIndividual: null
+              Turnover: null
+              Employees: null
+              CancellationDate: null
+              ProductId: PI UK
               BzyRiskReference: BZY65479321
               Underwriter: Tom Jones
-              PlacingBrokerID: ff0513fe-c363-4d8d-903a-36e936ac50d9
-              PlacingBrokerGroup: Joseph & Joseph
-              PlacingBrokerContact: Sam Spade
-              PlacingBrokerStateProvince: London
-              PlacingBrokerCountry: GBR
-              PlacingBrokerBranchName: Joseph & Joseph, London UK
-              ProducingBrokerID: df5da783-33bc-4e42-a25a-1879abc5c51a
-              ProducingBrokerGroup: Sunway Brokerage
-              ProducingBrokerContact: Thomas Callaway
-              ProducingBrokerStateProvince: CA
-              ProducingBrokerCountry: USA
-              ProducingBrokerBranchName: Sunway, San Francisco - CA
-              InsuredID: 7ce92886-b75f-4db6-996c-c5ec8ce4e1a7
-              InsuredName: Rook Industries
-              InsuredContact: Sebastian Rooks
-              InsuredContactEmail: sebastian@rook.com
-              InsuredCity: San Francisco
-              InsuredStateProvince: CA
-              InsuredCountry: USA
+              AnnualisedGrossPremium: 31750
+              PrimaryCurrency: USD
+              BenchmarkPricingIndicator: 0.8
+              Parties:
+              - Type: PrimaryInsured
+                CustomerId: null
+                Name: Rook Industries
+                Parent: null
+                PrimarySector: Industrial Technology & Research
+                TechSector: true
+                PrimaryContact: Sebastian Rooks
+                PrimaryContactEmail: sebastian@rook.com
+                PrimaryContactPhone: (140)-640-8191
+                PrimaryAddress:
+                  CityTown: Cambridge
+                  Country: USA
+                  FloorOrSuite: '2'
+                  Line1: 77 Massachusetts Avenue
+                  Line2: Building A
+                  Line3: null
+                  StateCountyProvince: MA
+                  PostZipCode: 02139
+              - Type: PlacingBroker
+                CustomerId: null
+                Name: Joseph & Joseph, London UK
+                Parent: Joseph & Joseph
+                PrimarySector: null
+                TechSector: false
+                PrimaryContact: Sam Spade
+                PrimaryContactEmail: sam.spade@jj.com
+                PrimaryContactPhone: (140)-555-5555
+                PrimaryAddress:
+                  CityTown: London
+                  Country: GBR
+                  FloorOrSuite: ''
+                  Line1: null
+                  Line2: null
+                  Line3: null
+                  StateCountyProvince: null
+                  PostZipCode: null
+              - Type: ProducingBroker
+                CustomerId: null
+                Name: Nimlane, Boston MA
+                Parent: Nimlane USA
+                PrimarySector: null
+                TechSector: false
+                PrimaryContact: Tiffany Harrison
+                PrimaryContactEmail: tharrison@nimlane.com
+                PrimaryContactPhone: (916)-975-8644
+                PrimaryAddress:
+                  CityTown: Boston
+                  Country: USA
+                  FloorOrSuite: null
+                  Line1: null
+                  Line2: null
+                  Line3: null
+                  StateCountyProvince: MA
+                  PostZipCode: null
               Sections:
-              - SectionUniqueID: 34c1dae2-e255-4ff1-b41a-0d8834b5474b
+              - SectionUniqueId: null
                 SectionReference: '001'
-                SectionSequenceID: '1'
-                CoverageName: Breach
-                ClassOfBusinessCode: WX
-                CreationDate: '2014-10-20'
-                InceptionDate: '2014-11-25'
-                ExpiryDate: '2015-11-24'
-                SectionStatus: Bound
-      responses:
-        '200':
-          description: ''
-        '400':
-          description: ''
-      tags:
-      - Risks
-    servers:
-    - url: https://api.beazley.com/sandbox/riskcapture/v1
-  /risks/:
-    post:
-      summary: POST Risk
-      description: Use the POST method to create a new record. Please note that all required fields must include a non-blank value.
-      operationId: 54c8996797fe1e0d805f714d
-      requestBody:
-        description: "<h4>Model</h4>\n<pre>\nRisk \n{\n     SourceSystem (string, <b>required</b>): <font color=\"brown\">The name of the system from which the data has been extracted,</font>\n     RiskUniqueID (string, <b>required</b>): <font color=\"brown\">An internal unique non-changing code to uniquely identify each risk,</font>\n     RiskReference (string, <b>required</b>): <font color=\"brown\">An external facing reference code used to uniquely identify each risk,</font>\n     BzyRiskReference (string, optional): <font color=\"brown\">Beazley re-keyed reference from our internal record of risk system,</font>\n     Underwriter (string, <b>required</b>): <font color=\"brown\">The name of the Beazley underwriter linked to the risk,</font>\n     PlacingBrokerID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the broker,</font>\n     PlacingBrokerGroup (string, <b>required</b>): <font color=\"brown\">The name of the primary broking firm that is placing the risk,</font>\n     PlacingBrokerContact (string, optional): <font color=\"brown\">The contact name within the placing broker's organisation,</font>\n     PlacingBrokerStateProvince (string, optional): <font color=\"brown\">Placing broker’s state or provide,</font>\n     PlacingBrokerCountry (string, optional): <font color=\"brown\">Placing broker’s country 3 digit ISO 3166 code,</font>\n     PlacingBrokerBranchName (string, optional): <font color=\"brown\">Distinct name for the placing broker’s office,</font>\n     ProducingBrokerID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the broker,</font>\n     ProducingBrokerGroup (string, optional): <font color=\"brown\">The name of the producing broking firm that is placing the risk,</font>\n     ProducingBrokerContact (string, optional): <font color=\"brown\">The contact name within the producing broker's organisation,</font>\n     ProducingBrokerStateProvince (string, optional): <font color=\"brown\">Producing broker’s state or provide,</font>\n     ProducingBrokerCountry (string, optional): <font color=\"brown\">Producing broker’s country 3 digit ISO 3166 code,</font>\n     ProducingBrokerBranchName (string, optional): <font color=\"brown\">Distinct name for the producing broker’s office,</font>\n     InsuredID (string, optional): <font color=\"brown\">Beazley unique non-changing code to uniquely identify the insured,</font>\n     InsuredName (string, <b>required</b>): <font color=\"brown\">The name of the organisation or individual linked to the risk,</font>\n     InsuredContact (string, optional): <font color=\"brown\">The primary contact name for the insured,</font>\n     InsuredContactEmail (string, optional): <font color=\"brown\">The email address for the primary contact,</font>\n     InsuredCity (string, optional): <font color=\"brown\">Insured’s city,</font>\n     InsuredStateProvince (string, optional): <font color=\"brown\">Insured’s state or provide,</font>\n     InsuredCountry (string, optional): <font color=\"brown\">Insured’s country 3 digit ISO 3166 code,</font>\n     Sections (array[Section], <b>required</b>)\n}\nSection \n{\n     SectionUniqueID (string, optional): <font color=\"brown\">An internal unique non-changing code to uniquely identify each section</font>,\n     SectionReference (string, <b>required</b>): <font color=\"brown\">An external facing reference code used to uniquely identify each section</font>,\n     SectionSequenceID (integer, <b>required</b>): <font color=\"brown\">An incrementing integer beginning with 1 used to sequence sections within a risk</font>,\n     CoverageName (string, <b>required</b>): <font color=\"brown\">Unique coverage name or description</font>,\n     ClassOfBusinessCode (string, optional): <font color=\"brown\">Beazley categorisation code. Not the same as Lloyds' class of business code</font>,\n     CreationDate (string, <b>required</b>): <font color=\"brown\">Creation date (ISO 8601)</font>,\n     InceptionDate (string, <b>required</b>): <font color=\"brown\">Inception date (ISO 8601)</font>,\n     ExpiryDate (string, optional): <font color=\"brown\">Expiration date (ISO 8601)</font>,\n     SectionStatus (string, <b>required</b>): <font color=\"brown\">Current status of the section</font>\n}\n</pre>"
-        content:
-          application/json:
-            example:
-              SourceSystem: myBeazley
-              RiskUniqueID: 606ab36d-292a-4ebd-9357-f6ec598c240c
-              RiskReference: ABC1234
-              BzyRiskReference: BZY65479321
-              Underwriter: Tom Jones
-              PlacingBrokerID: ff0513fe-c363-4d8d-903a-36e936ac50d9
-              PlacingBrokerGroup: Joseph & Joseph
-              PlacingBrokerContact: Sam Spade
-              PlacingBrokerStateProvince: London
-              PlacingBrokerCountry: GBR
-              PlacingBrokerBranchName: Joseph & Joseph, London UK
-              ProducingBrokerID: df5da783-33bc-4e42-a25a-1879abc5c51a
-              ProducingBrokerGroup: Sunway Brokerage
-              ProducingBrokerContact: Thomas Callaway
-              ProducingBrokerStateProvince: CA
-              ProducingBrokerCountry: USA
-              ProducingBrokerBranchName: Sunway, San Francisco - CA
-              InsuredID: 7ce92886-b75f-4db6-996c-c5ec8ce4e1a7
-              InsuredName: Rook Industries
-              InsuredContact: Sebastian Rooks
-              InsuredContactEmail: sebastian@rook.com
-              InsuredCity: San Francisco
-              InsuredStateProvince: CA
-              InsuredCountry: USA
-              Sections:
-              - SectionUniqueID: 34c1dae2-e255-4ff1-b41a-0d8834b5474b
-                SectionReference: '001'
-                SectionSequenceID: '1'
-                CoverageName: Breach
-                ClassOfBusinessCode: WX
-                CreationDate: '2014-10-20'
-                InceptionDate: '2014-11-25'
-                ExpiryDate: '2015-11-24'
+                SectionSequenceID: 1
+                CoverageName: Buildings
+                CreationDate: '2014-10-20T00:00:00.0000000+00:00'
+                BindDate: '2014-10-20T00:00:00.0000000+00:00'
+                InceptionDate: '2014-11-20T00:00:00.0000000+00:00'
+                ExpiryDate: '2015-11-20T00:00:00.0000000+00:00'
+                RetroactiveDate: '2010-10-20T00:00:00.0000000+00:00'
+                EndorsementEffectiveDateFrom: null
+                EndorsementEffectiveDateTo: null
                 SectionStatus: Quoted
+                Currency: USD
+                GrossPremium: 1111111.99
+                NetPremium: null
+                Commissions:
+                - Type: PlacingBroker
+                  Rate: 0.03
+                  TaxableAmount: 25000
+                  Amount: 750
+                - Type: ProducingBroker
+                  Rate: 0.03
+                  TaxableAmount: 25000
+                  Amount: 750
+                Taxes:
+                - Type: State fire tax
+                  Rate: 0.07
+                  TaxableAmount: 25000
+                  Amount: 1750
+                - Type: GST
+                  Rate: 0.2
+                  TaxableAmount: 25000
+                  Amount: 5000
+                Limits:
+                - Type: Limit per Claim, expenses in addition
+                  Amount: 100000
+                - Type: Limit per Claim, expenses in addition
+                  Amount: 25000
+                Assets:
+                - Locations:
+                  - AssetId: null
+                    AssetName: Example location
+                    CityTown: Cambridge
+                    Country: USA
+                    FloorOrSuite: '2'
+                    Line1: 77 Massachusetts Avenue
+                    Line2: Building A
+                    Line3: null
+                    StateCountyProvince: MA
+                    PostZipCode: 02139
+                  - AssetId: null
+                    AssetName: Another example location
+                    CityTown: Exeter
+                    Country: UK
+                    FloorOrSuite: ''
+                    Line1: 1 Street
+                    Line2: null
+                    Line3: null
+                    StateCountyProvince: Devon
+                    PostZipCode: EX1 1DB
+                  Insureds:
+                  - AssetId: null
+                    AssetName: Example insured
+                    Parent: null
+                    PrimarySector: Industrial Technology & Research
+                    TechSector: true
+                    Revenue: 20000000
+                    RevenueCurrency: USD
+                    PrimaryContact: Sebastian Rooks
+                    PrimaryContactEmail: sebastian@rook.com
+                    PrimaryContactPhone: (140)-640-8191
+                    PrimaryAddress:
+                      CityTown: Cambridge
+                      Country: USA
+                      FloorOrSuite: '2'
+                      Line1: 77 Massachusetts Avenue
+                      Line2: Building A
+                      Line3: null
+                      StateCountyProvince: MA
+                      PostZipCode: 02139
+              Installments:
+              - PaymentType: Unknown
+                PaymentCurrency: USD
+                PaymentDueDate: '2014-10-25T00:00:00.0000000+00:00'
+                GrossPremiumAmount: 2645.99
+                CommissionPercentage: 0.03
+                CommissionAmount: 100.99
+                NetPremium: 100000.99
+                TaxandFeesPremium: 1000.99
+                FinalTotal: 1000000.99
       responses:
         '400':
           description: ''
         '201':
-          description: New risk entry created successfully. Responds with resource ID which must be recorded for all future PUTs.
+          description: ''
           content:
             application/json:
               example:
-                id: d7922e56-b527-4c01-a2a5-79ccc0dc7340
+                Id: b767637a-9af9-446b-9622-55679fbaf543
+                Parties:
+                - Id: 1f4bf203-3eb2-4e0e-848e-f732f9d8d504
+                  Type: PrimaryInsured
+                - Id: bc6a918a-f664-4caf-ba62-a8c1e7e6817f
+                  Type: PlacingBroker
+                - Id: 3ecdf700-619b-4e01-8dbf-925119772b8b
+                  Type: ProducingBroker
+                Sections:
+                - Id: 5db926b6-f1d5-4240-90a4-dd300946ac59
+                  SectionReference: '001'
+                  Assets:
+                  - Insureds:
+                    - Id: 4ba44ae1-a6fe-411b-aec8-2fd0dcbd6eb5
+                      AssetName: Example insured
+                    Locations:
+                    - Id: bcbaf1b4-132c-4bee-96ad-11cbc944f45d
+                      AssetName: Example location
+                    - Id: 9d4901b6-265d-4fed-bc55-20cc6499fe7f
+                      AssetName: Another example location
+        '422':
+          description: ''
       tags:
       - Risks
-    servers:
-    - url: https://api.beazley.com/sandbox/riskcapture/v1
+  /risks/:
+    post:
+      summary: create risk
+      description: Use the POST method to create a new record.
+      operationId: 5538d88d97fe1e0ff06f4249
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            example:
+              RiskId: null
+              TransactionDateTimeUTC: '2015-06-09T12:00:00.0000000+00:00'
+              TransactionSequenceId: 1
+              TransactionType: Create
+              SourceSystem: myBeazley
+              RiskUniqueId: 606ab36d-292a-4ebd-9357-f6ec598c240c
+              RiskReference: ABC1234
+              OriginalId: null
+              RiskStatus: Quoted
+              CancellationReasonId: null
+              PolicyHolderIndividual: null
+              Turnover: null
+              Employees: null
+              CancellationDate: null
+              ProductId: PI UK
+              BzyRiskReference: BZY65479321
+              Underwriter: Tom Jones
+              AnnualisedGrossPremium: 31750
+              PrimaryCurrency: USD
+              BenchmarkPricingIndicator: 0.8
+              Parties:
+              - Type: PrimaryInsured
+                CustomerId: null
+                Name: Rook Industries
+                Parent: null
+                PrimarySector: Industrial Technology & Research
+                TechSector: true
+                PrimaryContact: Sebastian Rooks
+                PrimaryContactEmail: sebastian@rook.com
+                PrimaryContactPhone: (140)-640-8191
+                PrimaryAddress:
+                  CityTown: Cambridge
+                  Country: USA
+                  FloorOrSuite: '2'
+                  Line1: 77 Massachusetts Avenue
+                  Line2: Building A
+                  Line3: null
+                  StateCountyProvince: MA
+                  PostZipCode: 02139
+              - Type: PlacingBroker
+                CustomerId: null
+                Name: Joseph & Joseph, London UK
+                Parent: Joseph & Joseph
+                PrimarySector: null
+                TechSector: false
+                PrimaryContact: Sam Spade
+                PrimaryContactEmail: sam.spade@jj.com
+                PrimaryContactPhone: (140)-555-5555
+                PrimaryAddress:
+                  CityTown: London
+                  Country: GBR
+                  FloorOrSuite: ''
+                  Line1: null
+                  Line2: null
+                  Line3: null
+                  StateCountyProvince: null
+                  PostZipCode: null
+              - Type: ProducingBroker
+                CustomerId: null
+                Name: Nimlane, Boston MA
+                Parent: Nimlane USA
+                PrimarySector: null
+                TechSector: false
+                PrimaryContact: Tiffany Harrison
+                PrimaryContactEmail: tharrison@nimlane.com
+                PrimaryContactPhone: (916)-975-8644
+                PrimaryAddress:
+                  CityTown: Boston
+                  Country: USA
+                  FloorOrSuite: null
+                  Line1: null
+                  Line2: null
+                  Line3: null
+                  StateCountyProvince: MA
+                  PostZipCode: null
+              Sections:
+              - SectionUniqueId: null
+                SectionReference: '001'
+                SectionSequenceID: 1
+                CoverageName: Buildings
+                CreationDate: '2014-10-20T00:00:00.0000000+00:00'
+                BindDate: '2014-10-20T00:00:00.0000000+00:00'
+                InceptionDate: '2014-11-20T00:00:00.0000000+00:00'
+                ExpiryDate: '2015-11-20T00:00:00.0000000+00:00'
+                RetroactiveDate: '2010-10-20T00:00:00.0000000+00:00'
+                EndorsementEffectiveDateFrom: null
+                EndorsementEffectiveDateTo: null
+                SectionStatus: Quoted
+                Currency: USD
+                GrossPremium: 1111111.99
+                NetPremium: null
+                Commissions:
+                - Type: PlacingBroker
+                  Rate: 0.03
+                  TaxableAmount: 25000
+                  Amount: 750
+                - Type: ProducingBroker
+                  Rate: 0.03
+                  TaxableAmount: 25000
+                  Amount: 750
+                Taxes:
+                - Type: State fire tax
+                  Rate: 0.07
+                  TaxableAmount: 25000
+                  Amount: 1750
+                - Type: GST
+                  Rate: 0.2
+                  TaxableAmount: 25000
+                  Amount: 5000
+                Limits:
+                - Type: Limit per Claim, expenses in addition
+                  Amount: 100000
+                - Type: Limit per Claim, expenses in addition
+                  Amount: 25000
+                Assets:
+                - Locations:
+                  - AssetId: null
+                    AssetName: Example location
+                    CityTown: Cambridge
+                    Country: USA
+                    FloorOrSuite: '2'
+                    Line1: 77 Massachusetts Avenue
+                    Line2: Building A
+                    Line3: null
+                    StateCountyProvince: MA
+                    PostZipCode: 02139
+                  - AssetId: null
+                    AssetName: Another example location
+                    CityTown: Exeter
+                    Country: UK
+                    FloorOrSuite: ''
+                    Line1: 1 Street
+                    Line2: null
+                    Line3: null
+                    StateCountyProvince: Devon
+                    PostZipCode: EX1 1DB
+                  Insureds:
+                  - AssetId: null
+                    AssetName: Example insured
+                    Parent: null
+                    PrimarySector: Industrial Technology & Research
+                    TechSector: true
+                    Revenue: 20000000
+                    RevenueCurrency: USD
+                    PrimaryContact: Sebastian Rooks
+                    PrimaryContactEmail: sebastian@rook.com
+                    PrimaryContactPhone: (140)-640-8191
+                    PrimaryAddress:
+                      CityTown: Cambridge
+                      Country: USA
+                      FloorOrSuite: '2'
+                      Line1: 77 Massachusetts Avenue
+                      Line2: Building A
+                      Line3: null
+                      StateCountyProvince: MA
+                      PostZipCode: 02139
+              Installments:
+              - PaymentType: Unknown
+                PaymentCurrency: USD
+                PaymentDueDate: '2014-10-25T00:00:00.0000000+00:00'
+                GrossPremiumAmount: 2645.99
+                CommissionPercentage: 0.03
+                CommissionAmount: 100.99
+                NetPremium: 100000.99
+                TaxandFeesPremium: 1000.99
+                FinalTotal: 1000000.99
+      responses:
+        '400':
+          description: ''
+        '201':
+          description: New risk entry created successfully. Responds with the resource IDs which must be recorded for all future PUTs.
+          content:
+            application/json:
+              example:
+                Id: b767637a-9af9-446b-9622-55679fbaf543
+                Parties:
+                - Id: 4f9b856b-72c8-4972-9ccc-6a0bb70d7221
+                  Type: PrimaryInsured
+                - Id: d4ca7a16-3100-4481-a43c-bae04b0cb425
+                  Type: PlacingBroker
+                - Id: d277441e-1d51-4de9-ba82-8bc8d2474cd3
+                  Type: ProducingBroker
+                Sections:
+                - Id: 41f8ddb5-9fee-4fc3-99a1-7d96b0e3cfeb
+                  SectionReference: '001'
+                  Assets:
+                  - Insureds:
+                    - Id: 342e3662-7545-4a47-9be4-0c2882b58f68
+                      AssetName: Example insured
+                    Locations:
+                    - Id: 0894f765-e57f-4d49-9d08-c6a1ee86932a
+                      AssetName: Example location
+                    - Id: f7ecef59-b6d2-4d3c-af0b-5fe60af47431
+                      AssetName: Another example location
+      tags:
+      - Risks
 components:
   securitySchemes:
     apiKeyHeader:
@@ -156,9 +462,3 @@ components:
       type: apiKey
       name: subscription-key
       in: query
-x-refined-from:
-- beazley-data-capture-quote-and-risk-data-sandbox.yml
-- beazley-data-capture-quote-and-risk-data-v2-sandbox.yml
-- beazley-data-capture-quote-and-risk-data-v2.yml
-- beazley-data-capture-quote-and-risk-data-v3-pre-release.yml
-- beazley-data-capture-quote-and-risk-data.yml

@@ -111,16 +111,6 @@ paths:
       - Check
 components:
   schemas:
-    ComplianceResultDetailItem:
-      type: object
-      properties:
-        Type:
-          type: string
-        Parameters:
-          type: object
-          additionalProperties:
-            type: string
-          readOnly: true
     ComplianceResultDetail:
       type: object
       properties:
@@ -151,15 +141,16 @@ components:
           items:
             $ref: '#/components/schemas/ComplianceMessage'
           readOnly: true
-    ComplianceCheckQuery:
+    ComplianceResultDetailItem:
       type: object
       properties:
+        Type:
+          type: string
         Parameters:
           type: object
           additionalProperties:
             type: string
-        Input:
-          type: string
+          readOnly: true
     ComplianceCheckResult:
       type: object
       properties:
@@ -201,6 +192,15 @@ components:
           type: integer
           format: int32
         Source:
+          type: string
+    ComplianceCheckQuery:
+      type: object
+      properties:
+        Parameters:
+          type: object
+          additionalProperties:
+            type: string
+        Input:
           type: string
   securitySchemes:
     apiKeyHeader:

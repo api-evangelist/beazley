@@ -81,14 +81,6 @@ paths:
       - Health
 components:
   schemas:
-    HealthCheckQuery:
-      type: object
-      properties:
-        Settings:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValuePair_String_String_'
-          readOnly: true
     IHealthCheckResult:
       type: object
       properties:
@@ -112,6 +104,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/IHealthCheckResult'
+          readOnly: true
+    HealthCheckQuery:
+      type: object
+      properties:
+        Settings:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair_String_String_'
           readOnly: true
     KeyValuePair_String_String_:
       type: object

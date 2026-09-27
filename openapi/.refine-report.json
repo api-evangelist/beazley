@@ -30,9 +30,7 @@
     "beazley-products-api-openapi.yml",
     "beazley-cyber-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [
     "beazley-fast-reader.yml: dangling $ref: #/components/schemas/"
   ],
@@ -108,8 +106,7 @@
     "beazley-simple-raters.yml: tagged paths POST /Cyber -> Cyber",
     "beazley-simple-raters.yml: declared missing tag: Cyber",
     "tag 'Ping' spans 2 source specs (beazley-broker-and-insured-marketing-data-v2-sandbox.yml, beazley-data-capture-quote-and-risk-data-v2-sandbox.yml): per-path servers applied",
-    "superseded outputs removed: beazley-fa-qs-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 19 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "_original/beazley-data-capture-quote-and-risk-data.yml: archived document superseded by a larger archived document",
@@ -125,7 +122,7 @@
     "beazley-currencies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "beazley-cyber-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "beazley-definitions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "beazley-fa-qs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "beazley-faqs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "beazley-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "beazley-lockstate-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "beazley-microsites-api-openapi.yml: previously refined output, superseded by openapi/_original/",

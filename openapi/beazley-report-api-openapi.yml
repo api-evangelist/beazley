@@ -101,36 +101,6 @@ paths:
       - Report
 components:
   schemas:
-    AuditQuery:
-      type: object
-      properties:
-        Page:
-          type: integer
-          format: int32
-        Size:
-          type: integer
-          format: int32
-        Filter:
-          $ref: '#/components/schemas/AuditQueryFilter'
-    AuditQueryFilter:
-      type: object
-      properties:
-        From:
-          type: string
-          format: date-time
-        To:
-          type: string
-          format: date-time
-        System:
-          type: string
-        Action:
-          type: string
-        User:
-          type: string
-        DataParameters:
-          type: object
-          additionalProperties:
-            type: string
     AuditEntry:
       type: object
       properties:
@@ -151,6 +121,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KeyValuePair_String_String_'
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
     AuditResult:
       type: object
       properties:
@@ -167,14 +145,36 @@ components:
         Size:
           type: integer
           format: int32
-    KeyValuePair_String_String_:
+    AuditQueryFilter:
       type: object
       properties:
-        key:
+        From:
           type: string
-        value:
+          format: date-time
+        To:
           type: string
-      x-apim-schema-name: KeyValuePair[String,String]
+          format: date-time
+        System:
+          type: string
+        Action:
+          type: string
+        User:
+          type: string
+        DataParameters:
+          type: object
+          additionalProperties:
+            type: string
+    AuditQuery:
+      type: object
+      properties:
+        Page:
+          type: integer
+          format: int32
+        Size:
+          type: integer
+          format: int32
+        Filter:
+          $ref: '#/components/schemas/AuditQueryFilter'
   securitySchemes:
     apiKeyHeader:
       type: apiKey

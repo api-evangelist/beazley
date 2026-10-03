@@ -81,6 +81,14 @@ paths:
       - Health
 components:
   schemas:
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
     IHealthCheckResult:
       type: object
       properties:
@@ -113,14 +121,6 @@ components:
           items:
             $ref: '#/components/schemas/KeyValuePair_String_String_'
           readOnly: true
-    KeyValuePair_String_String_:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-      x-apim-schema-name: KeyValuePair[String,String]
   securitySchemes:
     apiKeyHeader:
       type: apiKey

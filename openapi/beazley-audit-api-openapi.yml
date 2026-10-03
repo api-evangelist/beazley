@@ -110,10 +110,30 @@ paths:
       - Audit
 components:
   schemas:
-    AuditLookupsPost500ApplicationXmlResponse:
+    AuditLookupsPost500ApplicationJsonResponse:
       type: array
       items:
         type: string
+    AuditLookupsPost200TextXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500TextXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500TextJsonResponse:
+      type: array
+      items:
+        type: string
+    KeyValuePair_String_String_:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
     AuditEntry:
       type: object
       properties:
@@ -134,31 +154,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KeyValuePair_String_String_'
-    AuditLookupsPost500ApplicationJsonResponse:
+    AuditLookupsPost200ApplicationXmlResponse:
       type: array
       items:
         type: string
-    AuditLookupsPost200TextJsonResponse:
-      type: array
-      items:
-        type: string
-    KeyValuePair_String_String_:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-      x-apim-schema-name: KeyValuePair[String,String]
-    AuditLookupsPost500TextJsonResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost500TextXmlResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost200TextXmlResponse:
+    AuditLookupsPost500ApplicationXmlResponse:
       type: array
       items:
         type: string
@@ -171,7 +171,7 @@ components:
       type: array
       items:
         type: string
-    AuditLookupsPost200ApplicationXmlResponse:
+    AuditLookupsPost200TextJsonResponse:
       type: array
       items:
         type: string

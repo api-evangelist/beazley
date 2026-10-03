@@ -101,26 +101,6 @@ paths:
       - Report
 components:
   schemas:
-    AuditEntry:
-      type: object
-      properties:
-        Id:
-          type: string
-        Timestamp:
-          type: string
-          format: date-time
-        System:
-          type: string
-        Action:
-          type: string
-        User:
-          type: string
-        Data:
-          type: string
-        MetaData:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValuePair_String_String_'
     KeyValuePair_String_String_:
       type: object
       properties:
@@ -145,6 +125,37 @@ components:
         Size:
           type: integer
           format: int32
+    AuditQuery:
+      type: object
+      properties:
+        Page:
+          type: integer
+          format: int32
+        Size:
+          type: integer
+          format: int32
+        Filter:
+          $ref: '#/components/schemas/AuditQueryFilter'
+    AuditEntry:
+      type: object
+      properties:
+        Id:
+          type: string
+        Timestamp:
+          type: string
+          format: date-time
+        System:
+          type: string
+        Action:
+          type: string
+        User:
+          type: string
+        Data:
+          type: string
+        MetaData:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair_String_String_'
     AuditQueryFilter:
       type: object
       properties:
@@ -164,17 +175,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    AuditQuery:
-      type: object
-      properties:
-        Page:
-          type: integer
-          format: int32
-        Size:
-          type: integer
-          format: int32
-        Filter:
-          $ref: '#/components/schemas/AuditQueryFilter'
   securitySchemes:
     apiKeyHeader:
       type: apiKey

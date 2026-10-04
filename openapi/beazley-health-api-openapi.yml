@@ -81,14 +81,14 @@ paths:
       - Health
 components:
   schemas:
-    KeyValuePair_String_String_:
+    HealthCheckQuery:
       type: object
       properties:
-        key:
-          type: string
-        value:
-          type: string
-      x-apim-schema-name: KeyValuePair[String,String]
+        Settings:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair_String_String_'
+          readOnly: true
     IHealthCheckResult:
       type: object
       properties:
@@ -113,14 +113,14 @@ components:
           items:
             $ref: '#/components/schemas/IHealthCheckResult'
           readOnly: true
-    HealthCheckQuery:
+    KeyValuePair_String_String_:
       type: object
       properties:
-        Settings:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValuePair_String_String_'
-          readOnly: true
+        key:
+          type: string
+        value:
+          type: string
+      x-apim-schema-name: KeyValuePair[String,String]
   securitySchemes:
     apiKeyHeader:
       type: apiKey

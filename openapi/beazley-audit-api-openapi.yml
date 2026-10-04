@@ -110,22 +110,6 @@ paths:
       - Audit
 components:
   schemas:
-    AuditLookupsPost500ApplicationJsonResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost200TextXmlResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost500TextXmlResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost500TextJsonResponse:
-      type: array
-      items:
-        type: string
     KeyValuePair_String_String_:
       type: object
       properties:
@@ -134,6 +118,43 @@ components:
         value:
           type: string
       x-apim-schema-name: KeyValuePair[String,String]
+    AuditLookupsPost200ApplicationJsonResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupQuery:
+      type: object
+      properties:
+        Key:
+          type: string
+    AuditLookupsPost500TextXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500ApplicationJsonResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost200ApplicationXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500ApplicationXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost200TextJsonResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost200TextXmlResponse:
+      type: array
+      items:
+        type: string
+    AuditLookupsPost500TextJsonResponse:
+      type: array
+      items:
+        type: string
     AuditEntry:
       type: object
       properties:
@@ -154,27 +175,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KeyValuePair_String_String_'
-    AuditLookupsPost200ApplicationXmlResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost500ApplicationXmlResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupQuery:
-      type: object
-      properties:
-        Key:
-          type: string
-    AuditLookupsPost200ApplicationJsonResponse:
-      type: array
-      items:
-        type: string
-    AuditLookupsPost200TextJsonResponse:
-      type: array
-      items:
-        type: string
   securitySchemes:
     apiKeyHeader:
       type: apiKey

@@ -111,15 +111,6 @@ paths:
       - Check
 components:
   schemas:
-    ComplianceCheckQuery:
-      type: object
-      properties:
-        Parameters:
-          type: object
-          additionalProperties:
-            type: string
-        Input:
-          type: string
     ComplianceResultDetailItem:
       type: object
       properties:
@@ -129,6 +120,48 @@ components:
           type: object
           additionalProperties:
             type: string
+          readOnly: true
+    ComplianceMessage:
+      type: object
+      properties:
+        Message:
+          type: string
+        Category:
+          type: string
+        Code:
+          type: integer
+          format: int32
+        Source:
+          type: string
+    ComplianceCheckResult:
+      type: object
+      properties:
+        Details:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceResultDetail'
+          readOnly: true
+        Valid:
+          type: boolean
+          readOnly: true
+        Identifier:
+          type: string
+        Deferred:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        IsAsync:
+          type: boolean
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceMessage'
+          readOnly: true
+        Warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceMessage'
           readOnly: true
     ComplianceResultDetail:
       type: object
@@ -160,47 +193,14 @@ components:
           items:
             $ref: '#/components/schemas/ComplianceMessage'
           readOnly: true
-    ComplianceCheckResult:
+    ComplianceCheckQuery:
       type: object
       properties:
-        Details:
-          type: array
-          items:
-            $ref: '#/components/schemas/ComplianceResultDetail'
-          readOnly: true
-        Valid:
-          type: boolean
-          readOnly: true
-        Identifier:
-          type: string
-        Deferred:
-          type: array
-          items:
+        Parameters:
+          type: object
+          additionalProperties:
             type: string
-          readOnly: true
-        IsAsync:
-          type: boolean
-        Errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ComplianceMessage'
-          readOnly: true
-        Warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/ComplianceMessage'
-          readOnly: true
-    ComplianceMessage:
-      type: object
-      properties:
-        Message:
-          type: string
-        Category:
-          type: string
-        Code:
-          type: integer
-          format: int32
-        Source:
+        Input:
           type: string
   securitySchemes:
     apiKeyHeader:

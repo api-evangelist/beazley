@@ -48,10 +48,10 @@ paths:
       - Products
 components:
   schemas:
+    request-manual: {}
     ManualPathsInvokeDefinitions_term_Get200ApplicationJsonResponse:
       type: object
       x-apim-schema-name: ManualPathsInvokeDefinitions{term}Get200ApplicationJsonResponse
-    request-manual: {}
   securitySchemes:
     apiKeyHeader:
       type: apiKey

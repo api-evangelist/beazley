@@ -846,6 +846,9 @@ apis:
   - type: APIReference
     url: https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9
 common:
+- type: CapabilityMap
+  url: capabilities/beazley-capability-edges.yml
+  name: Beazley Business Capability Map
 - type: Overlay
   url: overlays/beazley-data-capture-v2-overlay.yaml
 - type: Overlay

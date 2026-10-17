@@ -102,8 +102,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Object'
-    Object:
-      type: object
     ComplianceSearchQuery:
       type: object
       properties:
@@ -111,6 +109,8 @@ components:
           type: string
         Query:
           $ref: '#/components/schemas/Object'
+    Object:
+      type: object
   securitySchemes:
     apiKeyHeader:
       type: apiKey

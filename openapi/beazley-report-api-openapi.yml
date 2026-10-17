@@ -101,6 +101,25 @@ paths:
       - Report
 components:
   schemas:
+    AuditQueryFilter:
+      type: object
+      properties:
+        From:
+          type: string
+          format: date-time
+        To:
+          type: string
+          format: date-time
+        System:
+          type: string
+        Action:
+          type: string
+        User:
+          type: string
+        DataParameters:
+          type: object
+          additionalProperties:
+            type: string
     AuditResult:
       type: object
       properties:
@@ -117,14 +136,6 @@ components:
         Size:
           type: integer
           format: int32
-    KeyValuePair_String_String_:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-      x-apim-schema-name: KeyValuePair[String,String]
     AuditEntry:
       type: object
       properties:
@@ -156,25 +167,14 @@ components:
           format: int32
         Filter:
           $ref: '#/components/schemas/AuditQueryFilter'
-    AuditQueryFilter:
+    KeyValuePair_String_String_:
       type: object
       properties:
-        From:
+        key:
           type: string
-          format: date-time
-        To:
+        value:
           type: string
-          format: date-time
-        System:
-          type: string
-        Action:
-          type: string
-        User:
-          type: string
-        DataParameters:
-          type: object
-          additionalProperties:
-            type: string
+      x-apim-schema-name: KeyValuePair[String,String]
   securitySchemes:
     apiKeyHeader:
       type: apiKey

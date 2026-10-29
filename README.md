@@ -1,4 +1,4 @@
-# Beazley (beazley)
+# Beazley
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,168 +64,169 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Beazley plc is a London-headquartered specialty insurer and one of the largest managing agents at Lloyd's of London, underwriting through Lloyd's syndicates alongside US admitted and surplus lines carriers and a European company platform. Its book is specialty property and casualty — cyber and technology risks (where it is a global market leader), professional indemnity, management liability and directors and officers, marine, political risk, contingency, environmental, healthcare and property. Its home market is the United Kingdom, where there is no open-insurance mandate; the only market-wide data and API modernization effort is the Lloyd's Blueprint Two programme, and Beazley sat on the closed beta group that tested Lloyd's ACORD-based Core Data Record. Unusually for a carrier, Beazley operates a real first-party developer portal at developer.beazley.com — an Azure API Management portal with self-serve account signup, a publicly browsable catalog of 14 published APIs across nine families, sandbox environments, and machine-readable OpenAPI 3.0.1 for every one of them.
+Beazley plc is a London-headquartered specialty insurer and one of the largest managing agents at Lloyd's of London, underwriting through Lloyd's syndicates alongside US admitted and surplus lines carriers and a European company platform. Its book is specialty property and casualty — cyber and technology risks (where it is a global market leader), professional indemnity, management liability and directors and officers, marine, political risk, contingency, environmental, healthcare and property. Its home market is the United Kingdom, where there is no open-insurance mandate; the only market-wide data and API modernization effort is the Lloyd's Blueprint Two programme, and Beazley sat on the closed beta group that tested Lloyd's ACORD-based Core Data Record. Unusually for a carrier, Beazley operates a real first-party developer portal at developer.beazley.com — an Azure API Management portal with self-serve account signup, a publicly browsable catalog of 14 published APIs across nine families, sandbox environments, and machine-readable OpenAPI 3.0.1 for every one of them. The APIs are partner-and-broker oriented rather than consumer facing — risk and quote data capture into Beazley's core Record of Risk systems, broker and insured marketing data, compliance validation, currency exchange, a cyber rater, and insurance-terms reference data. Every API is behind an Azure APIM subscription key and every product carries approvalRequired, so browsing and spec download are open but actually calling the gateway requires Beazley to approve the subscription. There is no ACORD, AL3 or IVANS reference anywhere in the portal or the specs, no webhook or event catalog, no GraphQL, and no bind, issue or FNOL endpoint — bind is done by brokers through the gated myBeazley quote-and-bind portal, not through the public API surface. Beazley is subject to a recommended all-cash offer from Zurich Insurance Group announced 2 March 2026.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/beazley/refs/heads/main/apis.yml)
+**Areas:** Insurance · United Kingdom · Property and Casualty · Cyber Insurance · Specialty Insurance · Lloyd's of London · Underwriting · Risk Data · Carrier
 
-## Tags
+## Beazley on APIs.io
 
-- Insurance
-- United Kingdom
-- Property and Casualty
-- Cyber Insurance
-- Specialty Insurance
-- Lloyd's of London
-- Underwriting
-- Risk Data
-- Broker
-- Carrier
+Everything profiled for Beazley is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/beazley/](https://apis.io/providers/beazley/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (19)
 
-- **Created:** 2026-07-25
-- **Modified:** 2026-07-25
+- [Beazley Audit API](https://apis.io/apis/beazley/beazley-audit-api/) — The Audit API from Beazley — 2 operation(s) for audit.
+- [Beazley Check API](https://apis.io/apis/beazley/beazley-check-api/) — The Check API from Beazley — 1 operation(s) for check.
+- [Beazley Contacts API](https://apis.io/apis/beazley/beazley-contacts-api/) — The Contacts API from Beazley — 4 operation(s) for contacts.
+- [Beazley Currencies API](https://apis.io/apis/beazley/beazley-currencies-api/) — The Currencies API from Beazley — 1 operation(s) for currencies.
+- [Beazley Cyber API](https://apis.io/apis/beazley/beazley-cyber-api/) — The Cyber API from Beazley — 1 operation(s) for cyber.
+- [Beazley Definitions API](https://apis.io/apis/beazley/beazley-definitions-api/) — The Definitions API from Beazley — 2 operation(s) for definitions.
+- [Beazley Health API](https://apis.io/apis/beazley/beazley-health-api/) — The Health API from Beazley — 1 operation(s) for health.
+- [Beazley Lockstate API](https://apis.io/apis/beazley/beazley-lockstate-api/) — The Lockstate API from Beazley — 1 operation(s) for lockstate.
+- [Beazley Microsites API](https://apis.io/apis/beazley/beazley-microsites-api/) — The Microsites API from Beazley — 3 operation(s) for microsites.
+- [Beazley Organisations API](https://apis.io/apis/beazley/beazley-organisations-api/) — The Organisations API from Beazley — 4 operation(s) for organisations.
+- [Beazley People API](https://apis.io/apis/beazley/beazley-people-api/) — The People API from Beazley — 5 operation(s) for people.
+- [Beazley Ping API](https://apis.io/apis/beazley/beazley-ping-api/) — The Ping API from Beazley — 1 operation(s) for ping.
+- [Beazley Products API](https://apis.io/apis/beazley/beazley-products-api/) — The Products API from Beazley — 1 operation(s) for products.
+- [Beazley Providers API](https://apis.io/apis/beazley/beazley-providers-api/) — The Providers API from Beazley — 1 operation(s) for providers.
+- [Beazley Rates API](https://apis.io/apis/beazley/beazley-rates-api/) — The Rates API from Beazley — 1 operation(s) for rates.
+- [Beazley Report API](https://apis.io/apis/beazley/beazley-report-api/) — The Report API from Beazley — 1 operation(s) for report.
+- [Beazley Risks API](https://apis.io/apis/beazley/beazley-risks-api/) — The Risks API from Beazley — 2 operation(s) for risks.
+- [Beazley Search API](https://apis.io/apis/beazley/beazley-search-api/) — The Search API from Beazley — 1 operation(s) for search.
+- [Beazley Faqs API](https://apis.io/apis/beazley/beazley-faqs-api/) — The Faqs API from Beazley — 2 operation(s) for faqs.
 
-## API Posture
+### Published properties
 
-Open to browse, gated to call. The developer portal at [https://developer.beazley.com](https://developer.beazley.com) is a genuine self-serve Azure API Management portal (HTTP 200), not a login wall and not a marketing page: the catalog is publicly browsable, signup is email-and-password with a proof-of-work captcha, and OpenAPI 3.0.1 is exportable anonymously for all 14 published APIs. But every one of the nine APIM products is `subscriptionRequired` **and** `approvalRequired`, and the live gateway at `https://api.beazley.com` returns HTTP 401 with `WWW-Authenticate: AzureApiManagementKey` — so a working subscription key still requires Beazley to approve you.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The APIs are partner- and broker-oriented, not consumer-facing. On the four insurance verbs:
+#### MCP servers (1)
 
-| Verb | Exposed | Where |
-| --- | --- | --- |
-| Quote | Partial | `Data Capture: Quote and Risk Data` v1/v2/v3 feeds quote and risk data into Beazley's core Record of Risk systems; `Simple Raters` exposes `POST /Cyber` but is self-described as "for testing" |
-| Bind | No | Brokers bind through the gated myBeazley "quote and bind platform" (login wall), not through a documented API |
-| Issue | No | No policy issuance or policy administration endpoint is published |
-| FNOL | No | Claims are notified by web form and email; there is no claims API |
+Model Context Protocol servers that expose the API to agents.
 
-**ACORD posture:** no ACORD reference found in the developer portal or specs. A grep for ACORD, AL3, ACORD XML, NGDS, IVANS, Vertafore and Applied Epic across all 14 harvested specs and the full APIM API/product metadata returned zero hits. ACORD reaches Beazley only indirectly, at market level, through Lloyd's Blueprint Two Core Data Record — which Lloyd's states is based on ACORD Standards and whose closed beta group named Beazley. That is programme participation, not a published interface.
+- [beazley](https://apis.io/servers/beazley/beazley/)
 
-**Auth:** Azure APIM subscription key (`Ocp-Apim-Subscription-Key` header or `subscription-key` query parameter). No OAuth2, no OIDC — `/.well-known/openid-configuration` and `/.well-known/oauth-authorization-server` both fall through to the site 404 page.
+#### Agentic access (1)
 
-**Not found:** webhooks, event catalog, AsyncAPI, GraphQL, gRPC, public Postman collection or workspace.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## APIs
+- [Beazley Agentic Access](https://apis.io/agentic-access/beazley/beazley-agentic-access/)
 
-### Beazley Data Capture: Quote and Risk Data v2
+#### Collections (14)
 
-The current published version of Beazley's risk data capture API. Provides a channel for partner systems to feed quote and risk data directly into Beazley's core Record of Risk systems, with create, read and update of risk records plus a lock-state resource for concurrency control.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb](https://developer.beazley.com/api-details#api=55f2b5dc97fe1e150ca5aedb)
-- **Base URL:** `https://api.beazley.com/riskcapture/v2`
+- [About Beazley](https://apis.io/collections/beazley/open-beazley-about-beazley/)
+- [About Beazley (Sandbox)](https://apis.io/collections/beazley/open-beazley-about-beazley-sandbox/)
+- [Broker and Insured Marketing Data v2](https://apis.io/collections/beazley/open-beazley-broker-and-insured-marketing-data-v2/)
+- [Broker and Insured Marketing Data v2 (Sandbox)](https://apis.io/collections/beazley/open-beazley-broker-and-insured-marketing-data-v2-sandbox/)
+- [Compliance Web API](https://apis.io/collections/beazley/open-beazley-compliance-web-api/)
+- [Currency Exchange](https://apis.io/collections/beazley/open-beazley-currency-exchange/)
+- [Currency Exchange (Sandbox)](https://apis.io/collections/beazley/open-beazley-currency-exchange-sandbox/)
+- [Data Capture: Quote and Risk Data](https://apis.io/collections/beazley/open-beazley-data-capture-quote-and-risk-data/)
+- [Data Capture: Quote and Risk Data (Sandbox)](https://apis.io/collections/beazley/open-beazley-data-capture-quote-and-risk-data-sandbox/)
+- [Data Capture: Quote and Risk Data v2](https://apis.io/collections/beazley/open-beazley-data-capture-quote-and-risk-data-v2/)
+- [Data Capture: Quote and Risk Data v2 (Sandbox)](https://apis.io/collections/beazley/open-beazley-data-capture-quote-and-risk-data-v2-sandbox/)
+- [Data Capture: Quote and Risk Data v3 (pre-release)](https://apis.io/collections/beazley/open-beazley-data-capture-quote-and-risk-data-v3-pre-release/)
+- [Fast Reader](https://apis.io/collections/beazley/open-beazley-fast-reader/)
+- [Simple Raters](https://apis.io/collections/beazley/open-beazley-simple-raters/)
 
-#### Properties
+#### Overlays (9)
 
-- [OpenAPI](openapi/beazley-data-capture-quote-and-risk-data-v2.yml)
-- [OpenAPI (Sandbox)](openapi/beazley-data-capture-quote-and-risk-data-v2-sandbox.yml)
-- [Documentation](https://developer.beazley.com/apis)
+OpenAPI overlays, including conversational phrasing for each operation.
 
-### Beazley Data Capture: Quote and Risk Data v1
+- [Beazley About Beazley Overlay](https://apis.io/overlays/beazley/beazley-about-beazley-overlay/)
+- [Beazley Compliance Overlay](https://apis.io/overlays/beazley/beazley-compliance-overlay/)
+- [Beazley Currency Exchange Overlay](https://apis.io/overlays/beazley/beazley-currency-exchange-overlay/)
+- [Beazley Data Capture V1 Overlay](https://apis.io/overlays/beazley/beazley-data-capture-v1-overlay/)
+- [Beazley Data Capture V2 Overlay](https://apis.io/overlays/beazley/beazley-data-capture-v2-overlay/)
+- [Beazley Data Capture V3 Overlay](https://apis.io/overlays/beazley/beazley-data-capture-v3-overlay/)
+- [Beazley Fast Reader Overlay](https://apis.io/overlays/beazley/beazley-fast-reader-overlay/)
+- [Beazley Marketing V2 Overlay](https://apis.io/overlays/beazley/beazley-marketing-v2-overlay/)
+- [Beazley Simple Raters Overlay](https://apis.io/overlays/beazley/beazley-simple-raters-overlay/)
 
-The original version of the risk data capture API, superseded by v2 but still published with its own sandbox environment.
+#### Security (3)
 
-- **Human URL:** [https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f](https://developer.beazley.com/api-details#api=54af9d8897fe1e0c48fd377f)
-- **Base URL:** `https://api.beazley.com/riskcapture/v1`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Beazley Authentication](https://apis.io/security/beazley/beazley-authentication/)
+- [Beazley Domain Security](https://apis.io/security/beazley/beazley-domain-security/)
+- [Beazley Trust Center](https://apis.io/security/beazley/beazley-trust-center/)
 
-- [OpenAPI](openapi/beazley-data-capture-quote-and-risk-data.yml)
-- [OpenAPI (Sandbox)](openapi/beazley-data-capture-quote-and-risk-data-sandbox.yml)
+#### Plans and pricing (1)
 
-### Beazley Data Capture: Quote and Risk Data v3 (pre-release)
+Published plans, tiers and prices.
 
-A pre-release version published under Beazley's Prerelease product, exposing a single create-risk operation backed by an Azure Logic App.
+- [Beazley Plans](https://apis.io/plans/beazley/beazley-plans/)
 
-- **Human URL:** [https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152](https://developer.beazley.com/api-details#api=5964d64cf815b002d0231152)
-- **Base URL:** `https://api.beazley.com/prerelease/riskcapture/v3`
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [OpenAPI](openapi/beazley-data-capture-quote-and-risk-data-v3-pre-release.yml)
+- [Beazley Rate Limits](https://apis.io/rate-limits/beazley/beazley-rate-limits/)
 
-### Beazley Compliance Web API
+## Where to find this API
 
-Rule-driven compliance checks, search over broker agencies, broker contacts and product lines, audit reporting of compliance checks performed, audit lookup registries, and a system health check.
-
-- **Human URL:** [https://developer.beazley.com/api-details#api=58931347398455121c4a697f](https://developer.beazley.com/api-details#api=58931347398455121c4a697f)
-- **Base URL:** `https://api.beazley.com/compliance/v1`
-
-#### Properties
-
-- [OpenAPI](openapi/beazley-compliance-web-api.yml)
-
-### Beazley Broker and Insured Marketing Data v2
-
-Marketing details for Beazley's partner organisations — broker and insured organisations, contacts and microsites.
-
-- **Human URL:** [https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0](https://developer.beazley.com/api-details#api=562e100f8097920dd41ffaa0)
-- **Base URL:** `https://api.beazley.com/marketing/v2`
-
-#### Properties
-
-- [OpenAPI](openapi/beazley-broker-and-insured-marketing-data-v2.yml)
-- [OpenAPI (Sandbox)](openapi/beazley-broker-and-insured-marketing-data-v2-sandbox.yml)
-
-### Beazley Currency Exchange
-
-A standard set of foreign exchange rates for Beazley systems — rates, rate providers and supported currencies.
-
-- **Human URL:** [https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30](https://developer.beazley.com/api-details#api=56d08a2b97fe1e18e889da30)
-- **Base URL:** `https://api.beazley.com/fx/v1`
-
-#### Properties
-
-- [OpenAPI](openapi/beazley-currency-exchange.yml)
-- [OpenAPI (Sandbox)](openapi/beazley-currency-exchange-sandbox.yml)
-
-### About Beazley
-
-Reference data on Beazley's people and divisions, sold through the Beazley Public Data product at up to 1,000 calls per hour.
-
-- **Human URL:** [https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf](https://developer.beazley.com/api-details#api=55392e7f97fe1e0510faf7bf)
-- **Base URL:** `https://api.beazley.com/about/v1`
-
-#### Properties
-
-- [OpenAPI](openapi/beazley-about-beazley.yml)
-- [OpenAPI (Sandbox)](openapi/beazley-about-beazley-sandbox.yml)
-
-### Beazley Fast Reader
-
-Insurance glossary and knowledge API — definitions of insurance terms, FAQs by intent name, and product lookup by term. Published sandbox-only.
-
-- **Human URL:** [https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203](https://developer.beazley.com/api-details#api=5967575d6e0029dd58e53203)
-- **Base URL:** `https://api.beazley.com/sandbox/fastreader/v1`
-
-#### Properties
-
-- [OpenAPI](openapi/beazley-fast-reader.yml)
-
-### Beazley Simple Raters
-
-A single cyber rating operation (`POST /Cyber`), described by Beazley as a set of "super-simple raters for testing".
-
-- **Human URL:** [https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9](https://developer.beazley.com/api-details#api=5804a8868097920fbc0ae7e9)
-- **Base URL:** `https://api.beazley.com/hack/raters/v1`
-
-#### Properties
-
-- [OpenAPI](openapi/beazley-simple-raters.yml)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.beazley.com/)
-- [Developer Portal](https://developer.beazley.com/)
 - [Documentation](https://developer.beazley.com/apis)
-- [Sign Up](https://developer.beazley.com/signup)
-- [Products / Plans](https://developer.beazley.com/products)
-- [Broker Centre](https://www.beazley.com/en-us/broker-centre)
-- [LinkedIn](https://www.linkedin.com/company/beazley)
+- [API reference](https://developer.beazley.com/apis)
+- [Sign up](https://developer.beazley.com/signup)
+- [Compliance](https://trust.beazley.security/)
+- [Terms of service](https://developer.beazley.com/products)
+- [Privacy policy](https://www.beazley.com/en-us/privacy-and-cookies-statements/)
+- [GitHub](https://github.com/beazley)
 
-## Corporate Note
+## API Evangelist rating
 
-Beazley plc is subject to a recommended all-cash offer from Zurich Insurance Group, announced under Rule 2.7 of the UK Takeover Code on 2 March 2026.
+**Kin Score 48.5** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Review
+| Facet | Score |
+|---|---|
+| Discoverability | 79.5 |
+| Contract quality | 43.1 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 51.8 |
+| Access clarity | 71.1 |
 
-See [review.yml](review.yml) for the full API Evangelist reviewer finding, including every probed URL with its HTTP status and the provenance of all 14 harvested specifications.
+**Agent readiness 32.9** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.8** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/beazley/](https://apis.io/providers/beazley/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Beazley: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/beazley/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
